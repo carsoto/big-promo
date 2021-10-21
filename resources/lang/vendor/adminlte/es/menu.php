@@ -16,5 +16,6 @@ return [
     'important'                     => 'Importante',
     'warning'                       => 'Advertencia',
     'information'                   => 'Información',
-    'users'                         => 'Usuarios'
+    'users'                         => 'Usuarios',
+    'competitor'                    => 'Participantes'
 ];

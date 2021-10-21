@@ -50,4 +50,12 @@ class User extends Authenticatable
     ];
 
     protected $dates = ['deleted_at'];
+
+    public function fullName() {
+        return $this->name." ".$this->lastname;
+    }
+
+    public function formattedRegister() {
+        return $this->created_at->format('d-m-Y');
+    }
 }

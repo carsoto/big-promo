@@ -23,5 +23,7 @@ class UserSeeder extends Seeder
             'phone'     =>  '+593963631319',
             'type'      =>  'admin'
         ]);
+
+        User::factory(50)->create();
     }
 }
