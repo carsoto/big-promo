@@ -17,5 +17,6 @@ return [
     'warning'                       => 'Advertencia',
     'information'                   => 'Información',
     'users'                         => 'Usuarios',
-    'competitor'                    => 'Participantes'
+    'competitor'                    => 'Participantes',
+    'dreams'                        => 'Sueños'
 ];
