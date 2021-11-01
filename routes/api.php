@@ -20,7 +20,7 @@ use App\Http\Controllers\Api\UserController;
     return $request->user();
 });*/
 
-Route::post('register', [AuthController::class, 'register']);
+Route::post('register', [AuthController::class, 'register'])->name('register');
 Route::post('login', [AuthController::class, 'login']);
 
 Route::middleware('auth:api')->group(function () {
