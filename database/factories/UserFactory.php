@@ -33,7 +33,7 @@ class UserFactory extends Factory
             'remember_token'           => Str::random(10),
             'phone'                    => '+593963631319',
             'type'                     => 'user',
-            'city_id'                  => 1,
+            'parish_id'                => 1,
             'created_at'               => $this->faker->dateTimeBetween('now', '+90 days')
         ];
     }

@@ -31,7 +31,7 @@ class UserRequest extends FormRequest
             'email'                   => 'required|email|unique:users,email,'.$this->request->get('id'),
             'document_identification' => 'required|unique:users,document_identification,'.$this->request->get('id'),
             'password'                => 'required',                               
-            'city_id'                 => 'required'
+            'parish_id'               => 'required'
         ];
     }
 
@@ -44,7 +44,7 @@ class UserRequest extends FormRequest
             'document_identification.required'  => 'La cédula es obligatoria',
             'document_identification.required'  => 'La cédula ya se encuentra registrada',
             'password.required'                 => 'La contraseña es obligatoria',
-            'city_id.required'                  => 'La ciudad es obligatoria' 
+            'parish_id.required'                => 'La ciudad es obligatoria' 
         ];
     }
 

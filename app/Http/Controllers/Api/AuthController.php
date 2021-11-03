@@ -26,7 +26,7 @@ class AuthController extends Controller
             'password'                 => bcrypt($request->password),
             'phone'                    => $request->phone,
             'type'                     => 'user',
-            'city_id'                  => $request->city,
+            'parish_id'                => $request->parish,
             'confirmation_code'        => $confirmation_code
         ]);
         

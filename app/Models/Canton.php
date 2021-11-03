@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Province extends Model
+class Canton extends Model
 {
     use HasFactory, SoftDeletes;
 
@@ -15,7 +15,7 @@ class Province extends Model
      *
      * @var array
      */
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'province_id'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -30,8 +30,13 @@ class Province extends Model
 
     protected $dates = ['deleted_at'];
 
-    public function cantons()
+    public function province()
     {
-        return $this->hasMany(Canton::class);
+        return $this->belongsTo(Province::class);
+    }
+
+    public function parishs()
+    {
+        return $this->hasMany(Parish::class);
     }
 }
