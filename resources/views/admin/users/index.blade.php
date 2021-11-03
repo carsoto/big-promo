@@ -24,6 +24,9 @@
                            Correo
                         </th>
                         <th>
+                            Confirmado
+                         </th>
+                        <th>
                             Teléfono
                         </th>
                         <th>
@@ -48,6 +51,13 @@
                             </td>
                             <td>
                                 {{ $user->email ?? '' }}
+                            </td>
+                            <td class="text-center">
+                                @if($user->confirmed)         
+                                    <i class="fas fa-check" style="color: green;"></i>
+                                @else
+                                    <i class="fas fa-times" style="color: red;"></i>
+                                @endif
                             </td>
                             <td>
                                 {{ $user->phone ?? '' }}

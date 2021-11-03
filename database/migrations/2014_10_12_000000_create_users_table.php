@@ -25,6 +25,8 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->enum('type', ['admin', 'user']);
             $table->boolean('terms_conditions')->default(false);
+            $table->boolean('confirmed')->default(false);
+            $table->string('confirmation_code')->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
