@@ -18,5 +18,6 @@ return [
     'information'                   => 'Información',
     'users'                         => 'Usuarios',
     'competitor'                    => 'Participantes',
-    'dreams'                        => 'Sueños'
+    'dreams'                        => 'Sueños',
+    'log_out'                       => 'Cerrar sesión'
 ];

@@ -231,12 +231,12 @@ return [
     */
 
     'menu' => [
-        [
+      /*[
             'text' => 'search',
             'search' => false,
             'topnav' => false,
         ],
-        /*[
+        [
             'text' => 'blog',
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
