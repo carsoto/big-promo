@@ -10903,3 +10903,175 @@ a.text-dark:focus {
   }
 }
 
+#app {
+  position: relative;
+  height: 100vh;
+  background: #fd0d1b;
+  background: radial-gradient(circle, #fd0d1b 0%, #ac030d 100%);
+}
+
+#app h2 {
+  color: #FEDD31;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+#app header {
+  padding: 15px 40px;
+  display: flex;
+  flex-flow: nowrap row;
+  justify-content: space-between;
+}
+
+#app header nav {
+  display: flex;
+  flex-flow: wrap column;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+#app header nav a {
+  color: #fff;
+}
+
+#app header nav .nav-options {
+  margin-top: 10px;
+}
+
+#app header nav .nav-options a {
+  padding: 7px 18px;
+  border: solid 1px #fff;
+  font-weight: bold;
+  transition: 0.5s;
+}
+
+#app header nav .nav-options a:hover {
+  background-color: #fff;
+  color: #EE000C;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+#app header .logo img {
+  width: 80px;
+}
+
+#app .main-banner .left-side {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+#app .main-banner .left-side button {
+  width: 150px;
+  margin: 10px 0;
+  padding: 15px 20px;
+}
+
+#app .main-banner .left-side img {
+  width: 400px;
+}
+
+#app .main-banner .right-side img {
+  width: 450px;
+}
+
+#app footer {
+  width: 100%;
+  padding: 15px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#app footer .socials .fab-icon-social {
+  margin: 5px 8px;
+  color: #fff;
+}
+
+#app footer .video-example a {
+  color: white !important;
+}
+
+#app footer .terms {
+  color: #fff;
+}
+
+#app footer .terms a {
+  color: #fff;
+}
+
+#app .login-form form {
+  width: 45%;
+  margin: auto;
+}
+
+#app .register-form form input,
+#app .register-form form select,
+#app .login-form form input,
+#app .login-form form select {
+  background: none;
+  margin-bottom: 15px !important;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid white;
+  box-shadow: none;
+  padding: 0px;
+  font-weight: bold;
+  color: white !important;
+}
+
+#app .register-form form input::-moz-placeholder, #app .register-form form select::-moz-placeholder, #app .login-form form input::-moz-placeholder, #app .login-form form select::-moz-placeholder {
+  font-weight: bold;
+}
+
+#app .register-form form input:-ms-input-placeholder, #app .register-form form select:-ms-input-placeholder, #app .login-form form input:-ms-input-placeholder, #app .login-form form select:-ms-input-placeholder {
+  font-weight: bold;
+}
+
+#app .register-form form input::placeholder,
+#app .register-form form select::placeholder,
+#app .login-form form input::placeholder,
+#app .login-form form select::placeholder {
+  font-weight: bold;
+}
+
+.btn-secondary {
+  background: none;
+  border: solid 1px #fff;
+  font-weight: bold;
+  transition: 0.5s;
+}
+
+.btn-secondary:hover {
+  background-color: #fff;
+  border-color: #fff;
+  color: #EE000C;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+.btn-primary {
+  color: #000;
+  font-weight: bold;
+  background-color: #FEDD31;
+  border-color: #FEDD31;
+  transition: 0.5s;
+  padding: 10px 20px;
+}
+
+.btn-primary .fa-arrow-right {
+  margin-left: 10px;
+}
+
+.btn-primary:hover {
+  background: none !important;
+  border-color: #fff;
+  transition: 0.5s;
+}
+

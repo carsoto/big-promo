@@ -6,3 +6,159 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+
+#app {
+    position: relative;
+    height: 100vh;
+    background: rgb(253,13,27);
+    background: radial-gradient(circle, rgba(253,13,27,1) 0%, rgba(172,3,13,1) 100%);
+    h2{
+        color:#FEDD31;
+        font-size: 40px;
+        font-weight: bold;
+    }
+    header{
+        padding: 15px 40px;
+        display: flex;
+        flex-flow: nowrap row;
+        justify-content: space-between;
+        nav{
+            display: flex;
+            flex-flow: wrap column;
+            justify-content: center;
+            align-items: flex-end;
+
+            a{
+                color:#fff;
+            }
+
+            .nav-options{
+                margin-top: 10px;
+                a{
+                    padding: 7px 18px;
+                    border: solid 1px #fff;
+                    font-weight: bold;
+                    transition: 0.5s;
+                    &:hover{
+                        background-color: #fff;
+                        color:#EE000C;
+                        text-decoration: none;
+                        transition: 0.5s;
+                    }
+                }
+            }
+        }
+        .logo img{
+            width: 80px;
+        }
+    }
+
+    .main-banner{
+        .left-side {
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: center;
+            align-items: center;
+            button{
+                width: 150px;
+                margin: 10px 0;
+                padding: 15px 20px
+            }
+            img{
+                width: 400px;
+            }
+        }
+        .right-side{
+            img{
+                width: 450px;
+            }
+        }
+    }
+
+    footer{
+        width: 100%;
+        padding: 15px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        .socials{
+            .fab-icon-social {
+                margin: 5px 8px;
+                color:#fff;
+            }
+        }
+        .video-example{
+            a {
+                color: white!important;
+            }
+        }
+        .terms{
+            color:#fff;
+            a{
+                color: #fff;
+            }
+        }
+    }
+
+    .login-form{
+        form{
+            width: 45%;
+            margin: auto;
+        }
+    }
+
+    .register-form, .login-form{
+        form {
+            input, select{
+                background: none;
+                margin-bottom: 15px!important;
+                border: none;
+                border-radius: 0;
+                border-bottom: 1px solid white;
+                box-shadow: none;
+                padding: 0px;
+                font-weight: bold;
+                color:white !important;
+                &::placeholder{
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
+
+.btn-secondary{
+    background: none;
+    border: solid 1px #fff;
+    font-weight: bold;
+    transition: 0.5s;
+    &:hover{
+        background-color: #fff;
+        border-color: #fff;
+        color:#EE000C;
+        text-decoration: none;
+        transition: 0.5s;
+    }
+}
+
+.btn-primary{
+    color: #000;
+    font-weight: bold;
+    background-color: #FEDD31;
+    border-color: #FEDD31;
+    transition: 0.5s;
+    padding: 10px 20px;
+    .fa-arrow-right{
+        margin-left: 10px;
+    }
+    &:hover{
+        background: none!important;
+        border-color: #fff;
+        transition: 0.5s;
+    }
+}

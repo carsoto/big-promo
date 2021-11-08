@@ -35,3 +35,22 @@ Route::get('/exchange', function(){
 Route::get('/user-not-found', function(){
     return "<h2>USUARIO NO ENCONTRADO</h2>";
 });
+
+
+Route::prefix('user')->group(function () {
+    Route::get('/', function () {
+        return view('user.home');
+    })->name('user.home');
+
+    Route::get('/login', function () {
+        return view('user.auth.login');
+    });
+
+    Route::get('/register', function () {
+        return view('user.auth.register');
+    });
+
+    Route::get('/recorder', function () {
+        return view('user.recorder');
+    });
+});
