@@ -2,10 +2,10 @@
     <div class="container register-form">
 
         <form class="row g-3">
-            <h2 class="col-md-12">Registra tu informacion</h2>
-            <p class="col-md-12">Debes registrar tus datos y crear tu cuenta para poder acceder y participar
+            <h2 class="col-md-12 text-center">Registra tu informacion</h2>
+            <p class="col-md-12 text-center text-white">Debes registrar tus datos y crear tu cuenta para poder acceder y participar
                 Agregando los códigos de tus tapas.</p>
-            <h4 class="col-md-12">Informacion personal</h4>
+            <h4 class="col-md-12 sub-title">Informacion personal</h4>
             <div class="col-md-6">
                 <input type="text" v-model.trim="name" class="form-control" placeholder="Nombres" aria-label="Nombres">
                 <div v-if="$v.name.$dirty">
@@ -49,7 +49,7 @@
             </div>
             <div class="col-md-12">
                 <div class="row">
-                    <h4 class="col-md-12">Informacion de cuenta</h4>
+                    <h4 class="col-md-12 sub-title">Informacion de cuenta</h4>
                     <div class="col-md-6">
                         <input type="email" v-model="email" placeholder="Correo" class="form-control" id="inputEmail4">
                         <div v-if="$v.email.$dirty">
@@ -66,15 +66,15 @@
             </div>
 
             <div class="col-12">
-                <div class="form-check">
-                <input class="form-check-input" type="checkbox" v-model="terms" id="gridCheck">
-                <label class="form-check-label" for="gridCheck">
-                    Aceptar los términos y condiciones de la promoción
-                </label>
+                <div class="form-check text-center">
+                    <input class="form-check-input" type="checkbox" v-model="terms" id="gridCheck">
+                    <label class="form-check-label check-text" for="gridCheck">
+                        Aceptar los términos y condiciones de la promoción
+                    </label>
                 </div>
             </div>
-            <div class="col-12">
-                <button type="submit" class="btn btn-primary">Registrarse</button>
+            <div class="col-12 mt-5 text-center">
+                <button type="submit" class="btn btn-primary">Registrarse <i class="fas fa-arrow-right"></i></button>
             </div>
         </form>
     </div>

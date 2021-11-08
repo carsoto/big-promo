@@ -37896,17 +37896,19 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container register-form" }, [
     _c("form", { staticClass: "row g-3" }, [
-      _c("h2", { staticClass: "col-md-12" }, [
+      _c("h2", { staticClass: "col-md-12 text-center" }, [
         _vm._v("Registra tu informacion")
       ]),
       _vm._v(" "),
-      _c("p", { staticClass: "col-md-12" }, [
+      _c("p", { staticClass: "col-md-12 text-center text-white" }, [
         _vm._v(
           "Debes registrar tus datos y crear tu cuenta para poder acceder y participar\n            Agregando los códigos de tus tapas."
         )
       ]),
       _vm._v(" "),
-      _c("h4", { staticClass: "col-md-12" }, [_vm._v("Informacion personal")]),
+      _c("h4", { staticClass: "col-md-12 sub-title" }, [
+        _vm._v("Informacion personal")
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "col-md-6" }, [
         _c("input", {
@@ -38144,7 +38146,7 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "col-md-12" }, [
         _c("div", { staticClass: "row" }, [
-          _c("h4", { staticClass: "col-md-12" }, [
+          _c("h4", { staticClass: "col-md-12 sub-title" }, [
             _vm._v("Informacion de cuenta")
           ]),
           _vm._v(" "),
@@ -38227,7 +38229,7 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "col-12" }, [
-        _c("div", { staticClass: "form-check" }, [
+        _c("div", { staticClass: "form-check text-center" }, [
           _c("input", {
             directives: [
               {
@@ -38267,10 +38269,13 @@ var render = function() {
           _vm._v(" "),
           _c(
             "label",
-            { staticClass: "form-check-label", attrs: { for: "gridCheck" } },
+            {
+              staticClass: "form-check-label check-text",
+              attrs: { for: "gridCheck" }
+            },
             [
               _vm._v(
-                "\n                Aceptar los términos y condiciones de la promoción\n            "
+                "\n                    Aceptar los términos y condiciones de la promoción\n                "
               )
             ]
           )
@@ -38286,11 +38291,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12" }, [
+    return _c("div", { staticClass: "col-12 mt-5 text-center" }, [
       _c(
         "button",
         { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("Registrarse")]
+        [_vm._v("Registrarse "), _c("i", { staticClass: "fas fa-arrow-right" })]
       )
     ])
   }

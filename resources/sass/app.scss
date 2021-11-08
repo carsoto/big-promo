@@ -126,8 +126,21 @@
                 color:white !important;
                 &::placeholder{
                     font-weight: bold;
+                    color:white;
+                }
+
+                option{
+                    color: #000;
                 }
             }
+        }
+        .sub-title{
+            color: #FEDD31;
+            font-weight: bold;
+        }
+
+        .check-text{
+            color:#FEDD31;
         }
     }
 }

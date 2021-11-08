@@ -11028,10 +11028,12 @@ a.text-dark:focus {
 
 #app .register-form form input::-moz-placeholder, #app .register-form form select::-moz-placeholder, #app .login-form form input::-moz-placeholder, #app .login-form form select::-moz-placeholder {
   font-weight: bold;
+  color: white;
 }
 
 #app .register-form form input:-ms-input-placeholder, #app .register-form form select:-ms-input-placeholder, #app .login-form form input:-ms-input-placeholder, #app .login-form form select:-ms-input-placeholder {
   font-weight: bold;
+  color: white;
 }
 
 #app .register-form form input::placeholder,
@@ -11039,6 +11041,25 @@ a.text-dark:focus {
 #app .login-form form input::placeholder,
 #app .login-form form select::placeholder {
   font-weight: bold;
+  color: white;
+}
+
+#app .register-form form input option,
+#app .register-form form select option,
+#app .login-form form input option,
+#app .login-form form select option {
+  color: #000;
+}
+
+#app .register-form .sub-title,
+#app .login-form .sub-title {
+  color: #FEDD31;
+  font-weight: bold;
+}
+
+#app .register-form .check-text,
+#app .login-form .check-text {
+  color: #FEDD31;
 }
 
 .btn-secondary {
