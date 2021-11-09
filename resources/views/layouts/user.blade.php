@@ -25,6 +25,7 @@
         @include('common.user-nav')
         @yield('content')
         @include('common.user-footer')
+        <modal-component></modal-component>
     </div>
 </body>
 </html>

@@ -22,6 +22,10 @@ window.Vue = require("vue");
 Vue.component('home-component', require('./components/HomeComponent.vue').default);
 Vue.component('register-component', require('./components/RegisterComponent.vue').default);
 Vue.component('login-component', require('./components/LoginComponent.vue').default);
+Vue.component('record-component', require('./components/RecordComponent.vue').default);
+Vue.component('videos-component', require('./components/VideosComponent.vue').default);
+Vue.component('exchange-component', require('./components/ExchangeComponent.vue').default);
+Vue.component('modal-component', require('./components/ModalComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

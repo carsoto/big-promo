@@ -47,4 +47,8 @@ Route::prefix('user')->group(function () {
     Route::get('/recorder', function () {
         return view('user.recorder');
     });
+
+    Route::get('/videos', function () {
+        return view('user.videos');
+    });
 });
