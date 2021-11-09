@@ -24,7 +24,8 @@ use App\Http\Controllers\Api\GeneralController;
 Route::post('register', [AuthController::class, 'register'])->name('api.register');
 Route::post('login', [AuthController::class, 'login']);
 
-Route::get('cities/{type?}', [GeneralController::class, 'cities']);
+Route::get('political_division/{type?}', [GeneralController::class, 'political_division']);
+Route::get('cities', [GeneralController::class, 'cities']);
 
 Route::middleware('auth:api')->group(function () {
     Route::post('logout', [AuthController::class, 'logout']);

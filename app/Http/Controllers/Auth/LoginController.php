@@ -50,10 +50,13 @@ class LoginController extends Controller
         $user->confirmation_code = null;
         $user->save();
         
-        $user_logged = auth()->user()->token();
-        if($user_logged) {
-            $user->revoke();
+        if(auth()->user() != null){
+            $user_logged = auth()->user()->token();
+            if($user_logged) {
+                $user->revoke();
+            }    
         }
+        
         
         if (auth()->loginUsingId($user->id)) {
             $token = auth()->user()->createToken('BigPromoToken')->accessToken;

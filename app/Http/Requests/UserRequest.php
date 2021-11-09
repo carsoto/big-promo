@@ -30,18 +30,20 @@ class UserRequest extends FormRequest
             'lastname'                => 'required',
             'email'                   => 'required|email|unique:users,email,'.$this->request->get('id'), 
             'password'                => 'required',                               
-            'parish_id'               => 'required'
+            'city_id'                 => 'required',
+            'terms_conditions'        => 'required'
         ];
     }
 
     public function messages($id = '') {
         return [
-            'name.required'                     => 'El nombre es obligatorio',
-            'lastname.required'                 => 'El apellido es obligatorio',
-            'email.required'                    => 'El correo electrónico es obligatorio',
-            'email.unique'                      => 'El correo electrónico ya se encuentra registrado',
-            'password.required'                 => 'La contraseña es obligatoria',
-            'parish_id.required'                => 'La ciudad es obligatoria' 
+            'name.required'                 => 'El nombre es obligatorio',
+            'lastname.required'             => 'El apellido es obligatorio',
+            'email.required'                => 'El correo electrónico es obligatorio',
+            'email.unique'                  => 'El correo electrónico ya se encuentra registrado',
+            'password.required'             => 'La contraseña es obligatoria',
+            'city_id.required'              => 'La ciudad es obligatoria', 
+            'terms_conditions.required'     => 'Debe aceptar los términos y condiciones'
         ];
     }
 
