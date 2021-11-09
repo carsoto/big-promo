@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,14 +16,16 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', [LoginController::class, 'showLoginForm'])->name('home');
 
+Auth::routes(['verify' => true]);
 
-Auth::routes();
+Route::get('/register/verify/{code}', [LoginController::class, 'verify']);
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/exchange', function(){
+    return "<h2>MÓDULO DE CANJE</h2>";
+});
 
-Route::prefix('admin')->group(function () {
-    Route::get('/users', function () {
-        return "Hello world";
-    });
+Route::get('/user-not-found', function(){
+    return "<h2>USUARIO NO ENCONTRADO</h2>";
 });

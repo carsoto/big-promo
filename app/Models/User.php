@@ -7,10 +7,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Laravel\Passport\HasApiTokens;
+use Carbon\Carbon;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasFactory, Notifiable, SoftDeletes;
+    use HasFactory, Notifiable, SoftDeletes, HasApiTokens;
     /**
      * The attributes that are mass assignable.
      *
@@ -19,10 +21,16 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'lastname',
+        'phone',
+        'aditional_phone',
+        'city_id',
+        'birthday',
         'email',
         'password',
-        'phone',
-        'is_admin'
+        'is_admin',
+        'terms_conditions',
+        'confirmed',
+        'confirmation_code',
     ];
 
     /**
@@ -33,6 +41,10 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        'email_verified_at',
+        'created_at',
+        'updated_at',
+        'deleted_at',
     ];
 
     /**
@@ -45,4 +57,17 @@ class User extends Authenticatable
     ];
 
     protected $dates = ['deleted_at'];
+
+    public function fullName() {
+        return $this->name." ".$this->lastname;
+    }
+
+    public function formattedRegister() {
+        return $this->created_at->format('d-m-Y');
+    }
+
+    public function age() {
+        $age = Carbon::parse($this->birthday)->diff(Carbon::now())->y;
+        return $age.' años';
+    }
 }

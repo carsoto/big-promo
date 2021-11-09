@@ -16,11 +16,18 @@ class UserSeeder extends Seeder
     public function run()
     {
         User::create([
-            'name'      =>  'Carmen',
-            'lastname'  =>  'Soto',
-            'email'     =>  'cs@superadmin.com',
-            'password'  =>  Hash::make('123456'),
-            'phone'     =>  '+593963631319',
+            'name'                  => 'Administrador',
+            'lastname'              => 'Big Cola',
+            'phone'                 => '+593963631319',
+            'aditional_phone'       => '+593963631319',
+            'city_id'               => 1,
+            'birthday'              => '2021-11-15',
+            'email'                 => 'admin@bigpromo.ec',
+            'email_verified_at'     => now(),
+            'password'              => Hash::make('123456'),
+            'type'                  => 'admin'
         ]);
+
+        User::factory(15)->create();
     }
 }

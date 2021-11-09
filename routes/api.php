@@ -2,6 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\GeneralController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +17,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+/*Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});*/
+
+Route::post('register', [AuthController::class, 'register'])->name('api.register');
+Route::post('login', [AuthController::class, 'login']);
+
+Route::get('political_division/{type?}', [GeneralController::class, 'political_division']);
+Route::get('cities', [GeneralController::class, 'cities']);
+
+Route::middleware('auth:api')->group(function () {
+    Route::post('logout', [AuthController::class, 'logout']);
+    Route::resource('users', UserController::class, ['as' => 'api.users']);
 });
