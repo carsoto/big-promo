@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Laravel\Passport\HasApiTokens;
+use Carbon\Carbon;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -20,15 +21,16 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $fillable = [
         'name',
         'lastname',
-        'document_identification',
         'phone',
+        'aditional_phone',
         'city_id',
+        'birthday',
         'email',
         'password',
         'type',
         'terms_conditions',
+        'confirmed',
         'confirmation_code',
-        'confirmed'
     ];
 
     /**
@@ -62,5 +64,10 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function formattedRegister() {
         return $this->created_at->format('d-m-Y');
+    }
+
+    public function age() {
+        $age = Carbon::parse($this->birthday)->diff(Carbon::now())->y;
+        return $age.' años';
     }
 }
