@@ -24,17 +24,20 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'name'                     => $this->faker->firstName.' '.$this->faker->firstName,
-            'lastname'                 => $this->faker->lastName.' '.$this->faker->lastName,
-            'email'                    => $this->faker->unique()->safeEmail,
-            'document_identification'  => Str::random(10),
-            'email_verified_at'        => now(),
-            'password'                 => Hash::make('123456'),
-            'remember_token'           => Str::random(10),
-            'phone'                    => '+593963631319',
-            'type'                     => 'user',
-            'parish_id'                => 1,
-            'created_at'               => $this->faker->dateTimeBetween('now', '+90 days')
+            'name'                  => $this->faker->firstName.' '.$this->faker->firstName,
+            'lastname'              => $this->faker->lastName.' '.$this->faker->lastName,
+            'phone'                 => '+593963631319',
+            'aditional_phone'       => '+593963631319',
+            'city_id'               => 1,
+            'birthday'              => $this->faker->dateTimeBetween('1990-01-01', '2021-11-15')->format('Y-m-d'),
+            'email'                 => $this->faker->unique()->safeEmail,
+            'email_verified_at'     => now(),
+            'password'              => Hash::make('123456'),
+            'type'                  => 'user',
+            'terms_conditions'      => rand(0,1),
+            'confirmed'             => rand(0,1),
+            'remember_token'        => Str::random(10),
+            'created_at'            => $this->faker->dateTimeBetween('now', '+90 days')
         ];
     }
 }

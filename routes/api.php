@@ -21,12 +21,12 @@ use App\Http\Controllers\Api\GeneralController;
     return $request->user();
 });*/
 
-Route::post('register', [AuthController::class, 'register'])->name('register');
+Route::post('register', [AuthController::class, 'register'])->name('api.register');
 Route::post('login', [AuthController::class, 'login']);
 
 Route::get('cities/{type?}', [GeneralController::class, 'cities']);
 
 Route::middleware('auth:api')->group(function () {
     Route::post('logout', [AuthController::class, 'logout']);
-    Route::resource('users', UserController::class);
+    Route::resource('users', UserController::class, ['as' => 'api.users']);
 });
