@@ -10,8 +10,17 @@ use App\Models\Parish;
 
 class GeneralController extends Controller
 {
+    public function cities(){ 
+        $data = Canton::all();
+        
+        return response()->json([
+            'success' => true,
+            'data' => $data
+        ], 200);
+    }
+
     //
-    public function cities($type = null){
+    public function political_division($type = null){
         switch($type) {
             case "provincias":
                 $data = Province::all();

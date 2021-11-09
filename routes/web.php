@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\LoginController;
 
@@ -16,15 +16,9 @@ use App\Http\Controllers\Auth\LoginController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
-Auth::routes(['verify' => true]);
-
 Route::get('/', [LoginController::class, 'showLoginForm'])->name('home');
 
-Route::prefix('admin')->group(function () {
-    Route::resource('/users', UserController::class);
-});
+Auth::routes(['verify' => true]);
 
 Route::get('/register/verify/{code}', [LoginController::class, 'verify']);
 

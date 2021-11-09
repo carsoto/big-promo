@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(UserSeeder::class);
         $this->call(CitiesSeeder::class);
+        \Artisan::call('passport:install');
         // \App\Models\User::factory(10)->create();
     }
 }

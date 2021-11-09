@@ -50,6 +50,14 @@ class LoginController extends Controller
         $user->confirmation_code = null;
         $user->save();
         
+        if(auth()->user() != null){
+            $user_logged = auth()->user()->token();
+            if($user_logged) {
+                $user->revoke();
+            }    
+        }
+        
+        
         if (auth()->loginUsingId($user->id)) {
             $token = auth()->user()->createToken('BigPromoToken')->accessToken;
             return response()->json(['user' => auth()->user(), 'token' => $token, 'msg' => 'Haz confirmado correctamente tu correo!'], 200);

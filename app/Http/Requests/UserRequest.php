@@ -28,23 +28,22 @@ class UserRequest extends FormRequest
         return [
             'name'                    => 'required',
             'lastname'                => 'required',
-            'email'                   => 'required|email|unique:users,email,'.$this->request->get('id'),
-            'document_identification' => 'required|unique:users,document_identification,'.$this->request->get('id'),
+            'email'                   => 'required|email|unique:users,email,'.$this->request->get('id'), 
             'password'                => 'required',                               
-            'parish_id'               => 'required'
+            'city_id'                 => 'required',
+            'terms_conditions'        => 'required'
         ];
     }
 
     public function messages($id = '') {
         return [
-            'name.required'                     => 'El nombre es obligatorio',
-            'lastname.required'                 => 'El apellido es obligatorio',
-            'email.required'                    => 'El correo electrónico es obligatorio',
-            'email.unique'                      => 'El correo electrónico ya se encuentra registrado',
-            'document_identification.required'  => 'La cédula es obligatoria',
-            'document_identification.required'  => 'La cédula ya se encuentra registrada',
-            'password.required'                 => 'La contraseña es obligatoria',
-            'parish_id.required'                => 'La ciudad es obligatoria' 
+            'name.required'                 => 'El nombre es obligatorio',
+            'lastname.required'             => 'El apellido es obligatorio',
+            'email.required'                => 'El correo electrónico es obligatorio',
+            'email.unique'                  => 'El correo electrónico ya se encuentra registrado',
+            'password.required'             => 'La contraseña es obligatoria',
+            'city_id.required'              => 'La ciudad es obligatoria', 
+            'terms_conditions.required'     => 'Debe aceptar los términos y condiciones'
         ];
     }
 
