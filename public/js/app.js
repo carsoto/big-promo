@@ -2129,48 +2129,68 @@ __webpack_require__.r(__webpack_exports__);
   mixins: [vuelidate__WEBPACK_IMPORTED_MODULE_0__["validationMixin"]],
   data: function data() {
     return {
-      name: null,
-      last_name: null,
-      cell_phone: null,
-      aditional_phone: null,
-      city: null,
-      birthdate: null,
-      email: null,
-      password: null,
-      terms: null
+      user: {
+        name: null,
+        last_name: null,
+        cell_phone: null,
+        aditional_phone: null,
+        city: null,
+        birthdate: null,
+        email: null,
+        password: null,
+        terms: null
+      }
     };
   },
   validations: {
-    name: {
-      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["required"]
-    },
-    last_name: {
-      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["required"]
-    },
-    cell_phone: {
-      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["required"]
-    },
-    aditional_phone: {
-      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["required"]
-    },
-    city: {
-      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["required"]
-    },
-    birthdate: {
-      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["required"]
-    },
-    email: {
-      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["required"]
-    },
-    password: {
-      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["required"]
-    },
-    terms: {
-      required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["required"]
+    user: {
+      name: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["required"]
+      },
+      last_name: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["required"]
+      },
+      cell_phone: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["required"]
+      },
+      aditional_phone: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["required"]
+      },
+      city: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["required"]
+      },
+      birthdate: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["required"]
+      },
+      email: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["required"]
+      },
+      password: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["required"]
+      },
+      terms: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["required"]
+      }
     }
   },
   mounted: function mounted() {
-    console.log('Component mounted.');
+    this.getCities();
+  },
+  methods: {
+    getCities: function getCities() {
+      axios.get('/api/cities').then(function (response) {
+        console.log(response.data);
+      });
+    },
+    sendForm: function sendForm() {
+      this.isSubmitting = true;
+      this.$v.user.$touch();
+
+      if (this.$v.user.$invalid) {
+        console.log('upss');
+        return;
+      }
+    }
   }
 });
 
@@ -37916,8 +37936,8 @@ var render = function() {
             {
               name: "model",
               rawName: "v-model.trim",
-              value: _vm.name,
-              expression: "name",
+              value: _vm.user.name,
+              expression: "user.name",
               modifiers: { trim: true }
             }
           ],
@@ -37927,13 +37947,13 @@ var render = function() {
             placeholder: "Nombres",
             "aria-label": "Nombres"
           },
-          domProps: { value: _vm.name },
+          domProps: { value: _vm.user.name },
           on: {
             input: function($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.name = $event.target.value.trim()
+              _vm.$set(_vm.user, "name", $event.target.value.trim())
             },
             blur: function($event) {
               return _vm.$forceUpdate()
@@ -37941,9 +37961,9 @@ var render = function() {
           }
         }),
         _vm._v(" "),
-        _vm.$v.name.$dirty
+        _vm.$v.user.name.$dirty
           ? _c("div", [
-              !_vm.$v.name.required
+              !_vm.$v.user.name.required
                 ? _c("div", { staticClass: "error" }, [
                     _vm._v("Field is required")
                   ])
@@ -37957,9 +37977,10 @@ var render = function() {
           directives: [
             {
               name: "model",
-              rawName: "v-model",
-              value: _vm.last_name,
-              expression: "last_name"
+              rawName: "v-model.trim",
+              value: _vm.user.last_name,
+              expression: "user.last_name",
+              modifiers: { trim: true }
             }
           ],
           staticClass: "form-control",
@@ -37968,20 +37989,23 @@ var render = function() {
             placeholder: "Apellidos",
             "aria-label": "Apellidos"
           },
-          domProps: { value: _vm.last_name },
+          domProps: { value: _vm.user.last_name },
           on: {
             input: function($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.last_name = $event.target.value
+              _vm.$set(_vm.user, "last_name", $event.target.value.trim())
+            },
+            blur: function($event) {
+              return _vm.$forceUpdate()
             }
           }
         }),
         _vm._v(" "),
-        _vm.$v.last_name.$dirty
+        _vm.$v.user.last_name.$dirty
           ? _c("div", [
-              !_vm.$v.last_name.required
+              !_vm.$v.user.last_name.required
                 ? _c("div", { staticClass: "error" }, [
                     _vm._v("Field is required")
                   ])
@@ -37995,27 +38019,31 @@ var render = function() {
           directives: [
             {
               name: "model",
-              rawName: "v-model",
-              value: _vm.cell_phone,
-              expression: "cell_phone"
+              rawName: "v-model.trim",
+              value: _vm.user.cell_phone,
+              expression: "user.cell_phone",
+              modifiers: { trim: true }
             }
           ],
           staticClass: "form-control",
           attrs: { type: "phone", placeholder: "Celular", id: "inputAddress" },
-          domProps: { value: _vm.cell_phone },
+          domProps: { value: _vm.user.cell_phone },
           on: {
             input: function($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.cell_phone = $event.target.value
+              _vm.$set(_vm.user, "cell_phone", $event.target.value.trim())
+            },
+            blur: function($event) {
+              return _vm.$forceUpdate()
             }
           }
         }),
         _vm._v(" "),
-        _vm.$v.cell_phone.$dirty
+        _vm.$v.user.cell_phone.$dirty
           ? _c("div", [
-              !_vm.$v.cell_phone.required
+              !_vm.$v.user.cell_phone.required
                 ? _c("div", { staticClass: "error" }, [
                     _vm._v("Field is required")
                   ])
@@ -38029,9 +38057,10 @@ var render = function() {
           directives: [
             {
               name: "model",
-              rawName: "v-model",
-              value: _vm.aditional_phone,
-              expression: "aditional_phone"
+              rawName: "v-model.trim",
+              value: _vm.user.aditional_phone,
+              expression: "user.aditional_phone",
+              modifiers: { trim: true }
             }
           ],
           staticClass: "form-control",
@@ -38040,20 +38069,23 @@ var render = function() {
             placeholder: "Telefono adicional",
             id: "inputAddress2"
           },
-          domProps: { value: _vm.aditional_phone },
+          domProps: { value: _vm.user.aditional_phone },
           on: {
             input: function($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.aditional_phone = $event.target.value
+              _vm.$set(_vm.user, "aditional_phone", $event.target.value.trim())
+            },
+            blur: function($event) {
+              return _vm.$forceUpdate()
             }
           }
         }),
         _vm._v(" "),
-        _vm.$v.aditional_phone.$dirty
+        _vm.$v.user.aditional_phone.$dirty
           ? _c("div", [
-              !_vm.$v.aditional_phone.required
+              !_vm.$v.user.aditional_phone.required
                 ? _c("div", { staticClass: "error" }, [
                     _vm._v("Field is required")
                   ])
@@ -38069,9 +38101,10 @@ var render = function() {
             directives: [
               {
                 name: "model",
-                rawName: "v-model",
-                value: _vm.city,
-                expression: "city"
+                rawName: "v-model.trim",
+                value: _vm.user.city,
+                expression: "user.city",
+                modifiers: { trim: true }
               }
             ],
             staticClass: "form-control",
@@ -38086,9 +38119,11 @@ var render = function() {
                     var val = "_value" in o ? o._value : o.value
                     return val
                   })
-                _vm.city = $event.target.multiple
-                  ? $$selectedVal
-                  : $$selectedVal[0]
+                _vm.$set(
+                  _vm.user,
+                  "city",
+                  $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                )
               }
             }
           },
@@ -38099,9 +38134,9 @@ var render = function() {
           ]
         ),
         _vm._v(" "),
-        _vm.$v.city.$dirty
+        _vm.$v.user.city.$dirty
           ? _c("div", [
-              !_vm.$v.city.required
+              !_vm.$v.user.city.required
                 ? _c("div", { staticClass: "error" }, [
                     _vm._v("Field is required")
                   ])
@@ -38115,27 +38150,31 @@ var render = function() {
           directives: [
             {
               name: "model",
-              rawName: "v-model",
-              value: _vm.birthdate,
-              expression: "birthdate"
+              rawName: "v-model.trim",
+              value: _vm.user.birthdate,
+              expression: "user.birthdate",
+              modifiers: { trim: true }
             }
           ],
           staticClass: "form-control",
           attrs: { type: "date", id: "inputZip" },
-          domProps: { value: _vm.birthdate },
+          domProps: { value: _vm.user.birthdate },
           on: {
             input: function($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.birthdate = $event.target.value
+              _vm.$set(_vm.user, "birthdate", $event.target.value.trim())
+            },
+            blur: function($event) {
+              return _vm.$forceUpdate()
             }
           }
         }),
         _vm._v(" "),
-        _vm.$v.birthdate.$dirty
+        _vm.$v.user.birthdate.$dirty
           ? _c("div", [
-              !_vm.$v.birthdate.required
+              !_vm.$v.user.birthdate.required
                 ? _c("div", { staticClass: "error" }, [
                     _vm._v("Field is required")
                   ])
@@ -38155,9 +38194,10 @@ var render = function() {
               directives: [
                 {
                   name: "model",
-                  rawName: "v-model",
-                  value: _vm.email,
-                  expression: "email"
+                  rawName: "v-model.trim",
+                  value: _vm.user.email,
+                  expression: "user.email",
+                  modifiers: { trim: true }
                 }
               ],
               staticClass: "form-control",
@@ -38166,20 +38206,23 @@ var render = function() {
                 placeholder: "Correo",
                 id: "inputEmail4"
               },
-              domProps: { value: _vm.email },
+              domProps: { value: _vm.user.email },
               on: {
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.email = $event.target.value
+                  _vm.$set(_vm.user, "email", $event.target.value.trim())
+                },
+                blur: function($event) {
+                  return _vm.$forceUpdate()
                 }
               }
             }),
             _vm._v(" "),
-            _vm.$v.email.$dirty
+            _vm.$v.user.email.$dirty
               ? _c("div", [
-                  !_vm.$v.email.required
+                  !_vm.$v.user.email.required
                     ? _c("div", { staticClass: "error" }, [
                         _vm._v("Field is required")
                       ])
@@ -38193,9 +38236,10 @@ var render = function() {
               directives: [
                 {
                   name: "model",
-                  rawName: "v-model",
-                  value: _vm.password,
-                  expression: "password"
+                  rawName: "v-model.trim",
+                  value: _vm.user.password,
+                  expression: "user.password",
+                  modifiers: { trim: true }
                 }
               ],
               staticClass: "form-control",
@@ -38204,20 +38248,23 @@ var render = function() {
                 placeholder: "Contraseña",
                 id: "inputPassword4"
               },
-              domProps: { value: _vm.password },
+              domProps: { value: _vm.user.password },
               on: {
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.password = $event.target.value
+                  _vm.$set(_vm.user, "password", $event.target.value.trim())
+                },
+                blur: function($event) {
+                  return _vm.$forceUpdate()
                 }
               }
             }),
             _vm._v(" "),
-            _vm.$v.password.$dirty
+            _vm.$v.user.password.$dirty
               ? _c("div", [
-                  !_vm.$v.password.required
+                  !_vm.$v.user.password.required
                     ? _c("div", { staticClass: "error" }, [
                         _vm._v("Field is required")
                       ])
@@ -38234,34 +38281,39 @@ var render = function() {
             directives: [
               {
                 name: "model",
-                rawName: "v-model",
-                value: _vm.terms,
-                expression: "terms"
+                rawName: "v-model.trim",
+                value: _vm.user.terms,
+                expression: "user.terms",
+                modifiers: { trim: true }
               }
             ],
             staticClass: "form-check-input",
             attrs: { type: "checkbox", id: "gridCheck" },
             domProps: {
-              checked: Array.isArray(_vm.terms)
-                ? _vm._i(_vm.terms, null) > -1
-                : _vm.terms
+              checked: Array.isArray(_vm.user.terms)
+                ? _vm._i(_vm.user.terms, null) > -1
+                : _vm.user.terms
             },
             on: {
               change: function($event) {
-                var $$a = _vm.terms,
+                var $$a = _vm.user.terms,
                   $$el = $event.target,
                   $$c = $$el.checked ? true : false
                 if (Array.isArray($$a)) {
                   var $$v = null,
                     $$i = _vm._i($$a, $$v)
                   if ($$el.checked) {
-                    $$i < 0 && (_vm.terms = $$a.concat([$$v]))
+                    $$i < 0 && _vm.$set(_vm.user, "terms", $$a.concat([$$v]))
                   } else {
                     $$i > -1 &&
-                      (_vm.terms = $$a.slice(0, $$i).concat($$a.slice($$i + 1)))
+                      _vm.$set(
+                        _vm.user,
+                        "terms",
+                        $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                      )
                   }
                 } else {
-                  _vm.terms = $$c
+                  _vm.$set(_vm.user, "terms", $$c)
                 }
               }
             }
