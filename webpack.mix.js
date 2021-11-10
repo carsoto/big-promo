@@ -13,8 +13,21 @@ const mix = require("laravel-mix");
 
 mix.js("resources/js/app.js", "public/js")
     .sass("resources/sass/app.scss", "public/css")
-    .webpackConfig({
-        module: {
-            noParse: [/node_modules[\\/]video\.js/]
+    .webpackConfig(webpack => {
+        return {
+            resolve : {
+                alias: {
+                    videojs: 'video.js',
+                    WaveSurfer: 'wavesurfer.js',
+                    RecordRTC: 'recordrtc'
+                }
+            },
+
+            plugins: [
+                new webpack.ProvidePlugin({
+                    videojs: 'videojs/dist/video.cjs.js',
+                    RecordRTC: 'recordrtc'
+                })
+            ]
         }
     });
