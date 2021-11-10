@@ -16,7 +16,7 @@ use App\Http\Controllers\Auth\LoginController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', [LoginController::class, 'showLoginForm'])->name('home');
+
 
 Auth::routes(['verify' => true]);
 

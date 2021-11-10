@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,7 @@ use App\Http\Controllers\Admin\AdminController;
     return view('admin.home');
 });*/
 
+Route::get('/', [LoginController::class, 'showLoginForm'])->name('home');
 Route::get('/users', [AdminController::class, 'usersIndex']);
 Route::get('/dreams', [AdminController::class, 'dreamsIndex']);
 Route::get('/dreams/details/{date}', [AdminController::class, 'dreamsDetails']);
