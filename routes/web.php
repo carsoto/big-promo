@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Api\UserDreamController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +30,6 @@ Route::get('/exchange', function(){
 Route::get('/user-not-found', function(){
     return "<h2>USUARIO NO ENCONTRADO</h2>";
 });
-
 
 Route::prefix('user')->group(function () {
     Route::get('/', function () {
@@ -63,4 +63,6 @@ Route::prefix('user')->group(function () {
     Route::get('/history', function () {
         return view('user.history');
     });
+
+    Route::post('dream/upload', [UserDreamController::class, 'uploadDream']);
 });
