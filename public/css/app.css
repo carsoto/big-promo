@@ -11066,8 +11066,46 @@ a.text-dark:focus {
   color: #FEDD31;
 }
 
+.input-bigpromo {
+  background: none;
+  margin-bottom: 15px !important;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid white;
+  box-shadow: none;
+  padding: 0px;
+  font-weight: bold;
+  color: white !important;
+}
+
+.input-bigpromo::-moz-placeholder {
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+
+.input-bigpromo:-ms-input-placeholder {
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+
+.input-bigpromo::placeholder {
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+
 #modal-message {
   background-color: rgba(0, 0, 0, 0.8);
+}
+
+#modal-instructions {
+  background-color: white;
+}
+
+#modal-video {
+  background: radial-gradient(circle, #FEDD31 0%, #E0AB1D 100%);
 }
 
 .btn-secondary {

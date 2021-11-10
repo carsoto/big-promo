@@ -12,19 +12,23 @@
             <slide class="p-3"><img src="https://picsum.photos/300/300/" style="width: 300px; max-width: 100%;"></slide>
             <slide class="p-3"><img src="https://picsum.photos/300/300/" style="width: 300px; max-width: 100%;"></slide>
         </carousel>
+
+        <video-show-component :videoSrc="selectedVideo"></video-show-component>
     </div>
 </template>
 
 <script>
+import VideoShowComponent from './VideoShowComponent.vue';
 import { Carousel, Slide } from 'vue-carousel';
 export default {
     components: {
         Carousel,
-        Slide
+        Slide,
+        VideoShowComponent
     },
     data() {
         return{
-
+            selectedVideo: '/videos/test1.mp4'
         }
     },
     mounted() {

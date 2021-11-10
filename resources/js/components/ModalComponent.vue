@@ -16,7 +16,7 @@ litraje de tu botella BIG o el código en la tapa amarilla.</h4>
 <script>
     export default {
         mounted() {
-            var myModal = $('#modal-message').modal('show');
+            //var myModal = $('#modal-message').modal('show');
         },
         methods:{
             closeModal() {

@@ -8,7 +8,7 @@
     </div>
     @if (request()->routeIs('user.home'))
     <div class="video-example">
-        <a href="#" class="d-flex flex-column justify-content-center align-items-center">Ver video
+        <a href="#" data-toggle="modal" data-target="#modal-video" class="d-flex flex-column justify-content-center align-items-center">Ver video
             <i class="far fa-2x fa-arrow-alt-circle-down"></i>
         </a>
     </div>

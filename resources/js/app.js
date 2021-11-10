@@ -24,8 +24,12 @@ Vue.component('register-component', require('./components/RegisterComponent.vue'
 Vue.component('login-component', require('./components/LoginComponent.vue').default);
 Vue.component('record-component', require('./components/RecordComponent.vue').default);
 Vue.component('videos-component', require('./components/VideosComponent.vue').default);
+Vue.component('videos-show-component', require('./components/VideoShowComponent.vue').default);
 Vue.component('exchange-component', require('./components/ExchangeComponent.vue').default);
 Vue.component('modal-component', require('./components/ModalComponent.vue').default);
+Vue.component('instructions-component', require('./components/InstructionsComponent.vue').default);
+Vue.component('history-component', require('./components/HistoryComponent.vue').default);
+Vue.component('fq-component', require('./components/FQComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

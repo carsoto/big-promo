@@ -51,4 +51,16 @@ Route::prefix('user')->group(function () {
     Route::get('/videos', function () {
         return view('user.videos');
     });
+
+    Route::get('/exchange', function () {
+        return view('user.exchange');
+    });
+
+    Route::get('/fq', function () {
+        return view('user.fq');
+    });
+
+    Route::get('/history', function () {
+        return view('user.history');
+    });
 });

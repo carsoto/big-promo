@@ -19,7 +19,7 @@
             <a href="#">Mis suenos</a>
             <a href="#">Historial</a>
             @else
-            <a href="#">Instrucciones</a>
+            <a href="#" data-toggle="modal" data-target="#modal-instructions" >Instrucciones</a>
             @endif
         </div>
     </nav>
