@@ -65,6 +65,11 @@ return [
             'endpoint' => env('AWS_ENDPOINT'),
         ],
 
+        'bigpromo_dreams' => [
+            'driver' => 'local',
+            'root'   => public_path() . '/'
+         ]
+
     ],
 
     /*
