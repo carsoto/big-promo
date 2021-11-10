@@ -18,7 +18,7 @@ use App\Http\Controllers\Auth\LoginController;
     return view('admin.home');
 });*/
 
-Route::get('/', [LoginController::class, 'showLoginForm'])->name('home');
+Route::get('/', [LoginController::class, 'showLoginForm'])->name('admin.login');
 Route::get('/users', [AdminController::class, 'usersIndex']);
 Route::get('/dreams', [AdminController::class, 'dreamsIndex']);
 Route::get('/dreams/details/{date}', [AdminController::class, 'dreamsDetails']);

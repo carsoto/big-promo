@@ -17,25 +17,15 @@ use App\Http\Controllers\Auth\LoginController;
 |
 */
 
-
 Auth::routes(['verify' => true]);
 
 Route::get('/register/verify/{code}', [LoginController::class, 'verify']);
 
-Route::get('/exchange', function(){
-    return "<h2>MÓDULO DE CANJE</h2>";
-});
+Route::get('/', function () {
+    return view('user.home');
+})->name('user.home');
 
-Route::get('/user-not-found', function(){
-    return "<h2>USUARIO NO ENCONTRADO</h2>";
-});
-
-
-Route::prefix('user')->group(function () {
-    Route::get('/', function () {
-        return view('user.home');
-    })->name('user.home');
-
+Route::prefix('u')->group(function () {
     Route::get('/login', function () {
         return view('user.auth.login');
     });
