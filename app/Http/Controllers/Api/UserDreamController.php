@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\UserDream;
 
@@ -18,17 +19,17 @@ class UserDreamController extends Controller
 
         if ($request->hasFile('dream'))
         {
-            //$path = $request->file('dream')->store('videos', ['disk' => 'bigpromo_dreams']);
-            $video->dream = $request->dream;
+            $path = $request->file('dream')->store('videos', ['disk' => 'bigpromo_dreams']);
+            $video->dream = $path;
         }
 
-        if($video->save()) {
-            return response()->json([
-                'success' => true,
-                'data' => [],
-                'msg' => "Video guardado exitosamente"
-            ], 200);    
-        }
+        $video->save();
+
+        return response()->json([
+            'success' => true,
+            'data' => [],
+            'msg' => "Video guardado exitosamente"
+        ], 200);
     }
 
     public function getDreams($type = 'user') {

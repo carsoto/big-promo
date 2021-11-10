@@ -29,5 +29,3 @@ Route::get('/exchange', function(){
 Route::get('/user-not-found', function(){
     return "<h2>USUARIO NO ENCONTRADO</h2>";
 });
-
-Route::get('/dreams/upload', [LoginController::class, 'verify']);
