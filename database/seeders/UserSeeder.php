@@ -25,7 +25,7 @@ class UserSeeder extends Seeder
             'email'                 => 'admin@bigpromo.ec',
             'email_verified_at'     => now(),
             'password'              => Hash::make('123456'),
-            'type'                  => 'admin'
+            'is_admin'              => true
         ]);
 
         User::factory(15)->create();

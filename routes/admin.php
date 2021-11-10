@@ -19,5 +19,5 @@ use App\Http\Controllers\Admin\AdminController;
 */
 
 Route::get('/users', [AdminController::class, 'usersIndex'])->middleware('is_admin');
-Route::get('/dreams', [AdminController::class, 'dreamsIndex'])->middleware('is_admin');
+Route::get('/dreams', [AdminController::class, 'dreamsIndex'])->name('admin.dreams')->middleware('is_admin');
 Route::get('/dreams/details/{date}', [AdminController::class, 'dreamsDetails'])->middleware('is_admin');
