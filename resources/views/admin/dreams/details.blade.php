@@ -16,8 +16,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
-                    {{ asset('videos/test1.mp4') }}
-                    <video-player video-uid="123456789" video-url="{{ asset('videos/test1.mp4') }}" thumbnail-url=""></video-player>
+                    {{ asset('videos/test.mp4') }}
+                    <video-player video-uid="123456789" video-url="{{ asset('videos/test.mp4') }}" thumbnail-url=""></video-player>
                 </div>
             </div>
         </div>

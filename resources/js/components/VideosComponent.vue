@@ -1,16 +1,58 @@
 <template>
     <div class="container">
         <h2 class="text-center p-3">Galeria de suenos</h2>
-        <carousel :scrollPerPage="true" :perPageCustom="[[480, 2], [768, 4]]">
-            <slide class="p-3"><img src="https://picsum.photos/300/300/" style="width: 300px; max-width: 100%;"></slide>
-            <slide class="p-3"><img src="https://picsum.photos/300/300/" style="width: 300px; max-width: 100%;"></slide>
-            <slide class="p-3"><img src="https://picsum.photos/300/300/" style="width: 300px; max-width: 100%;"></slide>
-            <slide class="p-3"><img src="https://picsum.photos/300/300/" style="width: 300px; max-width: 100%;"></slide>
-            <slide class="p-3"><img src="https://picsum.photos/300/300/" style="width: 300px; max-width: 100%;"></slide>
-            <slide class="p-3"><img src="https://picsum.photos/300/300/" style="width: 300px; max-width: 100%;"></slide>
-            <slide class="p-3"><img src="https://picsum.photos/300/300/" style="width: 300px; max-width: 100%;"></slide>
-            <slide class="p-3"><img src="https://picsum.photos/300/300/" style="width: 300px; max-width: 100%;"></slide>
-            <slide class="p-3"><img src="https://picsum.photos/300/300/" style="width: 300px; max-width: 100%;"></slide>
+        <carousel
+            :scrollPerPage="true"
+            :perPageCustom="[
+                [480, 2],
+                [768, 4]
+            ]"
+        >
+            <slide class="p-3"
+                ><img
+                    src="https://picsum.photos/300/300/"
+                    style="width: 300px; max-width: 100%;"
+            /></slide>
+            <slide class="p-3"
+                ><img
+                    src="https://picsum.photos/300/300/"
+                    style="width: 300px; max-width: 100%;"
+            /></slide>
+            <slide class="p-3"
+                ><img
+                    src="https://picsum.photos/300/300/"
+                    style="width: 300px; max-width: 100%;"
+            /></slide>
+            <slide class="p-3"
+                ><img
+                    src="https://picsum.photos/300/300/"
+                    style="width: 300px; max-width: 100%;"
+            /></slide>
+            <slide class="p-3"
+                ><img
+                    src="https://picsum.photos/300/300/"
+                    style="width: 300px; max-width: 100%;"
+            /></slide>
+            <slide class="p-3"
+                ><img
+                    src="https://picsum.photos/300/300/"
+                    style="width: 300px; max-width: 100%;"
+            /></slide>
+            <slide class="p-3"
+                ><img
+                    src="https://picsum.photos/300/300/"
+                    style="width: 300px; max-width: 100%;"
+            /></slide>
+            <slide class="p-3"
+                ><img
+                    src="https://picsum.photos/300/300/"
+                    style="width: 300px; max-width: 100%;"
+            /></slide>
+            <slide class="p-3"
+                ><img
+                    src="https://picsum.photos/300/300/"
+                    style="width: 300px; max-width: 100%;"
+            /></slide>
         </carousel>
 
         <video-show-component :videoSrc="selectedVideo"></video-show-component>
@@ -18,8 +60,8 @@
 </template>
 
 <script>
-import VideoShowComponent from './VideoShowComponent.vue';
-import { Carousel, Slide } from 'vue-carousel';
+import VideoShowComponent from "./VideoShowComponent.vue";
+import { Carousel, Slide } from "vue-carousel";
 export default {
     components: {
         Carousel,
@@ -27,21 +69,22 @@ export default {
         VideoShowComponent
     },
     data() {
-        return{
-            selectedVideo: '/videos/test1.mp4'
-        }
+        return {
+            selectedVideo: "/videos/test.mp4"
+        };
     },
     mounted() {
-        console.log('Component mounted.')
+        console.log("Component mounted.");
     },
-    methods:{
+    methods: {
         buildSlideMarkup(count) {
-            let slideMarkup = '';
+            let slideMarkup = "";
             for (var i = 1; i <= count; i++) {
-                slideMarkup += '<slide class="p-3"><img src="https://picsum.photos/300/300/" style="width: 300px; max-width: 100%;"></slide>'
+                slideMarkup +=
+                    '<slide class="p-3"><img src="https://picsum.photos/300/300/" style="width: 300px; max-width: 100%;"></slide>';
             }
             return slideMarkup;
         }
     }
-}
+};
 </script>
