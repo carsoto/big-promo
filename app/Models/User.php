@@ -70,4 +70,9 @@ class User extends Authenticatable implements MustVerifyEmail
         $age = Carbon::parse($this->birthday)->diff(Carbon::now())->y;
         return $age.' años';
     }
+
+    public function user_exchanges()
+    {
+        return $this->hasMany(UserExchange::class);
+    }
 }

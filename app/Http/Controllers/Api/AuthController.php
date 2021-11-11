@@ -64,6 +64,7 @@ class AuthController extends Controller
                     'success' => true,
                     'message' => 'Ha iniciado sesión exitosamente',
                     'data'    => auth()->user(),
+                    'token'   => $token
                 ], 200);
             } 
             else {

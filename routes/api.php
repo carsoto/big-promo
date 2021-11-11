@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\UserExchangeController;
 use App\Http\Controllers\Api\GeneralController;
 
 /*
@@ -30,4 +31,6 @@ Route::get('cities', [GeneralController::class, 'cities']);
 Route::middleware('auth:api')->group(function () {
     Route::post('logout', [AuthController::class, 'logout']);
     Route::resource('users', UserController::class, ['as' => 'api.users']);
+    Route::post('exchange', [UserExchangeController::class, 'store']);
+    Route::get('exchange/history', [UserExchangeController::class, 'show']);
 });
