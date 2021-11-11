@@ -4,7 +4,7 @@
             <h5 class="font-weight-bold p-3 m-0">Recuerda:  GRABAR TU SUEÑO EN 20 SEGUNDOS indicando… ¿CUÁL ES TU SUEÑO y POR QUÉ DEBEMOS HACERLO REALIDAD?
             </h5>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8 d-flex flex-column justify-content-center">
             <video id="myVideo" playsinline class="video-js vjs-default-skin">
                 <p class="vjs-no-js">
                     To view this video please enable JavaScript, or consider upgrading to a
@@ -15,9 +15,12 @@
                 </p>
             </video>
             <br>
-            <button type="button" class="btn btn-info" @click.prevent="startRecording()" v-bind:disabled="isStartRecording" id="btnStart">Start Recording</button>
-            <button type="button" class="btn btn-success" @click.prevent="submitVideo()" v-bind:disabled="isSaveDisabled" id="btnSave">{{ submitText }}</button>
-            <button type="button" class="btn btn-primary" @click.prevent="retakeVideo()" v-bind:disabled="isRetakeDisabled" id="btnRetake">Retake</button>
+            <div class="d-flex justify-content-around">
+                <button type="button" class="btn btn-info" @click.prevent="startRecording()" v-bind:disabled="isStartRecording" id="btnStart">Grabar</button>
+                <button type="button" class="btn btn-success" @click.prevent="submitVideo()" v-bind:disabled="isSaveDisabled" id="btnSave">Enviar</button>
+                <button type="button" class="btn btn-primary" @click.prevent="retakeVideo()" v-bind:disabled="isRetakeDisabled" id="btnRetake">Re-Grabar</button>
+
+            </div>
         </div>
     </div>
 </template>
@@ -56,7 +59,7 @@ export default {
                         pip: false,
                         audio: true,
                         video: true,
-                        maxLength: 10,
+                        maxLength: 20,
                         debug: true
                     }
                 }
@@ -143,3 +146,13 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+    .btn {
+        background-color: yellow;
+        border: none;
+        padding: 15px 25px;
+        font-weight: bold;
+        color: black;
+    }
+</style>

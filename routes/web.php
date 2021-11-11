@@ -42,7 +42,7 @@ Route::get('/recorder', function () {
     return view('user.recorder');
 });
 
-Route::get('/videos', function () {
+Route::get('/videos-galery', function () {
     return view('user.videos');
 });
 
