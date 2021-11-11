@@ -41,7 +41,8 @@ class AuthController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Se ha enviado un correo de confirmación al email que pusiste en el formulario'
+            'message' => 'Se ha enviado un correo de confirmación al email que pusiste en el formulario',
+            'data'    => []
         ], 200);
     }
 
@@ -57,15 +58,38 @@ class AuthController extends Controller
 
         if (auth()->attempt($data)) {
             $token = auth()->user()->createToken('BigPromoToken')->accessToken;
-            return response()->json(['user' => auth()->user(), 'token' => $token], 200);
+
+            if(auth()->user()->confirmed) {
+                return response()->json([
+                    'success' => true,
+                    'message' => 'Ha iniciado sesión exitosamente',
+                    'data'    => auth()->user(),
+                ], 200);
+            } 
+            else {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Debe confirmar su correo antes de iniciar sesión',
+                    'data'    => [],
+                ], 200);
+            }
+            
         } else {
-            return response()->json(['error' => 'Unauthorized'], 401);
+            return response()->json([
+                'success' => false,
+                'message' => 'Usuario no autorizado',
+                'data'    => [],
+            ], 401);
         }
     }
 
     public function logout(){
         $user = auth()->user()->token();
         $user->revoke();
-        return response()->json(['msg' => 'Logged out'], 200);
+        return response()->json([
+            'success' => true,
+            'message' => 'Ha cerrado sesión',
+            'data'    => auth()->user(),
+        ], 200);
     }
 }

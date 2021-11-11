@@ -8,13 +8,17 @@
     </div>
     @endif
     <nav>
-        @if(true)
+        @if(auth()->user() == null)
         <a class="sign-in" href="/u/login"><i class="far fa-user"></i> Iniciar Sesión</a>
         @else
-        <a class="sign-out" href="/logout"><i class="far fa-user"></i> Cerrar Sesión</a>
+        <label style="color: white"><strong>Hola, {{ auth()->user()->fullName() }}</strong></label>
+        <a class="sign-out" href="#" onclick="document.getElementById('logout-form').submit();"><i class="far fa-user"></i> Cerrar Sesión</a>
+        <form id="logout-form" action="/logout" method="POST">
+            {{ csrf_field() }}
+        </form>
         @endif
         <div class="nav-options">
-            @if(false)
+            @if(auth()->user())
             <a href="/u/exchange">Canjear</a>
             <a href="/u/videos-galery">Mis sueños</a>
             <a href="/u/history">Historial</a>

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Api\GeneralController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,7 @@ Route::get('/admin/', [LoginController::class, 'showLoginForm'])->name('home');
 
 Auth::routes(['verify' => true]);
 
-Route::get('/register/verify/{code}', [LoginController::class, 'verify']);
+Route::get('/register/verify/{code}', [GeneralController::class, 'verify']);
 
 Route::get('/user-not-found', function() {
     return "<h2>USUARIO NO ENCONTRADO</h2>";
@@ -49,7 +50,7 @@ Route::prefix('u')->group(function () {
 
     Route::get('/exchange', function () {
         return view('user.exchange');
-    });
+    })->name('user.exchange');
 
     Route::get('/fq', function () {
         return view('user.fq');
