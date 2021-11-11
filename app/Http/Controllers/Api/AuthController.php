@@ -27,7 +27,6 @@ class AuthController extends Controller
             'birthday'                 => $request->birthday,
             'email'                    => $request->email,
             'password'                 => bcrypt($request->password),
-            'type'                     => 'user',
             'terms_conditions'         => $request->terms_conditions,
             'confirmation_code'        => $confirmation_code
         ]);

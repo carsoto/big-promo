@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->enum('type', ['admin', 'user']);
+            $table->boolean('is_admin')->default(false);
             $table->boolean('terms_conditions')->default(false);
             $table->boolean('confirmed')->default(false);
             $table->string('confirmation_code')->nullable();
