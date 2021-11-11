@@ -9,9 +9,9 @@
     @endif
     <nav>
         @if(true)
-        <a class="sign-in" href="/login"><i class="far fa-user"></i> Iniciar session</a>
+        <a class="sign-in" href="/login"><i class="far fa-user"></i> Iniciar Sesión</a>
         @else
-        <a class="sign-out" href="/logout"><i class="far fa-user"></i> Cerrar session</a>
+        <a class="sign-out" href="/logout"><i class="far fa-user"></i> Cerrar Sesión</a>
         @endif
         <div class="nav-options">
             @if(false)

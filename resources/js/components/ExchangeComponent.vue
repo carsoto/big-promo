@@ -16,7 +16,7 @@
                 <a href="#" @click="selectPresentation('p-5')" ref="p-5" class="bot-presentation"><img src="/img/5.svg" alt=""></a>
             </div>
             <div class="col-md-8 m-2 pt-3 d-flex flex-column align-items-center justify-content-center">
-                <input type="text" v-model="code" class="form-control input-bigpromo text-center" placeholder="Escribe el codigo aqui">
+                <input type="text" v-model="code" class="form-control input-bigpromo text-center" placeholder="Ingresar código">
                 <button type="button" @click="sendCode()" class="btn btn-primary mt-3 mb-3">Canjear <i class="fas fa-arrow-right"></i></button>
 
                 <div class="rounded border border-white points-total p-3 mt-5 text-white text">

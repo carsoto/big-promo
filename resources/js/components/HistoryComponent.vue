@@ -4,7 +4,7 @@
         <table class="table">
             <thead class="thead-yellow rounded ">
                 <tr>
-                    <th scope="col">Codigo</th>
+                    <th scope="col">Código</th>
                     <th scope="col">Fecha</th>
                     <th scope="col">Puntos</th>
                     <th scope="col">Puntos Extra</th>
