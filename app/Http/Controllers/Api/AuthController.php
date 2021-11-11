@@ -39,11 +39,10 @@ class AuthController extends Controller
             $message->to($data['email'], $user->fullName())->subject('Por favor confirma tu correo');
         });
 
-
-        //$token = $user->createToken('BigPromoToken')->accessToken;
-        //return response()->json(['user' => $user, 'token' => $token], 200);
-
-        return response()->json(['msg' => 'Se ha enviado un correo de confirmación'], 200);
+        return response()->json([
+            'success' => true,
+            'message' => 'Se ha enviado un correo de confirmación al email que pusiste en el formulario'
+        ], 200);
     }
 
     /**

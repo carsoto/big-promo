@@ -69,14 +69,14 @@
                     class="form-control"
                     id="inputAddress2"
                 />
-                <div v-if="$v.user.aditional_phone.$dirty">
+                <!--<div v-if="$v.user.aditional_phone.$dirty">
                     <div
                         class="error text-warning"
                         v-if="!$v.user.aditional_phone.required"
                     >
                         Campo requerido
                     </div>
-                </div>
+                </div>-->
             </div>
 
             <div class="col-md-6">
@@ -245,9 +245,6 @@ export default {
             phone: {
                 required
             },
-            aditional_phone: {
-                required
-            },
             city_id: {
                 required
             },
@@ -275,25 +272,28 @@ export default {
             });
         },
         sendForm() {
-            this.notification.type = "error";
-            this.notification.title = "Hemos creado tu cuenta con éxito!";
-            this.notification.message =
-                "Se ha enviado un correo de confirmación al email que pusiste en el formulario";
-            $("#modal-message").modal("show");
-            // this.isSubmitting = true;
-            // this.$v.user.$touch();
-            // if (this.$v.user.$invalid) {
-            //     console.log('upss', this.$v.user.$invalid)
-            //     return;
-            // }
+            this.isSubmitting = true;
+            this.$v.user.$touch();
+            if (this.$v.user.$invalid) {
+                console.log("upss", this.$v.user.$invalid);
+                return;
+            }
 
-            // axios.post('/api/register', this.user).then(response => {
-            //     this.notification.type = 'success'
-            //     this.notification.title = "Hemos creado tu cuenta con exito!"
-            //     this.notification.message = "Se ha enviado un correo de confirmación al email que pusiste en el formulario"
-            // }).catch(err => {
-
-            // })
+            axios
+                .post("/api/register", this.user)
+                .then(response => {
+                    this.notification.type = "success";
+                    this.notification.title =
+                        "Hemos creado tu cuenta con éxito!";
+                    this.notification.message = response.data.message;
+                    $("#modal-message").modal("show");
+                })
+                .catch(err => {
+                    this.notification.type = "error";
+                    this.notification.title = "Ha ocurrido un error!";
+                    this.notification.message = err.response.data.message;
+                    $("#modal-message").modal("show");
+                });
         },
         redirectTo(url) {
             if (url) {
