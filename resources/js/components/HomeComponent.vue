@@ -3,8 +3,8 @@
         <div class="row justify-content-between">
             <div class="col-lg-6 col-xs-12 col-sm-12 left-side">
                 <img src="/img/Slogan.png" alt="">
-                <button type="button" class="btn btn-primary">Comenzar <i class="fas fa-arrow-right"></i></button>
-                <button type="button" class="btn btn-secondary">Ya tengo cuenta</button>
+                <a href="register" class="btn btn-primary py-3 mt-3">Comenzar <i class="fas fa-arrow-right"></i></a>
+                <a href="login" class="btn btn-secondary py-3 px-3 mt-3">Ya tengo cuenta</a>
             </div>
 
             <div class="col-lg-6 col-xs-12 col-sm-12 d-none d-sm-none d-md-block right-side">

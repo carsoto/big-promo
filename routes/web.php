@@ -16,51 +16,44 @@ use App\Http\Controllers\Auth\LoginController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', [LoginController::class, 'showLoginForm'])->name('home');
+Route::get('/admin/', [LoginController::class, 'showLoginForm'])->name('home');
 
 Auth::routes(['verify' => true]);
 
 Route::get('/register/verify/{code}', [LoginController::class, 'verify']);
 
-Route::get('/exchange', function(){
-    return "<h2>MÓDULO DE CANJE</h2>";
-});
-
-Route::get('/user-not-found', function(){
+Route::get('/user-not-found', function() {
     return "<h2>USUARIO NO ENCONTRADO</h2>";
 });
 
+Route::get('/', function () {
+    return view('user.home');
+})->name('user.home');
 
-Route::prefix('user')->group(function () {
-    Route::get('/', function () {
-        return view('user.home');
-    })->name('user.home');
+Route::get('/login', function () {
+    return view('user.auth.login');
+});
 
-    Route::get('/login', function () {
-        return view('user.auth.login');
-    });
+Route::get('/register', function () {
+    return view('user.auth.register');
+});
 
-    Route::get('/register', function () {
-        return view('user.auth.register');
-    });
+Route::get('/recorder', function () {
+    return view('user.recorder');
+});
 
-    Route::get('/recorder', function () {
-        return view('user.recorder');
-    });
+Route::get('/videos', function () {
+    return view('user.videos');
+});
 
-    Route::get('/videos', function () {
-        return view('user.videos');
-    });
+Route::get('/exchange', function () {
+    return view('user.exchange');
+});
 
-    Route::get('/exchange', function () {
-        return view('user.exchange');
-    });
+Route::get('/fq', function () {
+    return view('user.fq');
+});
 
-    Route::get('/fq', function () {
-        return view('user.fq');
-    });
-
-    Route::get('/history', function () {
-        return view('user.history');
-    });
+Route::get('/history', function () {
+    return view('user.history');
 });

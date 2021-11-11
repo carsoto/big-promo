@@ -10981,6 +10981,61 @@ a.text-dark:focus {
   width: 450px;
 }
 
+#app .bot-presentation img {
+  filter: grayscale(100%);
+  transition: 0.8s;
+}
+
+#app .bot-presentation:hover img {
+  filter: grayscale(0%);
+  transition: 0.8s;
+}
+
+#app .bot-presentation.active img {
+  filter: grayscale(0%);
+  transition: 0.8s;
+}
+
+#app .frecuency-questions .container-accordion {
+  height: 450px;
+  overflow-y: scroll;
+  padding: 20px;
+}
+
+#app .frecuency-questions .container-accordion .accordion .card {
+  background: none;
+  border: none;
+}
+
+#app .frecuency-questions .container-accordion .accordion .card .card-header {
+  border: 2px solid white;
+  background: none;
+  color: white;
+  font-weight: bold;
+}
+
+#app .frecuency-questions .container-accordion .accordion .card .card-header h2 button:focus {
+  border: none;
+  color: white;
+  text-decoration: none;
+  box-shadow: none;
+}
+
+#app .frecuency-questions .container-accordion .accordion .card .card-header h2 button:hover {
+  color: white;
+  text-decoration: none;
+}
+
+#app .thead-yellow {
+  background-color: #FEDD31;
+  font-weight: bold;
+  border: none;
+}
+
+#app .thead-yellow tr th {
+  border: none;
+}
+
 #app footer {
   width: 100%;
   padding: 15px;
@@ -11096,6 +11151,13 @@ a.text-dark:focus {
   text-align: center;
 }
 
+.input-bigpromo:focus {
+  background: none;
+  box-shadow: none;
+  border: none;
+  border-bottom: 1px solid white;
+}
+
 #modal-message {
   background-color: rgba(0, 0, 0, 0.8);
 }
@@ -11106,6 +11168,39 @@ a.text-dark:focus {
 
 #modal-video {
   background: radial-gradient(circle, #FEDD31 0%, #E0AB1D 100%);
+}
+
+.bg-black {
+  background-color: #000;
+}
+
+.text-yellow {
+  color: #FEDD31;
+}
+
+.text-black {
+  color: #000;
+}
+
+.btn-record-page {
+  width: 140px;
+  height: 140px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #FEDD31;
+  border-radius: 50%;
+}
+
+.btn-record-page a {
+  width: 130px;
+  height: 130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FEDD31;
+  border-radius: 50%;
+  font-weight: bold;
 }
 
 .btn-secondary {
@@ -11136,7 +11231,9 @@ a.text-dark:focus {
   margin-left: 10px;
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
   background: none !important;
   border-color: #fff;
   transition: 0.5s;

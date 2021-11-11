@@ -1,7 +1,7 @@
 <template>
     <div class="container register-form">
 
-        <form class="row g-3">
+        <form class="row g-3" v-on:submit.prevent="sendForm">
             <h2 class="col-md-12 text-center">Registra tu informacion</h2>
             <p class="col-md-12 text-center text-white">Debes registrar tus datos y crear tu cuenta para poder acceder y participar
                 Agregando los códigos de tus tapas.</p>
@@ -9,57 +9,57 @@
             <div class="col-md-6">
                 <input type="text" v-model.trim="user.name" class="form-control" placeholder="Nombres" aria-label="Nombres">
                 <div v-if="$v.user.name.$dirty">
-                    <div class="error" v-if="!$v.user.name.required">Field is required</div>
+                    <div class="error text-warning" v-if="!$v.user.name.required">Campo requerido</div>
                 </div>
             </div>
             <div class="col-md-6">
-                <input type="text" v-model.trim="user.last_name" class="form-control" placeholder="Apellidos" aria-label="Apellidos">
-                <div v-if="$v.user.last_name.$dirty">
-                    <div class="error" v-if="!$v.user.last_name.required">Field is required</div>
+                <input type="text" v-model.trim="user.lastname" class="form-control" placeholder="Apellidos" aria-label="Apellidos">
+                <div v-if="$v.user.lastname.$dirty">
+                    <div class="error text-warning" v-if="!$v.user.lastname.required">Campo requerido</div>
                 </div>
             </div>
 
             <div class="col-md-6">
-                <input type="phone" v-model.trim="user.cell_phone" placeholder="Celular" class="form-control" id="inputAddress">
-                <div v-if="$v.user.cell_phone.$dirty">
-                    <div class="error" v-if="!$v.user.cell_phone.required">Field is required</div>
+                <input type="phone" autocomplete="off" v-model.trim="user.phone" placeholder="Celular" class="form-control" id="inputAddress">
+                <div v-if="$v.user.phone.$dirty">
+                    <div class="error text-warning" v-if="!$v.user.phone.required">Campo requerido</div>
                 </div>
             </div>
             <div class="col-md-6">
-                <input type="phone" v-model.trim="user.aditional_phone" placeholder="Telefono adicional" class="form-control" id="inputAddress2">
+                <input type="phone" autocomplete="off" v-model.trim="user.aditional_phone" placeholder="Telefono adicional" class="form-control" id="inputAddress2">
                 <div v-if="$v.user.aditional_phone.$dirty">
-                    <div class="error" v-if="!$v.user.aditional_phone.required">Field is required</div>
+                    <div class="error text-warning" v-if="!$v.user.aditional_phone.required">Campo requerido</div>
                 </div>
             </div>
 
             <div class="col-md-6">
-                <select id="inputState" v-model.trim="user.city" class="form-control">
-                <option selected>Ciudad</option>
-                <option>...</option>
+                <select id="inputState" v-model.trim="user.city_id" class="form-control">
+                <option selected disabled value="">Ciudad</option>
+                <option v-bind:key="index" v-for="(item, index) in cities" :value="item.id">{{item.name}}</option>
                 </select>
-                <div v-if="$v.user.city.$dirty">
-                    <div class="error" v-if="!$v.user.city.required">Field is required</div>
+                <div v-if="$v.user.city_id.$dirty">
+                    <div class="error text-warning" v-if="!$v.user.city_id.required">Campo requerido</div>
                 </div>
             </div>
             <div class="col-md-6">
-                <input type="date" v-model.trim="user.birthdate" class="form-control" id="inputZip">
-                <div v-if="$v.user.birthdate.$dirty">
-                    <div class="error" v-if="!$v.user.birthdate.required">Field is required</div>
+                <input type="text" placeholder="Fecha de nacimiento" onfocus = "(this.type='date')" v-model.trim="user.birthday" class="form-control" id="birthday">
+                <div v-if="$v.user.birthday.$dirty">
+                    <div class="error text-warning" v-if="!$v.user.birthday.required">Campo requerido</div>
                 </div>
             </div>
             <div class="col-md-12">
                 <div class="row">
                     <h4 class="col-md-12 sub-title">Informacion de cuenta</h4>
                     <div class="col-md-6">
-                        <input type="email" v-model.trim="user.email" placeholder="Correo" class="form-control" id="inputEmail4">
+                        <input type="email" autocomplete="off" v-model.trim="user.email" placeholder="Correo" class="form-control" id="inputEmail4">
                         <div v-if="$v.user.email.$dirty">
-                            <div class="error" v-if="!$v.user.email.required">Field is required</div>
+                            <div class="error text-warning" v-if="!$v.user.email.required">Campo requerido</div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <input type="password" v-model.trim="user.password" placeholder="Contraseña" class="form-control" id="inputPassword4">
                         <div v-if="$v.user.password.$dirty">
-                            <div class="error" v-if="!$v.user.password.required">Field is required</div>
+                            <div class="error text-warning" v-if="!$v.user.password.required">Campo requerido</div>
                         </div>
                     </div>
                 </div>
@@ -67,36 +67,54 @@
 
             <div class="col-12">
                 <div class="form-check text-center">
-                    <input class="form-check-input" type="checkbox" v-model.trim="user.terms" id="gridCheck">
-                    <label class="form-check-label check-text" for="gridCheck">
+                    <input class="form-check-input" type="checkbox" v-model.trim="user.terms_conditions" id="gridCheck">
+                    <label class="form-check-label check-text font-weight-bold" for="gridCheck">
                         Aceptar los términos y condiciones de la promoción
                     </label>
+                    <div v-if="$v.user.terms_conditions.$dirty">
+                        <div class="error text-warning" v-if="!$v.user.terms_conditions">Debes aceptar los términos y condiciones</div>
+                    </div>
                 </div>
             </div>
             <div class="col-12 mt-5 text-center">
                 <button type="submit" class="btn btn-primary">Registrarse <i class="fas fa-arrow-right"></i></button>
             </div>
         </form>
+        <modal-component :title="notification.title" :subtitle="notification.subtitle" :message="notification.message" :type="notification.type" :options="notification.options" @continue="redirectTo"></modal-component>
     </div>
 </template>
 
 <script>
     import { validationMixin } from 'vuelidate';
-    import { required, minLength, between } from 'vuelidate/lib/validators'
+    import { required, minLength, between, sameAs } from 'vuelidate/lib/validators';
+    import ModalComponent from './ModalComponent';
     export default {
         mixins: [validationMixin],
+        components:{
+            ModalComponent
+        },
         data(){
             return {
+                cities: [],
+                notification: {
+                    title: null,
+                    subtitle: null,
+                    message: null,
+                    type: null,
+                    options: {
+
+                    }
+                },
                 user: {
                     name: null,
-                    last_name: null,
-                    cell_phone: null,
+                    lastname: null,
+                    phone: null,
                     aditional_phone: null,
-                    city: null,
-                    birthdate: null,
+                    city_id: '',
+                    birthday: null,
                     email: null,
                     password: null,
-                    terms: null
+                    terms_conditions: false
                 }
             }
         },
@@ -105,19 +123,19 @@
                 name: {
                     required
                 },
-                last_name: {
+                lastname: {
                     required
                 },
-                cell_phone: {
+                phone: {
                     required
                 },
                 aditional_phone: {
                     required
                 },
-                city: {
+                city_id: {
                     required
                 },
-                birthdate: {
+                birthday: {
                     required
                 },
                 email: {
@@ -126,26 +144,43 @@
                 password: {
                     required
                 },
-                terms: {
-                    required
+                terms_conditions: {
+                    sameAs: sameAs( () => true )
                 }
             }
         },
         mounted() {
-            this.getCities();
+            this.setCities();
         },
         methods:{
-            getCities() {
+            setCities() {
                 axios.get('/api/cities').then(response => {
-                    console.log(response.data)
+                    this.cities = response.data.data;
                 })
             },
             sendForm() {
-                this.isSubmitting = true;
-                this.$v.user.$touch();
-                if (this.$v.user.$invalid) {
-                    console.log('upss')
-                    return;
+                this.notification.type = 'error'
+                this.notification.title = "Hemos creado tu cuenta con exito!"
+                this.notification.message = "Se ha enviado un correo de confirmación al email que pusiste en el formulario"
+                $('#modal-message').modal('show')
+                // this.isSubmitting = true;
+                // this.$v.user.$touch();
+                // if (this.$v.user.$invalid) {
+                //     console.log('upss', this.$v.user.$invalid)
+                //     return;
+                // }
+
+                // axios.post('/api/register', this.user).then(response => {
+                //     this.notification.type = 'success'
+                //     this.notification.title = "Hemos creado tu cuenta con exito!"
+                //     this.notification.message = "Se ha enviado un correo de confirmación al email que pusiste en el formulario"
+                // }).catch(err => {
+
+                // })
+            },
+            redirectTo(url) {
+                if (url) {
+                    window.location.href = url;
                 }
             }
         }

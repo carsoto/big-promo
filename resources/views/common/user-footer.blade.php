@@ -15,6 +15,6 @@
     @endif
     <div class="terms">
         <a class="" href="#">Términos y condiciones</a>
-       | <a class="" href="#"><i class="fas fa-question-circle"></i> Preguntas frecuentes</a>
+       | <a class="" href="/fq"><i class="fas fa-question-circle"></i> Preguntas frecuentes</a>
     </div>
 </footer>

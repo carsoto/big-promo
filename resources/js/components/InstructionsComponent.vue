@@ -1,6 +1,6 @@
 <template>
     <div id="modal-instructions" data-backdrop="static" data-keyboard="false" class="modal fade">
-        <a href="#" @click="closeModal()" class="close-modal-btn p-3 float-right text-black"><i class="far fa-3x fa-times-circle"></i></a>
+        <a href="#" @click="closeModal()" class="close-modal-btn p-3 float-right text-danger"><i class="far fa-3x fa-times-circle"></i></a>
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="text-center">
                 <img width="300" src="/img/Slogan.png" alt="">
