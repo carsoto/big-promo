@@ -23,14 +23,14 @@ class AuthController extends Controller
             'lastname'                 => $request->lastname,
             'phone'                    => $request->phone,
             'aditional_phone'          => $request->aditional_phone,
-            'city_id'                  => $request->city,
+            'city_id'                  => $request->city_id,
             'birthday'                 => $request->birthday,
             'email'                    => $request->email,
             'password'                 => bcrypt($request->password),
             'terms_conditions'         => $request->terms_conditions,
             'confirmation_code'        => $confirmation_code
         ]);
-        
+
         $data = $request->toArray();
         $data['confirmation_code'] = $confirmation_code;
 
@@ -39,13 +39,13 @@ class AuthController extends Controller
             $message->to($data['email'], $user->fullName())->subject('Por favor confirma tu correo');
         });
 
-
-        //$token = $user->createToken('BigPromoToken')->accessToken;
-        //return response()->json(['user' => $user, 'token' => $token], 200);
-
-        return response()->json(['msg' => 'Se ha enviado un correo de confirmación'], 200);
+        return response()->json([
+            'success' => true,
+            'message' => 'Se ha enviado un correo de confirmación al email que pusiste en el formulario',
+            'data'    => []
+        ], 200);
     }
- 
+
     /**
      * Login
      */
@@ -55,18 +55,41 @@ class AuthController extends Controller
             'email' => $request->email,
             'password' => $request->password
         ];
-        
+
         if (auth()->attempt($data)) {
             $token = auth()->user()->createToken('BigPromoToken')->accessToken;
-            return response()->json(['user' => auth()->user(), 'token' => $token], 200);
+
+            if(auth()->user()->confirmed) {
+                return response()->json([
+                    'success' => true,
+                    'message' => 'Ha iniciado sesión exitosamente',
+                    'data'    => auth()->user(),
+                ], 200);
+            } 
+            else {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Debe confirmar su correo antes de iniciar sesión',
+                    'data'    => [],
+                ], 200);
+            }
+            
         } else {
-            return response()->json(['error' => 'Unauthorized'], 401);
+            return response()->json([
+                'success' => false,
+                'message' => 'Usuario no autorizado',
+                'data'    => [],
+            ], 401);
         }
-    } 
+    }
 
     public function logout(){
         $user = auth()->user()->token();
         $user->revoke();
-        return response()->json(['msg' => 'Logged out'], 200);
+        return response()->json([
+            'success' => true,
+            'message' => 'Ha cerrado sesión',
+            'data'    => auth()->user(),
+        ], 200);
     }
 }

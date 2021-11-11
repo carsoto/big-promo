@@ -2,22 +2,26 @@
     <div class='logo'>
         <img src="{{ asset('img/logo.png') }}" alt="">
     </div>
-    @if(!in_array(request()->routeIs('user.home'), ['home', 'register', 'login']))
+    @if(!in_array(request()->routeIs('user.home'), ['home', 'u/register', 'u/login']))
     <div class="slogan pt-2">
-        <img src="{{ asset('img/Slogan.png') }}" alt="">
+        <a href="/"><img src="{{ asset('img/Slogan.png') }}" alt=""></a>
     </div>
     @endif
     <nav>
-        @if(true)
-        <a class="sign-in" href="#"><i class="far fa-user"></i> Iniciar session</a>
+        @if(auth()->user() == null)
+        <a class="sign-in" href="/u/login"><i class="far fa-user"></i> Iniciar Sesión</a>
         @else
-        <a class="sign-out" href="#"><i class="far fa-user"></i> Cerrar session</a>
+        <label style="color: white"><strong>Hola, {{ auth()->user()->fullName() }}</strong></label>
+        <a class="sign-out" href="#" onclick="document.getElementById('logout-form').submit();"><i class="far fa-user"></i> Cerrar Sesión</a>
+        <form id="logout-form" action="/logout" method="POST">
+            {{ csrf_field() }}
+        </form>
         @endif
         <div class="nav-options">
-            @if(false)
-            <a href="#">Canjear</a>
-            <a href="#">Mis suenos</a>
-            <a href="#">Historial</a>
+            @if(auth()->user())
+            <a href="/u/exchange">Canjear</a>
+            <a href="/u/videos-galery">Mis sueños</a>
+            <a href="/u/history">Historial</a>
             @else
             <a href="#" data-toggle="modal" data-target="#modal-instructions" >Instrucciones</a>
             @endif

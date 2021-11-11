@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Province;
 use App\Models\Canton;
 use App\Models\Parish;
+use App\Models\User;
 
 class GeneralController extends Controller
 {
@@ -48,5 +49,32 @@ class GeneralController extends Controller
             'success' => true,
             'data' => $data
         ], 200);
+    }
+
+    public function verify($code)
+    {
+        $user = User::where('confirmation_code', $code)->first();
+        
+        if (!$user)
+            return redirect('/user-not-found');
+
+        $user->confirmed = true;
+        $user->confirmation_code = null;
+        $user->save();
+        
+        if(auth()->user() != null){
+            $user_logged = auth()->user()->token();
+            if($user_logged) {
+                $user->revoke();
+            }    
+        }
+        
+        if (auth()->loginUsingId($user->id)) {
+            $token = auth()->user()->createToken('BigPromoToken')->accessToken;
+            return redirect()->route('user.exchange');
+            //return response()->json(['user' => auth()->user(), 'token' => $token, 'msg' => 'Haz confirmado correctamente tu correo!'], 200);
+        } else {
+            return response()->json(['error' => 'Unauthorized'], 401);
+        }
     }
 }

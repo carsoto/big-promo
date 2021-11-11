@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <h2 class="text-center p-3">Galeria de suenos</h2>
+        <h2 class="text-center p-3">Galería de sueños</h2>
         <carousel
             :scrollPerPage="true"
             :perPageCustom="[
@@ -9,50 +9,41 @@
             ]"
         >
             <slide class="p-3"
-                ><img
-                    src="https://picsum.photos/300/300/"
-                    style="width: 300px; max-width: 100%;"
-            /></slide>
+                ><video width="100%" height="300" controls>
+                    <source :src="selectedVideo" type="video/mp4" /></video
+            ></slide>
             <slide class="p-3"
-                ><img
-                    src="https://picsum.photos/300/300/"
-                    style="width: 300px; max-width: 100%;"
-            /></slide>
+                ><video width="100%" height="300" controls>
+                    <source :src="selectedVideo" type="video/mp4" /></video
+            ></slide>
             <slide class="p-3"
-                ><img
-                    src="https://picsum.photos/300/300/"
-                    style="width: 300px; max-width: 100%;"
-            /></slide>
+                ><video width="100%" height="300" controls>
+                    <source :src="selectedVideo" type="video/mp4" /></video
+            ></slide>
             <slide class="p-3"
-                ><img
-                    src="https://picsum.photos/300/300/"
-                    style="width: 300px; max-width: 100%;"
-            /></slide>
+                ><video width="100%" height="300" controls>
+                    <source :src="selectedVideo" type="video/mp4" /></video
+            ></slide>
             <slide class="p-3"
-                ><img
-                    src="https://picsum.photos/300/300/"
-                    style="width: 300px; max-width: 100%;"
-            /></slide>
+                ><video width="100%" height="300" controls>
+                    <source :src="selectedVideo" type="video/mp4" /></video
+            ></slide>
             <slide class="p-3"
-                ><img
-                    src="https://picsum.photos/300/300/"
-                    style="width: 300px; max-width: 100%;"
-            /></slide>
+                ><video width="100%" height="300" controls>
+                    <source :src="selectedVideo" type="video/mp4" /></video
+            ></slide>
             <slide class="p-3"
-                ><img
-                    src="https://picsum.photos/300/300/"
-                    style="width: 300px; max-width: 100%;"
-            /></slide>
+                ><video width="100%" height="300" controls>
+                    <source :src="selectedVideo" type="video/mp4" /></video
+            ></slide>
             <slide class="p-3"
-                ><img
-                    src="https://picsum.photos/300/300/"
-                    style="width: 300px; max-width: 100%;"
-            /></slide>
+                ><video width="100%" height="300" controls>
+                    <source :src="selectedVideo" type="video/mp4" /></video
+            ></slide>
             <slide class="p-3"
-                ><img
-                    src="https://picsum.photos/300/300/"
-                    style="width: 300px; max-width: 100%;"
-            /></slide>
+                ><video width="100%" height="300" controls>
+                    <source :src="selectedVideo" type="video/mp4" /></video
+            ></slide>
         </carousel>
 
         <video-show-component :videoSrc="selectedVideo"></video-show-component>
