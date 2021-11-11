@@ -81,6 +81,70 @@
         }
     }
 
+    .bot-presentation{
+        img{
+            filter: grayscale(100%);
+            transition: 0.8s;
+        }
+        &:hover{
+            img{
+                filter: grayscale(0%);
+                transition: 0.8s;
+            }
+        }
+        &.active {
+            img{
+                filter: grayscale(0%);
+                transition: 0.8s;
+            }
+        }
+    }
+
+    .frecuency-questions {
+        .container-accordion{
+            height: 450px;
+            overflow-y: scroll;
+            padding: 20px;
+            .accordion{
+                .card{
+                    background: none;
+                    border: none;
+                    .card-header {
+                        border: 2px solid white;
+                        background:none;
+                        color:white;
+                        font-weight: bold;
+                        h2 {
+                            button{
+                                &:focus{
+                                    border: none;
+                                    color:white;
+                                    text-decoration: none;
+                                    box-shadow: none;
+                                }
+                                &:hover{
+                                    color:white;
+                                    text-decoration: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .thead-yellow{
+        background-color: #FEDD31;
+        font-weight: bold;
+        border: none;
+        tr{
+            th{
+                border:none;
+            }
+        }
+    }
+
     footer{
         width: 100%;
         padding: 15px;
@@ -165,6 +229,12 @@
         color:white;
         text-align: center;
     }
+    &:focus{
+        background: none;
+        box-shadow: none;
+        border: none;
+        border-bottom: 1px solid white;
+    }
 
 }
 
@@ -178,6 +248,38 @@
 
 #modal-video{
     background: radial-gradient(circle, #FEDD31 0%, #E0AB1D 100%);
+}
+
+.bg-black {
+    background-color: #000;
+}
+
+.text-yellow {
+    color: #FEDD31;
+}
+
+.text-black {
+    color: #000;
+}
+
+.btn-record-page {
+    width: 140px;
+    height: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #FEDD31;
+    border-radius: 50%;
+    a {
+        width: 130px;
+        height: 130px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #FEDD31;
+        border-radius: 50%;
+        font-weight: bold;
+    }
 }
 
 .btn-secondary{
@@ -204,7 +306,7 @@
     .fa-arrow-right{
         margin-left: 10px;
     }
-    &:hover{
+    &:hover, &:focus, &:active{
         background: none!important;
         border-color: #fff;
         transition: 0.5s;

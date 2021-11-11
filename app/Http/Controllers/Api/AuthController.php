@@ -23,14 +23,14 @@ class AuthController extends Controller
             'lastname'                 => $request->lastname,
             'phone'                    => $request->phone,
             'aditional_phone'          => $request->aditional_phone,
-            'city_id'                  => $request->city,
+            'city_id'                  => $request->city_id,
             'birthday'                 => $request->birthday,
             'email'                    => $request->email,
             'password'                 => bcrypt($request->password),
             'terms_conditions'         => $request->terms_conditions,
             'confirmation_code'        => $confirmation_code
         ]);
-        
+
         $data = $request->toArray();
         $data['confirmation_code'] = $confirmation_code;
 
@@ -45,7 +45,7 @@ class AuthController extends Controller
 
         return response()->json(['msg' => 'Se ha enviado un correo de confirmación'], 200);
     }
- 
+
     /**
      * Login
      */
@@ -55,14 +55,14 @@ class AuthController extends Controller
             'email' => $request->email,
             'password' => $request->password
         ];
-        
+
         if (auth()->attempt($data)) {
             $token = auth()->user()->createToken('BigPromoToken')->accessToken;
             return response()->json(['user' => auth()->user(), 'token' => $token], 200);
         } else {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
-    } 
+    }
 
     public function logout(){
         $user = auth()->user()->token();

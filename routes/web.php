@@ -16,10 +16,15 @@ use App\Http\Controllers\Auth\LoginController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/admin/', [LoginController::class, 'showLoginForm'])->name('home');
 
 Auth::routes(['verify' => true]);
 
 Route::get('/register/verify/{code}', [LoginController::class, 'verify']);
+
+Route::get('/user-not-found', function() {
+    return "<h2>USUARIO NO ENCONTRADO</h2>";
+});
 
 Route::get('/', function () {
     return view('user.home');
@@ -38,7 +43,7 @@ Route::prefix('u')->group(function () {
         return view('user.recorder');
     });
 
-    Route::get('/videos', function () {
+    Route::get('/videos-galery', function () {
         return view('user.videos');
     });
 
