@@ -17,7 +17,9 @@ use App\Http\Controllers\Api\GeneralController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/admin/', [LoginController::class, 'showLoginForm'])->name('home');
+Auth::routes();
+
+Route::get('/admin', [LoginController::class, 'showLoginForm'])->name('home');
 
 Auth::routes(['verify' => true]);
 

@@ -75,4 +75,9 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(UserExchange::class);
     }
+
+    public function user_dreams()
+    {
+        return $this->hasMany(UserDream::class);
+    }
 }

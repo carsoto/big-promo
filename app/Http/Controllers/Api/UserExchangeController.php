@@ -32,7 +32,8 @@ class UserExchangeController extends Controller
         $aditional = 0;
 
         if($aditional_points){
-            $aditional = $request->bot_presentation;
+            if($this->quote_aditional_points())
+                $aditional = $request->bot_presentation;
         }
 
         $user_exchange = UserExchange::create([
@@ -54,12 +55,15 @@ class UserExchangeController extends Controller
         $max_points = env('MAX_POINTS', 5000);
         
         if($accumulated > $max_points){
-
-            /*$data['accumulated'] = $rest_accumulated;
             
-            if($rest_accumulated == $max_points){
+            $dreams = auth()->user()->user_dreams()->count();
+            $points_used = $dreams * $max_points;
+            $dreams_points = $accumulated - $points_used;
+            $data['accumulated'] = $dreams_points;
+
+            if(floor($accumulated/$max_points) > $dreams){
                 $data['recorder'] = true;
-            }*/
+            }
         }
 
         return response()->json([
@@ -84,5 +88,14 @@ class UserExchangeController extends Controller
             'message' => '',
             'data'    => $data,
         ], 200);
+    }
+
+    private function quote_aditional_points(){
+        $quote = UserExchange::where('aditional_points', '>', 0)->get()->count();
+        $max_points_aditional = env('MAX_QUOTE', 1000000);
+        if($quote < $max_points_aditional){
+            return true;
+        }
+        return false;
     }
 }

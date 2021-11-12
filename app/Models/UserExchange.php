@@ -33,6 +33,8 @@ class UserExchange extends Model
         'deleted_at',
     ];
 
+    protected $appends = ['registered'];
+
     /**
      * The attributes that should be cast to native types.
      *
@@ -46,5 +48,10 @@ class UserExchange extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function getRegisteredAttribute()
+    {
+        return $this->created_at->format('d-m-Y');
     }
 }
