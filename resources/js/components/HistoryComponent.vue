@@ -31,6 +31,9 @@
         },
         mounted() {
             this.setHistory();
+            setTimeout(() => {
+                $('#modal-loading').modal('hide');
+            },800);
         },
         methods: {
             setHistory() {

@@ -61,13 +61,22 @@ export default {
     },
     data() {
         return {
+            videos: [],
             selectedVideo: "/videos/test.mp4"
         };
     },
     mounted() {
-        console.log("Component mounted.");
+        this.setVideos();
+        setTimeout(() => {
+            $('#modal-loading').modal('hide');
+        },800);
     },
     methods: {
+        setVideos() {
+            axios.get().then(respose => {
+
+            });
+        },
         buildSlideMarkup(count) {
             let slideMarkup = "";
             for (var i = 1; i <= count; i++) {

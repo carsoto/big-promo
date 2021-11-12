@@ -14,43 +14,45 @@
             </div>
 
             <div
-                class="col-md-8 m-2 pt-3 d-flex align-items-center justify-content-between"
+                class="col-md-8 m-2 pt-3 d-flex align-items-end justify-content-between"
             >
                 <a
                     href="#"
                     @click="selectPresentation('300')"
                     ref="300"
-                    class="bot-presentation"
-                    ><img src="/img/1.svg" alt=""
-                /></a>
+                    class="bot-presentation d-flex justify-content-center flex-column align-items-center"
+                    >
+                    <img src="/img/1.svg" alt=""/>
+                    <label for="" class="font-weight-bold text-white">300 ml</label>
+                </a>
                 <a
                     href="#"
                     @click="selectPresentation('911')"
                     ref="911"
-                    class="bot-presentation"
+                    class="bot-presentation d-flex justify-content-center flex-column align-items-center"
                     ><img src="/img/2.svg" alt=""
-                /></a>
+                /><label for="" class="font-weight-bold text-white">911 ml</label></a>
                 <a
                     href="#"
                     @click="selectPresentation('1800')"
                     ref="1800"
-                    class="bot-presentation"
+                    class="bot-presentation d-flex justify-content-center flex-column align-items-center"
                     ><img src="/img/3.svg" alt=""
-                /></a>
+                /><label for="" class="font-weight-bold text-white">1800 ml</label></a>
                 <a
                     href="#"
                     @click="selectPresentation('2250')"
                     ref="2250"
-                    class="bot-presentation"
+                    class="bot-presentation d-flex justify-content-center flex-column align-items-center"
                     ><img src="/img/4.svg" alt=""
-                /></a>
+                /><label for="" class="font-weight-bold text-white">2250 ml</label></a>
                 <a
                     href="#"
                     @click="selectPresentation('3050')"
                     ref="3050"
-                    class="bot-presentation"
+                    class="bot-presentation d-flex justify-content-center flex-column align-items-center"
                     ><img src="/img/5.svg" alt=""
-                /></a>
+                /><label for="" class="font-weight-bold text-white">3050 ml</label></a>
             </div>
             <div
                 class="col-md-8 m-2 pt-3 d-flex flex-column align-items-center justify-content-center"
@@ -129,7 +131,9 @@ export default {
         };
     },
     mounted() {
-        console.log("Component mounted.");
+        setTimeout(() => {
+            $('#modal-loading').modal('hide');
+        },800)
     },
     methods: {
         selectPresentation(p) {

@@ -204,7 +204,32 @@
 <script>
     export default {
         mounted() {
-            console.log('Component mounted.')
+            setTimeout(() => {
+                $('#modal-loading').modal('hide');
+            },800)
         }
     }
 </script>
+
+<style scoped>
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(165, 0, 0);
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #b30000;
+}
+</style>

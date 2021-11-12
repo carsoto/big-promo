@@ -265,6 +265,9 @@ export default {
     },
     mounted() {
         this.setCities();
+        setTimeout(() => {
+            $('#modal-loading').modal('hide');
+        },800)
     },
     methods: {
         setCities() {

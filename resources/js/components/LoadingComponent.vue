@@ -2,7 +2,7 @@
     <div id="modal-loading" data-backdrop="static" data-keyboard="false" class="modal fade modal-loading">
         <div class="modal-dialog modal-dialog-centered d-flex justify-content-center">
             <div class="d-flex justify-content-center">
-                <div class="spinner-border" role="status">
+                <div class="spinner-border text-yellow" role="status">
                     <span class="sr-only">Loading...</span>
                 </div>
             </div>
@@ -13,8 +13,10 @@
 <script>
     export default {
         mounted() {
-            // var myModal = $('#modal-loading').modal('show');
-        }
+            if (this.active)
+                $('#modal-loading').modal('show');
+        },
+        props: ['active']
     }
 </script>
 <style scoped>

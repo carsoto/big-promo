@@ -19,11 +19,11 @@
         @endif
         <div class="nav-options">
             @if(auth()->user())
-            <a href="/u/exchange">Canjear</a>
-            <a href="/u/videos-galery">Mis sueños</a>
-            <a href="/u/history">Historial</a>
+            <a class="rounded" href="/u/exchange">Canjear</a>
+            <a class="rounded" href="/u/videos-galery">Mis sueños</a>
+            <a class="rounded" href="/u/history">Historial</a>
             @else
-            <a href="#" data-toggle="modal" data-target="#modal-instructions" >Instrucciones</a>
+            <a class="rounded" href="#" data-toggle="modal" data-target="#modal-instructions" >Instrucciones</a>
             @endif
         </div>
     </nav>

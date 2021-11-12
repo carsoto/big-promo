@@ -94,7 +94,9 @@ export default {
         }
     },
     mounted() {
-        console.log("Component mounted.");
+        setTimeout(() => {
+            $('#modal-loading').modal('hide');
+        },800);
     },
     methods: {
         sendForm() {

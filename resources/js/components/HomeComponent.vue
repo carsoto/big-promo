@@ -30,7 +30,9 @@ export default {
         VideoShowComponent
     },
     mounted() {
-        console.log("Component mounted.");
+        setTimeout(() => {
+            $('#modal-loading').modal('hide');
+        },800);
     }
 };
 </script>

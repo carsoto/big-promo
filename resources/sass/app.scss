@@ -87,12 +87,14 @@
             transition: 0.8s;
         }
         &:hover{
+            text-decoration: none;
             img{
                 filter: grayscale(0%);
                 transition: 0.8s;
             }
         }
         &.active {
+            text-decoration: none;
             img{
                 filter: grayscale(0%);
                 transition: 0.8s;
@@ -116,6 +118,7 @@
                         font-weight: bold;
                         h2 {
                             button{
+                                font-size: 20px;
                                 &:focus{
                                     border: none;
                                     color:white;
@@ -128,6 +131,10 @@
                                 }
                             }
                         }
+                    }
+                    .card-body{
+                        color: #fff;
+                        font-size: 18px;
                     }
                 }
             }

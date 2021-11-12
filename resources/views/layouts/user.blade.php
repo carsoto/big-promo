@@ -22,11 +22,11 @@
 </head>
 <body>
     <div id="app">
+        <loading-component :active="true"></loading-component>
         @include('common.user-nav')
         @yield('content')
         @include('common.user-footer')
         <instructions-component></instructions-component>
-        <loading-component></loading-component>
     </div>
 </body>
 </html>
