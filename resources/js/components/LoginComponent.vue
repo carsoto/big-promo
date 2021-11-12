@@ -66,37 +66,37 @@ import ModalComponent from "./ModalComponent";
 export default {
     mixins: [validationMixin],
     components: {
-        ModalComponent
+        ModalComponent,
     },
     data() {
         return {
             user: {
                 email: null,
-                password: null
+                password: null,
             },
             notification: {
                 title: null,
                 subtitle: null,
                 message: null,
                 type: null,
-                options: {}
-            }
+                options: {},
+            },
         };
     },
     validations: {
         user: {
             email: {
-                required
+                required,
             },
             password: {
-                required
-            }
-        }
+                required,
+            },
+        },
     },
     mounted() {
         setTimeout(() => {
-            $('#modal-loading').modal('hide');
-        },800);
+            $("#modal-loading").modal("hide");
+        }, 800);
     },
     methods: {
         sendForm() {
@@ -108,8 +108,8 @@ export default {
             }
 
             axios
-                .post("/api/login", this.user)
-                .then(response => {
+                .post("/login-promo", this.user)
+                .then((response) => {
                     if (response.data.success) {
                         this.redirectTo("exchange");
                     } else {
@@ -119,7 +119,7 @@ export default {
                         $("#modal-message").modal("show");
                     }
                 })
-                .catch(err => {
+                .catch((err) => {
                     this.notification.type = "error";
                     this.notification.title = "Ha ocurrido un error!";
                     this.notification.message = err.response.data.message;
@@ -130,7 +130,7 @@ export default {
             if (url) {
                 window.location.href = url;
             }
-        }
-    }
+        },
+    },
 };
 </script>

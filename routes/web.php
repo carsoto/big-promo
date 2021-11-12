@@ -36,6 +36,7 @@ Route::get('/', function () {
     return view('user.home');
 })->name('user.home');
 
+Route::post('login-promo', [LoginController::class, 'login_promo'])->name('login.promo');
 Route::prefix('u')->group(function () {
     Route::get('/login', [UserFront::class, 'login']);
 
