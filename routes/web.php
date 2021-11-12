@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Api\GeneralController;
+use App\Http\Controllers\UserController as UserFront;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,31 +33,17 @@ Route::get('/', function () {
 })->name('user.home');
 
 Route::prefix('u')->group(function () {
-    Route::get('/login', function () {
-        return view('user.auth.login');
-    });
+    Route::get('/login', [UserFront::class, 'login']);
 
-    Route::get('/register', function () {
-        return view('user.auth.register');
-    });
+    Route::get('/register', [UserFront::class, 'register']);
 
-    Route::get('/recorder', function () {
-        return view('user.recorder');
-    });
+    Route::get('/recorder', [UserFront::class, 'recorder']);
 
-    Route::get('/videos-galery', function () {
-        return view('user.videos');
-    });
+    Route::get('/videos-galery', [UserFront::class, 'videosGalery']);
 
-    Route::get('/exchange', function () {
-        return view('user.exchange');
-    })->name('user.exchange');
+    Route::get('/exchange', [UserFront::class, 'exchange'])->name('user.exchange');
 
-    Route::get('/fq', function () {
-        return view('user.fq');
-    });
+    Route::get('/history', [UserFront::class, 'history']);
 
-    Route::get('/history', function () {
-        return view('user.history');
-    });
+    Route::get('/fq', [UserFront::class, 'fq']);
 });

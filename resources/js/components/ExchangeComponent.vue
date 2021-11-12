@@ -1,8 +1,8 @@
 <template>
     <div
-        class="container d-flex flex-column align-items-center justify-content-center"
+        class="container"
     >
-        <div class="content-exchange" v-if="true">
+        <div class="content-exchange d-flex flex-column align-items-center justify-content-center" v-if="true">
             <div
                 class="rounded col-md-9 m-2 text-white bg-black dialog-exchange"
             >
@@ -18,36 +18,36 @@
             >
                 <a
                     href="#"
-                    @click="selectPresentation('p-1')"
-                    ref="p-1"
+                    @click="selectPresentation('300')"
+                    ref="300"
                     class="bot-presentation"
                     ><img src="/img/1.svg" alt=""
                 /></a>
                 <a
                     href="#"
-                    @click="selectPresentation('p-2')"
-                    ref="p-2"
+                    @click="selectPresentation('911')"
+                    ref="911"
                     class="bot-presentation"
                     ><img src="/img/2.svg" alt=""
                 /></a>
                 <a
                     href="#"
-                    @click="selectPresentation('p-3')"
-                    ref="p-3"
+                    @click="selectPresentation('1800')"
+                    ref="1800"
                     class="bot-presentation"
                     ><img src="/img/3.svg" alt=""
                 /></a>
                 <a
                     href="#"
-                    @click="selectPresentation('p-4')"
-                    ref="p-4"
+                    @click="selectPresentation('2250')"
+                    ref="2250"
                     class="bot-presentation"
                     ><img src="/img/4.svg" alt=""
                 /></a>
                 <a
                     href="#"
-                    @click="selectPresentation('p-5')"
-                    ref="p-5"
+                    @click="selectPresentation('3050')"
+                    ref="3050"
                     class="bot-presentation"
                     ><img src="/img/5.svg" alt=""
                 /></a>
@@ -85,7 +85,7 @@
             ></modal-component>
         </div>
 
-        <div v-else class="content-suficient-points">
+        <div v-else class="content-suficient-points d-flex flex-column align-items-center justify-content-center">
             <div
                 class="rounded col-md-9 m-2 text-white bg-black dialog-exchange"
             >
@@ -118,6 +118,7 @@ export default {
     data() {
         return {
             code: null,
+            bot_presentation: null,
             notification: {
                 title: "",
                 subtitle: "",
@@ -137,33 +138,37 @@ export default {
                 elements[0].classList.remove("active");
             }
             this.$refs[p].classList.add("active");
+
+            this.bot_presentation = p;
         },
         sendCode() {
-            //Exchange Success
-            // this.notification.type = 'success-exchange';
-            // this.notification.title = '¡TU BIG HA SIDO CANJEADA!';
-            // this.notification.subtitle = 'Sigue acumulando PUNTOS para que puedas grabar tu SUEÑO.'
-            // $('#modal-message').modal('show');
-
-            //Success Exchange x2
-            this.notification.type = "success-exchange-x2";
-            this.notification.title = "¡FELICIDADES SOÑADOR!";
-            this.notification.subtitle =
-                "TU BIG HA SIDO PREMIADA con el DOBLE de PUNTOS.";
-            $("#modal-message").modal("show");
-
-            //Error
-            // this.notification.type = 'error';
-            // this.notification.title = 'INTENTA DE NUEVO';
-            // this.notification.message = 'Revisa tu código y registra correctamente el litraje de tu botella BIG o el código en la tapa amarilla.'
-            //  $('#modal-message').modal('show');
-            // if (code) {
-            //     axios.post('/exchange', code).then(response => {
-
-            //     }).catch(err => {
-
-            //     })
-            // }
+            if (this.code && this.bot_presentation) {
+                axios.post('/api/exchange', {code: this.code, bot_presentation: this.bot_presentation}).then(response => {
+                    if (response.data.success) {
+                        if (response.data.data.aditional_points > 0) {
+                            this.notification.type = "success-exchange-x2";
+                            this.notification.title = "¡FELICIDADES SOÑADOR!";
+                            this.notification.subtitle = "TU BIG HA SIDO PREMIADA con el DOBLE de PUNTOS.";
+                            $("#modal-message").modal("show");
+                        } else {
+                            this.notification.type = 'success-exchange';
+                            this.notification.title = '¡TU BIG HA SIDO CANJEADA!';
+                            this.notification.subtitle = 'Sigue acumulando PUNTOS para que puedas grabar tu SUEÑO.'
+                            $('#modal-message').modal('show');
+                        }
+                    } else {
+                        this.notification.type = 'error';
+                        this.notification.title = 'INTENTA DE NUEVO';
+                        this.notification.message = 'Revisa tu código y registra correctamente el litraje de tu botella BIG o el código en la tapa amarilla.'
+                         $('#modal-message').modal('show');
+                    }
+                }).catch(err => {
+                    this.notification.type = 'error';
+                    this.notification.title = 'INTENTA DE NUEVO';
+                    this.notification.message = 'Revisa tu código y registra correctamente el litraje de tu botella BIG o el código en la tapa amarilla.'
+                     $('#modal-message').modal('show');
+                })
+            }
         },
         redirectTo(url) {
             if (url) {

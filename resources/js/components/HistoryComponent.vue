@@ -11,23 +11,11 @@
                 </tr>
             </thead>
             <tbody class="text-white font-weight-bold">
-                <tr>
-                <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
+                <tr v-bind:key="index" v-for="(item, index) in history">
+                    <th scope="row">{{item.code}}</th>
+                    <td>{{item.registered}}</td>
+                    <td>{{item.points}}</td>
+                    <td>{{item.aditional_points}}</td>
                 </tr>
             </tbody>
         </table>
@@ -36,8 +24,20 @@
 
 <script>
     export default {
+        data() {
+            return {
+                history: []
+            }
+        },
         mounted() {
-            console.log('Component mounted.')
+            this.setHistory();
+        },
+        methods: {
+            setHistory() {
+                axios.get('api/exchange/history').then(response => {
+                    this.history = response.data.data;
+                });
+            }
         }
     }
 </script>

@@ -8,7 +8,7 @@
     </div>
     @endif
     <nav>
-        @if(auth()->user() == null)
+        @if(!auth()->check())
         <a class="sign-in" href="/u/login"><i class="far fa-user"></i> Iniciar Sesión</a>
         @else
         <label style="color: white"><strong>Hola, {{ auth()->user()->fullName() }}</strong></label>

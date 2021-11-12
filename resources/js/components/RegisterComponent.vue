@@ -109,6 +109,7 @@
                     onfocus="(this.type='date')"
                     v-model.trim="user.birthday"
                     class="form-control"
+                    max='2002-01-01'
                     id="birthday"
                 />
                 <div v-if="$v.user.birthday.$dirty">
@@ -279,6 +280,8 @@ export default {
                 return;
             }
 
+            $('#modal-loading').modal('show');
+
             axios
                 .post("/api/register", this.user)
                 .then(response => {
@@ -287,12 +290,14 @@ export default {
                         "Hemos creado tu cuenta con éxito!";
                     this.notification.message = response.data.message;
                     $("#modal-message").modal("show");
+                    $('#modal-loading').modal('hide');
                 })
                 .catch(err => {
                     this.notification.type = "error";
                     this.notification.title = "Ha ocurrido un error!";
                     this.notification.message = err.response.data.message;
                     $("#modal-message").modal("show");
+                    $('#modal-loading').modal('hide');
                 });
         },
         redirectTo(url) {

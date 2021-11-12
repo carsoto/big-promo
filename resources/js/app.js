@@ -27,6 +27,7 @@ Vue.component('videos-component', require('./components/VideosComponent.vue').de
 Vue.component('videos-show-component', require('./components/VideoShowComponent.vue').default);
 Vue.component('exchange-component', require('./components/ExchangeComponent.vue').default);
 Vue.component('modal-component', require('./components/ModalComponent.vue').default);
+Vue.component('loading-component', require('./components/LoadingComponent.vue').default);
 Vue.component('instructions-component', require('./components/InstructionsComponent.vue').default);
 Vue.component('history-component', require('./components/HistoryComponent.vue').default);
 Vue.component('fq-component', require('./components/FQComponent.vue').default);

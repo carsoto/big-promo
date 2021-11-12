@@ -41,6 +41,8 @@
                 $('#modal-message').modal('hide');
                 if (this.type === 'success') {
                     this.$emit('continue', '/');
+                } else if (this.type === 'success-exchange' || this.type === 'success-exchange-x2') {
+                    this.$emit('continue', '/u/exchange');
                 }
             }
         }

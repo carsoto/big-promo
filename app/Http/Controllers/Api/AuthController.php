@@ -65,7 +65,7 @@ class AuthController extends Controller
                     'message' => 'Ha iniciado sesión exitosamente',
                     'data'    => auth()->user(),
                 ], 200);
-            } 
+            }
             else {
                 return response()->json([
                     'success' => false,
@@ -73,7 +73,7 @@ class AuthController extends Controller
                     'data'    => [],
                 ], 200);
             }
-            
+
         } else {
             return response()->json([
                 'success' => false,
