@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Api\GeneralController;
+use App\Http\Controllers\CodeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,8 @@ use App\Http\Controllers\Api\GeneralController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Auth::routes();
+Route::post('file-import', [CodeController::class, 'codeImport'])->name('file-import');
+Route::get('code-import', [CodeController::class, 'index']);
 
 Route::get('/admin', [LoginController::class, 'showLoginForm'])->name('home');
 
