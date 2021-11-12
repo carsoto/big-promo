@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Api\GeneralController;
 use App\Http\Controllers\UserController as UserFront;
+use App\Http\Controllers\CodeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,10 @@ use App\Http\Controllers\UserController as UserFront;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/admin/', [LoginController::class, 'showLoginForm'])->name('home');
+Route::post('file-import', [CodeController::class, 'codeImport'])->name('file-import');
+Route::get('code-import', [CodeController::class, 'index']);
+
+Route::get('/admin', [LoginController::class, 'showLoginForm'])->name('home');
 
 Auth::routes(['verify' => true]);
 
