@@ -20,12 +20,12 @@
     }
     header{
         padding: 15px 40px;
-        display: flex;
-        flex-flow: nowrap row;
-        justify-content: space-between;
         .slogan {
             img{
                 width: 210px;
+                @media screen and (max-width: 420px) {
+                    width: 165px;
+                }
             }
         }
         nav{
@@ -33,7 +33,9 @@
             flex-flow: wrap column;
             justify-content: center;
             align-items: flex-end;
-
+            @media screen and (max-width: 420px) {
+                align-items: center;
+            }
             a{
                 color:#fff;
             }
@@ -56,6 +58,9 @@
         }
         .logo img{
             width: 80px;
+            @media screen and (max-width: 420px) {
+                width: 65px;
+            }
         }
     }
 
@@ -102,11 +107,28 @@
         }
     }
 
+    .dialog-exchange{
+        h5 {
+            @media screen and (max-width: 420px) {
+                font-size: .9rem;
+            }
+        }
+        img{
+            right: -58px;
+            top: -20px;
+            width: 106px;
+        }
+    }
+
     .frecuency-questions {
         .container-accordion{
             height: 450px;
             overflow-y: scroll;
             padding: 20px;
+            @media screen and (max-width: 420px) {
+                overflow-y: visible;
+                max-height: 400px;
+            }
             .accordion{
                 .card{
                     background: none;
@@ -116,6 +138,7 @@
                         background:none;
                         color:white;
                         font-weight: bold;
+                        border-radius: 0.25rem;
                         h2 {
                             button{
                                 font-size: 20px;
@@ -159,10 +182,6 @@
         width: 100%;
         .content-footer{
             padding: 15px;
-            display: flex;
-            flex-flow: row nowrap;
-            justify-content: space-between;
-            align-items: center;
             .socials{
                 .fab-icon-social {
                     margin: 5px 8px;
@@ -194,6 +213,9 @@
         form{
             width: 45%;
             margin: auto;
+            @media screen and (max-width: 420px) {
+                width: 100%;
+            }
         }
     }
 
@@ -268,6 +290,14 @@
 
 .bg-black {
     background-color: #000;
+}
+
+.container{
+    overflow-x: hidden;
+    @media screen and (max-width: 420px) {
+        max-height: 400px;
+        overflow-y: scroll;
+    }
 }
 
 .text-yellow {

@@ -1,5 +1,13 @@
 <footer>
-    <div class="col-12 content-footer">
+
+    <div class="col-12 content-footer d-flex flex-column flex-md-row justify-content-md-between align-items-center">
+        @if (request()->routeIs('user.home'))
+        <div class="video-example d-block d-sm-none mb-3">
+            <a href="#" data-toggle="modal" data-target="#modal-video" class="d-flex flex-column justify-content-center align-items-center">Ver video
+                <i class="far fa-2x fa-arrow-alt-circle-down"></i>
+            </a>
+        </div>
+        @endif
         <div class="socials">
             <a href="#"><i class="fab fab-icon-social fa-facebook-f"></i></a>
             <a href="#"><i class="fab fab-icon-social fa-instagram"></i></a>
@@ -8,7 +16,7 @@
             <a href="#"><i class="fab fab-icon-social fa-youtube"></i></a>
         </div>
         @if (request()->routeIs('user.home'))
-        <div class="video-example">
+        <div class="video-example d-none d-sm-block">
             <a href="#" data-toggle="modal" data-target="#modal-video" class="d-flex flex-column justify-content-center align-items-center">Ver video
                 <i class="far fa-2x fa-arrow-alt-circle-down"></i>
             </a>

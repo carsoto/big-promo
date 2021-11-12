@@ -2,9 +2,9 @@
     <div
         class="container"
     >
-        <div class="content-exchange d-flex flex-column align-items-center justify-content-center" v-if="true">
+        <div class="content-exchange d-flex flex-column align-items-center justify-content-center" v-if="false">
             <div
-                class="rounded col-md-9 m-2 text-white bg-black dialog-exchange"
+                class="rounded align-self-start align-self-md-center col-10 float-left col-md-9 m-2 text-white bg-black dialog-exchange"
             >
                 <h5 class="font-weight-bold p-3 m-0">
                     Selecciona tu presentación y registra el código de tu tapa
@@ -14,7 +14,7 @@
             </div>
 
             <div
-                class="col-md-8 m-2 pt-3 d-flex align-items-end justify-content-between"
+                class="col-md-8 m-2 pt-3 d-flex flex-column flex-md-row align-items-md-end align-items-center justify-content-between"
             >
                 <a
                     href="#"

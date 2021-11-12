@@ -4,44 +4,44 @@
         <carousel
             :scrollPerPage="true"
             :perPageCustom="[
-                [480, 2],
-                [768, 4]
+                [300, 1],
+                [768, 3]
             ]"
         >
             <slide class="p-3"
-                ><video width="100%" height="300" controls>
+                ><video width="100%" controls>
                     <source :src="selectedVideo" type="video/mp4" /></video
             ></slide>
             <slide class="p-3"
-                ><video width="100%" height="300" controls>
+                ><video width="100%" controls>
                     <source :src="selectedVideo" type="video/mp4" /></video
             ></slide>
             <slide class="p-3"
-                ><video width="100%" height="300" controls>
+                ><video width="100%" controls>
                     <source :src="selectedVideo" type="video/mp4" /></video
             ></slide>
             <slide class="p-3"
-                ><video width="100%" height="300" controls>
+                ><video width="100%" controls>
                     <source :src="selectedVideo" type="video/mp4" /></video
             ></slide>
             <slide class="p-3"
-                ><video width="100%" height="300" controls>
+                ><video width="100%" controls>
                     <source :src="selectedVideo" type="video/mp4" /></video
             ></slide>
             <slide class="p-3"
-                ><video width="100%" height="300" controls>
+                ><video width="100%" controls>
                     <source :src="selectedVideo" type="video/mp4" /></video
             ></slide>
             <slide class="p-3"
-                ><video width="100%" height="300" controls>
+                ><video width="100%" controls>
                     <source :src="selectedVideo" type="video/mp4" /></video
             ></slide>
             <slide class="p-3"
-                ><video width="100%" height="300" controls>
+                ><video width="100%" controls>
                     <source :src="selectedVideo" type="video/mp4" /></video
             ></slide>
             <slide class="p-3"
-                ><video width="100%" height="300" controls>
+                ><video width="100%" controls>
                     <source :src="selectedVideo" type="video/mp4" /></video
             ></slide>
         </carousel>

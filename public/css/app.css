@@ -10918,13 +10918,16 @@ a.text-dark:focus {
 
 #app header {
   padding: 15px 40px;
-  display: flex;
-  flex-flow: nowrap row;
-  justify-content: space-between;
 }
 
 #app header .slogan img {
   width: 210px;
+}
+
+@media screen and (max-width: 420px) {
+  #app header .slogan img {
+    width: 165px;
+  }
 }
 
 #app header nav {
@@ -10932,6 +10935,12 @@ a.text-dark:focus {
   flex-flow: wrap column;
   justify-content: center;
   align-items: flex-end;
+}
+
+@media screen and (max-width: 420px) {
+  #app header nav {
+    align-items: center;
+  }
 }
 
 #app header nav a {
@@ -10958,6 +10967,12 @@ a.text-dark:focus {
 
 #app header .logo img {
   width: 80px;
+}
+
+@media screen and (max-width: 420px) {
+  #app header .logo img {
+    width: 65px;
+  }
 }
 
 #app .main-banner .left-side {
@@ -11004,10 +11019,29 @@ a.text-dark:focus {
   transition: 0.8s;
 }
 
+@media screen and (max-width: 420px) {
+  #app .dialog-exchange h5 {
+    font-size: 0.9rem;
+  }
+}
+
+#app .dialog-exchange img {
+  right: -58px;
+  top: -20px;
+  width: 106px;
+}
+
 #app .frecuency-questions .container-accordion {
   height: 450px;
   overflow-y: scroll;
   padding: 20px;
+}
+
+@media screen and (max-width: 420px) {
+  #app .frecuency-questions .container-accordion {
+    overflow-y: visible;
+    max-height: 400px;
+  }
 }
 
 #app .frecuency-questions .container-accordion .accordion .card {
@@ -11020,6 +11054,7 @@ a.text-dark:focus {
   background: none;
   color: white;
   font-weight: bold;
+  border-radius: 0.25rem;
 }
 
 #app .frecuency-questions .container-accordion .accordion .card .card-header h2 button {
@@ -11062,10 +11097,6 @@ a.text-dark:focus {
 
 #app footer .content-footer {
   padding: 15px;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
 }
 
 #app footer .content-footer .socials .fab-icon-social {
@@ -11097,6 +11128,12 @@ a.text-dark:focus {
 #app .login-form form {
   width: 45%;
   margin: auto;
+}
+
+@media screen and (max-width: 420px) {
+  #app .login-form form {
+    width: 100%;
+  }
 }
 
 #app .register-form form input,
@@ -11201,6 +11238,17 @@ a.text-dark:focus {
 
 .bg-black {
   background-color: #000;
+}
+
+.container {
+  overflow-x: hidden;
+}
+
+@media screen and (max-width: 420px) {
+  .container {
+    max-height: 400px;
+    overflow-y: scroll;
+  }
 }
 
 .text-yellow {
