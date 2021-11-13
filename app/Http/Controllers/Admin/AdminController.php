@@ -30,7 +30,7 @@ class AdminController extends Controller
 
     public function usersIndex()
     {
-        $users = User::where('type', 'user')->get();
+        $users = User::where('is_admin', false)->get();
  
         return view('admin.users.index', ['users' => $users]);
     }
