@@ -38,9 +38,6 @@ export default {
     },
     mounted() {
         this.setVideos();
-        setTimeout(() => {
-            $("#modal-loading").modal("hide");
-        }, 800);
     },
     methods: {
         setVideos() {

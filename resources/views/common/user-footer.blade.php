@@ -23,7 +23,7 @@
         </div>
         @endif
         <div class="terms">
-            <a class="px-1" href="/pdf/bases.pdf">Términos y condiciones</a>
+            <a class="px-1" target="_blank" href="/pdf/bases.pdf">Términos y condiciones</a>
         | <a class="px-1"  href="/u/fq"><i class="fas fa-question-circle"></i> Preguntas frecuentes</a>
         </div>
     </div>

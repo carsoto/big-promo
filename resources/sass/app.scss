@@ -107,6 +107,33 @@
         }
     }
 
+    .table-fixed{
+        width: 100%;
+        //background-color: #f3f3f3;
+        tbody{
+            height:400px;
+            overflow-y:auto;
+            width: 100%;
+        }
+        thead,tbody,tr,td,th{
+          display:block;
+        }
+        tbody{
+          td{
+            float:left;
+          }
+        }
+        thead {
+          tr{
+            th{
+              float:left;
+             background-color: #FEDD31;
+             border-color:#FEDD31;
+            }
+          }
+        }
+      }
+
     .dialog-exchange{
         h5 {
             @media screen and (max-width: 420px) {

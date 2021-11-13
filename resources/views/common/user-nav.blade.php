@@ -4,18 +4,18 @@
         <div class='logo col-6 col-md-4'>
             <img src="{{ asset('img/logo.png') }}" alt="">
         </div>
-        
+
         <div class="slogan pt-2 col-6 col-md-4 text-center">
             <a href="/"><img src="{{ asset('img/Slogan.png') }}" alt=""></a>
         </div>
         <nav class="col-12 col-md-4">
-            @else
-            <div class='logo col-6 col-md-6'>
-                <img src="{{ asset('img/logo.png') }}" alt="">
-            </div>
-            <nav class="col-12 col-md-6 float-right">
+        @else
+        <div class='logo col-6 col-md-6'>
+            <img src="{{ asset('img/logo.png') }}" alt="">
+        </div>
+        <nav class="col-12 col-md-6 float-right">
         @endif
-        
+
             @if(!auth()->check())
             <a class="sign-in" href="/u/login"><i class="far fa-user"></i> Iniciar Sesión</a>
             @else

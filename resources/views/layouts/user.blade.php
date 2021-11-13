@@ -22,7 +22,7 @@
 </head>
 <body>
     <div id="app">
-        <loading-component :active="true"></loading-component>
+        <loading-component :active="false"></loading-component>
         @include('common.user-nav')
         @yield('content')
         @include('common.user-footer')

@@ -158,10 +158,6 @@ export default {
             // can be downloaded by the user, stored on server etc.
             console.log("finished recording: ", this.player.recordedData);
         });
-
-        setTimeout(() => {
-            $("#modal-loading").modal("hide");
-        }, 800);
     },
     methods: {
         startRecording() {
