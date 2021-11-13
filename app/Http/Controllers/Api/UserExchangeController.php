@@ -55,7 +55,6 @@ class UserExchangeController extends Controller
         $max_points = env('MAX_POINTS', 5000);
         
         if($accumulated > $max_points){
-            
             $dreams = auth()->user()->user_dreams()->count();
             $points_used = $dreams * $max_points;
             $dreams_points = $accumulated - $points_used;
@@ -65,6 +64,10 @@ class UserExchangeController extends Controller
                 $data['recorder'] = true;
             }
         }
+
+        $percent = ($data['accumulated'] * 100)/$max_points;
+        $percent < 100 ? $data['progress'] = round($percent, 0) : $data['progress'] = 100;
+        $data['max_points'] = $max_points;
 
         return response()->json([
             'success' => true,

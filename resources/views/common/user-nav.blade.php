@@ -1,14 +1,21 @@
 <header >
     <div class="row">
+        @if(!in_array(request()->routeIs('user.home'), ['home', 'u/register', 'u/login']))
         <div class='logo col-6 col-md-4'>
             <img src="{{ asset('img/logo.png') }}" alt="">
         </div>
-        @if(!in_array(request()->routeIs('user.home'), ['home', 'u/register', 'u/login']))
+        
         <div class="slogan pt-2 col-6 col-md-4 text-center">
             <a href="/"><img src="{{ asset('img/Slogan.png') }}" alt=""></a>
         </div>
-        @endif
         <nav class="col-12 col-md-4">
+            @else
+            <div class='logo col-6 col-md-6'>
+                <img src="{{ asset('img/logo.png') }}" alt="">
+            </div>
+            <nav class="col-12 col-md-6 float-right">
+        @endif
+        
             @if(!auth()->check())
             <a class="sign-in" href="/u/login"><i class="far fa-user"></i> Iniciar Sesión</a>
             @else
@@ -21,7 +28,7 @@
             <div class="nav-options">
                 @if(auth()->user())
                 <a class="rounded" href="/u/exchange">Canjear</a>
-                <a class="rounded" href="/u/videos-galery">Mis sueños</a>
+                <a class="rounded" href="/u/videos-gallery">Mis sueños</a>
                 <a class="rounded" href="/u/history">Historial</a>
                 @else
                 <a class="rounded" href="#" data-toggle="modal" data-target="#modal-instructions" >Instrucciones</a>

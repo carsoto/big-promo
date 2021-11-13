@@ -8,6 +8,9 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Api\GeneralController;
 use App\Http\Controllers\UserController as UserFront;
 use App\Http\Controllers\CodeController;
+use App\Http\Controllers\Api\UserController as UserApi;
+use App\Http\Controllers\Api\UserExchangeController;
+use App\Http\Controllers\Api\UserDreamController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +40,7 @@ Route::get('/', function () {
 })->name('user.home');
 
 Route::post('login-promo', [LoginController::class, 'login_promo'])->name('login.promo');
+
 Route::prefix('u')->group(function () {
     Route::get('/login', [UserFront::class, 'login']);
 
@@ -44,11 +48,20 @@ Route::prefix('u')->group(function () {
 
     Route::get('/recorder', [UserFront::class, 'recorder']);
 
-    Route::get('/videos-galery', [UserFront::class, 'videosGalery']);
+    Route::get('/videos-gallery', [UserFront::class, 'videosGallery']);
 
     Route::get('/exchange', [UserFront::class, 'exchange'])->name('user.exchange');
 
     Route::get('/history', [UserFront::class, 'history']);
 
     Route::get('/fq', [UserFront::class, 'fq']);
+});
+
+Route::middleware('auth')->prefix('api')->group(function () {
+    Route::post('logout', [AuthController::class, 'logout']);
+    Route::resource('users', UserApi::class, ['as' => 'api.users']);
+    Route::post('exchange', [UserExchangeController::class, 'store']);
+    Route::get('exchange/history', [UserExchangeController::class, 'show']);
+    Route::post('upload-dream', [UserDreamController::class, 'store']);
+    Route::get('dreams', [UserDreamController::class, 'show']);
 });

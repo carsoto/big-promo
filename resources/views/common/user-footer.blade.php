@@ -29,7 +29,7 @@
     </div>
     @if (request()->routeIs('user.exchange'))
     <div class="progress">
-        <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+        <div class="progress-bar" role="progressbar" style="width: {{ $data['progress'] }}%;" aria-valuenow="{{ $data['progress'] }}" aria-valuemin="0" aria-valuemax="{{ $data['max_points'] }}">{{ $data['progress'] }}%</div>
     </div>
     @endif
 </footer>

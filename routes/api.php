@@ -29,7 +29,7 @@ Route::post('login', [AuthController::class, 'login']);
 Route::get('political_division/{type?}', [GeneralController::class, 'political_division']);
 Route::get('cities', [GeneralController::class, 'cities']);
 
-Route::middleware('auth:api')->group(function () {
+Route::middleware('auth')->group(function () {
     Route::post('logout', [AuthController::class, 'logout']);
     Route::resource('users', UserController::class, ['as' => 'api.users']);
     Route::post('exchange', [UserExchangeController::class, 'store']);
