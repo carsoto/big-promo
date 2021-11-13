@@ -16,9 +16,7 @@ class UserDream extends Model
      */
     protected $fillable = [
         'user_id',
-        'path',
-        'dream',
-        'title'
+        'dream'
     ];
 
     /**

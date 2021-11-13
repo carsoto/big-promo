@@ -108,7 +108,14 @@ export default {
             }
 
             axios
-                .post("/login-promo", this.user)
+                .post("/login-promo", this.user, {
+                    headers: {
+                        "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
+                            "content"
+                        ),
+                    },
+                })
+
                 .then((response) => {
                     if (response.data.success) {
                         this.redirectTo("exchange");

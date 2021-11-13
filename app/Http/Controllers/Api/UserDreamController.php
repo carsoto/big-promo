@@ -13,14 +13,12 @@ class UserDreamController extends Controller
         $data = new UserDream;
         $data->user_id = auth()->user()->id;
 
-        if ($request->hasFile('dream'))
+        if ($request->hasFile('file'))
         {
-            $file = $request->file->store('public/documents');
+            $file = $request->file->store('public');
 
-            $dream = $request->file('dream')->store('videos', ['disk' => 'videos']);
-            $data->path = $dream;
-            $data->dream = $dream;
-            $data->title = $dream;
+            $dream = $request->file('file')->store('videos', ['disk' => 'videos']);
+            $data->dream = "/".$dream;
         }
 
         $data->save();
@@ -28,7 +26,7 @@ class UserDreamController extends Controller
         return response()->json([
             'success' => true,
             'message' => 'Sueño registrado exitosamente',
-            'data'    => $data,
+            'data'    => [],
         ], 200);
     }
 

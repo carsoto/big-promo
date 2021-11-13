@@ -58,7 +58,6 @@ Route::prefix('u')->group(function () {
 });
 
 Route::middleware('auth')->prefix('api')->group(function () {
-    Route::post('logout', [AuthController::class, 'logout']);
     Route::resource('users', UserApi::class, ['as' => 'api.users']);
     Route::post('exchange', [UserExchangeController::class, 'store']);
     Route::get('exchange/history', [UserExchangeController::class, 'show']);

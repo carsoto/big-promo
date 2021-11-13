@@ -67,7 +67,7 @@ return [
 
         'videos' => [
             'driver' => 'local',
-            'root'   => public_path() . '/videos'
+            'root'   => public_path()
          ]
 
     ],
