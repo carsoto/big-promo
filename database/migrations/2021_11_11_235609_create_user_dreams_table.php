@@ -16,8 +16,6 @@ class CreateUserDreamsTable extends Migration
         Schema::create('user_dreams', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
-            $table->string('path');
-            $table->string('title');
             $table->string('dream');
             $table->timestamps();
             $table->softDeletes();

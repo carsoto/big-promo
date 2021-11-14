@@ -13,7 +13,7 @@
                 </thead>
                 <tbody class="text-white font-weight-bold">
                     <tr v-bind:key="index" v-for="(item, index) in history">
-                        <th class="col-3">{{ item.code }}</th>
+                        <td class="col-3">{{ item.code }}</td>
                         <td class="col-3">{{ item.registered }}</td>
                         <td class="col-3">{{ item.points }}</td>
                         <td class="col-3">{{ item.aditional_points }}</td>
