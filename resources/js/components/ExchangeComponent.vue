@@ -36,9 +36,10 @@
                     m-2
                     pt-3
                     d-flex
-                    flex-column flex-md-row
-                    align-items-md-end align-items-center
+                    flex-row
+                    align-items-end
                     justify-content-between
+                    content-bot-presentation
                 "
             >
                 <a

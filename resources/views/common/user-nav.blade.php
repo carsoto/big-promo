@@ -25,13 +25,13 @@
                 {{ csrf_field() }}
             </form>
             @endif
-            <div class="nav-options">
+            <div class="nav-options d-flex flex-row">
                 @if(auth()->user())
-                <a class="rounded" href="/u/exchange">Canjear</a>
-                <a class="rounded" href="/u/videos-gallery">Mis sueños</a>
-                <a class="rounded" href="/u/history">Historial</a>
+                <a class="rounded m-1 p-2" href="/u/exchange">Canjear</a>
+                <a class="rounded m-1 p-2" href="/u/videos-gallery">Mis sueños</a>
+                <a class="rounded m-1 p-2" href="/u/history">Historial</a>
                 @else
-                <a class="rounded" href="#" data-toggle="modal" data-target="#modal-instructions" >Instrucciones</a>
+                <a class="rounded m-1 p-2" href="#" data-toggle="modal" data-target="#modal-instructions" >Instrucciones</a>
                 @endif
             </div>
         </nav>
