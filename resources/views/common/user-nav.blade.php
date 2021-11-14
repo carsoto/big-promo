@@ -6,7 +6,11 @@
         </div>
 
         <div class="slogan pt-2 col-6 col-md-4 text-center">
+            @if(auth()->user() == null)
             <a href="/"><img src="{{ asset('img/Slogan.png') }}" alt=""></a>
+            @else
+            <a href="/u/exchange"><img src="{{ asset('img/Slogan.png') }}" alt=""></a>
+            @endif
         </div>
         <nav class="col-12 col-md-4">
         @else
