@@ -85,24 +85,31 @@
             }
         }
     }
-
-    .bot-presentation{
-        img{
-            filter: grayscale(100%);
-            transition: 0.8s;
+    .content-bot-presentation{
+        @media screen and (max-width: 420px) {
+            overflow-x: scroll;
         }
-        &:hover{
-            text-decoration: none;
+        .bot-presentation{
             img{
-                filter: grayscale(0%);
+                filter: grayscale(100%);
                 transition: 0.8s;
             }
-        }
-        &.active {
-            text-decoration: none;
-            img{
-                filter: grayscale(0%);
-                transition: 0.8s;
+            label{
+                font-size: 18px;
+            }
+            &:hover{
+                text-decoration: none;
+                img{
+                    filter: grayscale(0%);
+                    transition: 0.8s;
+                }
+            }
+            &.active {
+                text-decoration: none;
+                img{
+                    filter: grayscale(0%);
+                    transition: 0.8s;
+                }
             }
         }
     }
@@ -229,8 +236,11 @@
         }
         .progress{
             border-radius: 0%;
+            height: 1.5rem;
             background-color: #FEDD31;
             .progress-bar{
+                font-size: 14px;
+                font-weight: bold;
                 background-color: #000;
             }
         }
@@ -322,7 +332,7 @@
 .container{
     overflow-x: hidden;
     @media screen and (max-width: 420px) {
-        max-height: 400px;
+        max-height: 420px;
         overflow-y: scroll;
     }
 }
