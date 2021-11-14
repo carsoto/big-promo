@@ -23,9 +23,6 @@
 
     <body>
         <div id="app">
-            <div class='logo'>
-                <img src="{{ asset('img/logo.png') }}" alt="">
-            </div>
             <h2>Hola {{ $name }} {{ $lastname }}, gracias por registrarte en <strong>BIG Promo</strong> !</h2>
             <p>Por favor confirma tu correo electrónico.</p>
             <p>Para ello simplemente debes hacer click en el siguiente enlace:</p>

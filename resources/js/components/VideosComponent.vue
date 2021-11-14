@@ -17,6 +17,10 @@
             ></slide>
         </carousel>
 
+        <h3 class="text-white text-lg-center p-5" v-show="this.videos.length === 0">
+            Aún no has grabado un sueño...
+        </h3>
+
         <video-show-component :videoSrc="selectedVideo"></video-show-component>
     </div>
 </template>
@@ -38,9 +42,6 @@ export default {
     },
     mounted() {
         this.setVideos();
-        setTimeout(() => {
-            $("#modal-loading").modal("hide");
-        }, 800);
     },
     methods: {
         setVideos() {

@@ -10,8 +10,8 @@
     >
         <div class="rounded col-md-9 m-2 text-white bg-black dialog-exchange">
             <h5 class="font-weight-bold p-3 m-0">
-                Recuerda: GRABAR TU SUEÑO EN 20 SEGUNDOS indicando… ¿CUÁL ES TU
-                SUEÑO y POR QUÉ DEBEMOS HACERLO REALIDAD?
+                <b>Recuerda:</b> GRABAR TU SUEÑO EN 20 SEGUNDOS indicando…
+                <b>¿CUÁL ES TU SUEÑO y POR QUÉ DEBEMOS HACERLO REALIDAD?</b>
             </h5>
         </div>
         <div class="col-md-8 d-flex flex-column justify-content-center">
@@ -158,10 +158,6 @@ export default {
             // can be downloaded by the user, stored on server etc.
             console.log("finished recording: ", this.player.recordedData);
         });
-
-        setTimeout(() => {
-            $("#modal-loading").modal("hide");
-        }, 800);
     },
     methods: {
         startRecording() {

@@ -9,11 +9,11 @@
         </div>
         @endif
         <div class="socials">
-            <a href="#"><i class="fab fab-icon-social fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fab-icon-social fa-instagram"></i></a>
-            <a href="#"><i class="fab fab-icon-social fa-twitter"></i></a>
+            <a target="_blank" href="https://www.facebook.com/RefrescoBigCola/?brand_redir=128701980519740"><i class="fab fab-icon-social fa-facebook-f"></i></a>
+            <a target="_blank" href="https://www.instagram.com/big_ecuador/"><i class="fab fab-icon-social fa-instagram"></i></a>
+            <!--<a href="#"><i class="fab fab-icon-social fa-twitter"></i></a>
             <a href="#"><i class="fab fab-icon-social fa-tiktok"></i></a>
-            <a href="#"><i class="fab fab-icon-social fa-youtube"></i></a>
+            <a href="#"><i class="fab fab-icon-social fa-youtube"></i></a>-->
         </div>
         @if (request()->routeIs('user.home'))
         <div class="video-example d-none d-sm-block">
@@ -23,7 +23,7 @@
         </div>
         @endif
         <div class="terms">
-            <a class="px-1" href="/pdf/bases.pdf">Términos y condiciones</a>
+            <a class="px-1" target="_blank" href="/pdf/bases.pdf">Términos y condiciones</a>
         | <a class="px-1"  href="/u/fq"><i class="fas fa-question-circle"></i> Preguntas frecuentes</a>
         </div>
     </div>

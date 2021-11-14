@@ -11055,27 +11055,65 @@ a.text-dark:focus {
   width: 450px;
 }
 
-#app .bot-presentation img {
+@media screen and (max-width: 420px) {
+  #app .content-bot-presentation {
+    overflow-x: scroll;
+  }
+}
+
+#app .content-bot-presentation .bot-presentation img {
   filter: grayscale(100%);
   transition: 0.8s;
 }
 
-#app .bot-presentation:hover {
+#app .content-bot-presentation .bot-presentation label {
+  font-size: 18px;
+}
+
+#app .content-bot-presentation .bot-presentation:hover {
   text-decoration: none;
 }
 
-#app .bot-presentation:hover img {
+#app .content-bot-presentation .bot-presentation:hover img {
   filter: grayscale(0%);
   transition: 0.8s;
 }
 
-#app .bot-presentation.active {
+#app .content-bot-presentation .bot-presentation.active {
   text-decoration: none;
 }
 
-#app .bot-presentation.active img {
+#app .content-bot-presentation .bot-presentation.active img {
   filter: grayscale(0%);
   transition: 0.8s;
+}
+
+#app .table-fixed {
+  width: 100%;
+}
+
+#app .table-fixed tbody {
+  height: 400px;
+  overflow-y: auto;
+  width: 100%;
+}
+
+#app .table-fixed thead,
+#app .table-fixed tbody,
+#app .table-fixed tr,
+#app .table-fixed td,
+#app .table-fixed th {
+  display: block;
+}
+
+#app .table-fixed tbody td {
+  float: left;
+}
+
+#app .table-fixed thead tr th {
+  float: left;
+  background-color: #FEDD31;
+  border-color: #FEDD31;
 }
 
 @media screen and (max-width: 420px) {
@@ -11177,10 +11215,13 @@ a.text-dark:focus {
 
 #app footer .progress {
   border-radius: 0%;
+  height: 1.5rem;
   background-color: #FEDD31;
 }
 
 #app footer .progress .progress-bar {
+  font-size: 14px;
+  font-weight: bold;
   background-color: #000;
 }
 
@@ -11305,7 +11346,7 @@ a.text-dark:focus {
 
 @media screen and (max-width: 420px) {
   .container {
-    max-height: 400px;
+    max-height: 420px;
     overflow-y: scroll;
   }
 }

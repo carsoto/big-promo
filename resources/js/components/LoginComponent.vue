@@ -94,9 +94,7 @@ export default {
         },
     },
     mounted() {
-        setTimeout(() => {
-            $("#modal-loading").modal("hide");
-        }, 800);
+        //
     },
     methods: {
         sendForm() {

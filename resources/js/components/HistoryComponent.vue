@@ -2,25 +2,25 @@
     <div class="container">
         <h2 class="text-center p-3">Mi historial de puntos</h2>
         <div class="table-responsive">
-            <table class="table" v-if="history.length > 0">
-                <thead class="thead-yellow rounded">
+            <table class="table table-fixed" v-if="history.length > 0">
+                <thead>
                     <tr>
-                        <th scope="col">Código</th>
-                        <th scope="col">Fecha</th>
-                        <th scope="col">Puntos</th>
-                        <th scope="col">Puntos Extra</th>
+                        <th class="col-3">Código</th>
+                        <th class="col-3">Fecha</th>
+                        <th class="col-3">Puntos</th>
+                        <th class="col-3">Puntos Extra</th>
                     </tr>
                 </thead>
-
                 <tbody class="text-white font-weight-bold">
                     <tr v-bind:key="index" v-for="(item, index) in history">
-                        <th scope="row">{{ item.code }}</th>
-                        <td>{{ item.registered }}</td>
-                        <td>{{ item.points }}</td>
-                        <td>{{ item.aditional_points }}</td>
+                        <td class="col-3">{{ item.code }}</td>
+                        <td class="col-3">{{ item.registered }}</td>
+                        <td class="col-3">{{ item.points }}</td>
+                        <td class="col-3">{{ item.aditional_points }}</td>
                     </tr>
                 </tbody>
             </table>
+
             <h3 class="text-white text-lg-center" v-else>
                 Aún no ha registrado ningún código corre a la tienda más cercana
                 y compra la BIG de tu preferencia
@@ -38,9 +38,6 @@ export default {
     },
     mounted() {
         this.setHistory();
-        setTimeout(() => {
-            $("#modal-loading").modal("hide");
-        }, 800);
     },
     methods: {
         setHistory() {
