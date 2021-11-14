@@ -7,7 +7,6 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Api\GeneralController;
 use App\Http\Controllers\UserController as UserFront;
-use App\Http\Controllers\CodeController;
 use App\Http\Controllers\Api\UserController as UserApi;
 use App\Http\Controllers\Api\UserExchangeController;
 use App\Http\Controllers\Api\UserDreamController;
@@ -22,9 +21,6 @@ use App\Http\Controllers\Api\UserDreamController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::post('file-import', [CodeController::class, 'codeImport'])->name('file-import');
-Route::get('code-import', [CodeController::class, 'index']);
-
 Route::get('/admin', [LoginController::class, 'showLoginForm'])->name('home');
 
 Auth::routes(['verify' => true]);
