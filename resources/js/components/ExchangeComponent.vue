@@ -16,23 +16,23 @@
                     align-self-start align-self-md-center
                     col-10
                     float-left
-                    col-md-9
+                    col-md-6 col-sm-12
                     m-2
                     text-white
                     bg-black
                     dialog-exchange
                 "
             >
-                <h5 class="font-weight-bold p-3 m-0">
-                    Selecciona tu presentación y registra el código de tu tapa
-                    amarilla BIG
+                <h5 class="p-3 m-0">
+                    Selecciona tu <strong>botella BIG</strong> e ingresa el
+                    <strong>código</strong> de tu tapa amarilla
                 </h5>
                 <img class="tapita-exchange" src="/img/Tapita.png" alt="" />
             </div>
 
             <div
                 class="
-                    col-md-8
+                    col-md-6 col-sm-12
                     m-2
                     pt-3
                     d-flex
@@ -130,7 +130,7 @@
             </div>
             <div
                 class="
-                    col-md-8
+                    col-md-6 col-sm-12
                     m-2
                     pt-3
                     d-flex
@@ -286,8 +286,7 @@ export default {
                         } else {
                             this.notification.type = "error";
                             this.notification.title = "INTENTA DE NUEVO";
-                            this.notification.message =
-                                "Revisa tu código y registra correctamente el litraje de tu botella BIG o el código en la tapa amarilla.";
+                            this.notification.message = response.data.message;
                             $("#modal-message").modal("show");
                         }
                     })
@@ -323,6 +322,5 @@ export default {
     position: absolute;
     right: -65px;
     top: -30px;
-    width: 120px;
 }
 </style>
