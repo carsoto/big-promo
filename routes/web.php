@@ -38,19 +38,19 @@ Route::get('/', function () {
 Route::post('login-promo', [LoginController::class, 'login_promo'])->name('login.promo');
 
 Route::prefix('u')->group(function () {
-    Route::get('/login', [UserFront::class, 'login']);
+    Route::get('/login', [UserFront::class, 'login'])->name('u.login');
 
     Route::get('/register', [UserFront::class, 'register']);
 
-    Route::get('/recorder', [UserFront::class, 'recorder']);
+    Route::get('/recorder', [UserFront::class, 'recorder'])->middleware('auth');
 
-    Route::get('/videos-gallery', [UserFront::class, 'videosGallery']);
+    Route::get('/videos-gallery', [UserFront::class, 'videosGallery'])->middleware('auth');
 
-    Route::get('/exchange', [UserFront::class, 'exchange'])->name('user.exchange');
+    Route::get('/exchange', [UserFront::class, 'exchange'])->name('user.exchange')->middleware('auth');
 
-    Route::get('/history', [UserFront::class, 'history']);
+    Route::get('/history', [UserFront::class, 'history'])->middleware('auth');
 
-    Route::get('/fq', [UserFront::class, 'fq']);
+    Route::get('/fq', [UserFront::class, 'fq'])->middleware('auth');
 });
 
 Route::middleware('auth')->prefix('api')->group(function () {

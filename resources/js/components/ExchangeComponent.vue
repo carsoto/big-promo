@@ -54,7 +54,7 @@
                         align-items-center
                     "
                 >
-                    <img src="/img/1.svg" alt="" />
+                    <img src="/img/1.png" alt="" />
                     <label for="" class="font-weight-bold text-white"
                         >300 ml</label
                     >
@@ -70,7 +70,7 @@
                         flex-column
                         align-items-center
                     "
-                    ><img src="/img/2.svg" alt="" /><label
+                    ><img src="/img/2.png" alt="" /><label
                         for=""
                         class="font-weight-bold text-white"
                         >911 ml</label
@@ -87,7 +87,7 @@
                         flex-column
                         align-items-center
                     "
-                    ><img src="/img/3.svg" alt="" /><label
+                    ><img src="/img/3.png" alt="" /><label
                         for=""
                         class="font-weight-bold text-white"
                         >1800 ml</label
@@ -104,7 +104,7 @@
                         flex-column
                         align-items-center
                     "
-                    ><img src="/img/4.svg" alt="" /><label
+                    ><img src="/img/4.png" alt="" /><label
                         for=""
                         class="font-weight-bold text-white"
                         >2250 ml</label
@@ -121,7 +121,7 @@
                         flex-column
                         align-items-center
                     "
-                    ><img src="/img/5.svg" alt="" /><label
+                    ><img src="/img/5.png" alt="" /><label
                         for=""
                         class="font-weight-bold text-white"
                         >3050 ml</label
