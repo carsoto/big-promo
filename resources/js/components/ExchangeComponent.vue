@@ -25,7 +25,7 @@
             >
                 <h5 class="font-weight-bold p-3 m-0">
                     Selecciona tu presentación y registra el código de tu tapa
-                    dorada BIG
+                    amarilla BIG
                 </h5>
                 <img class="tapita-exchange" src="/img/Tapita.png" alt="" />
             </div>

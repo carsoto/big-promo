@@ -9,8 +9,8 @@
         </div>
         @endif
         <div class="socials">
-            <a href="https://www.facebook.com/RefrescoBigCola/?brand_redir=128701980519740"><i class="fab fab-icon-social fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/big_ecuador/"><i class="fab fab-icon-social fa-instagram"></i></a>
+            <a target="_blank" href="https://www.facebook.com/RefrescoBigCola/?brand_redir=128701980519740"><i class="fab fab-icon-social fa-facebook-f"></i></a>
+            <a target="_blank" href="https://www.instagram.com/big_ecuador/"><i class="fab fab-icon-social fa-instagram"></i></a>
             <!--<a href="#"><i class="fab fab-icon-social fa-twitter"></i></a>
             <a href="#"><i class="fab fab-icon-social fa-tiktok"></i></a>
             <a href="#"><i class="fab fab-icon-social fa-youtube"></i></a>-->
