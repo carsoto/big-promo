@@ -151,7 +151,7 @@
     .dialog-exchange{
         h5 {
             @media screen and (max-width: 420px) {
-                font-size: .9rem;
+                font-size: 1.1rem;
             }
         }
         img{
@@ -372,6 +372,14 @@
         background-color: #FEDD31;
         border-radius: 50%;
         font-weight: bold;
+        font-size: 18px; 
+        color: #C79316 !important;
+    }
+    &:hover{
+        border-color: #fff;
+        color: #C79819 !important;
+        text-decoration: none;
+        transition: 0.5s;
     }
 }
 

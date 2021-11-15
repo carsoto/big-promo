@@ -45,8 +45,10 @@ export default {
     },
     methods: {
         setVideos() {
+            $("#modal-loading").modal("show");
             axios.get("/api/dreams").then((response) => {
                 this.videos = response.data.data;
+                $("#modal-loading").modal("hide");
             });
         },
         buildSlideMarkup(count) {

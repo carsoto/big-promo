@@ -144,13 +144,14 @@
                     v-model="code"
                     class="form-control input-bigpromo text-center"
                     placeholder="Ingresar código"
+                    style="font-size: 20px;"
                 />
                 <button
                     type="button"
                     @click="sendCode()"
                     class="btn btn-primary mt-3 mb-3"
                 >
-                    Canjear <i class="fas fa-arrow-right"></i>
+                    CANJEAR <i class="fas fa-arrow-right"></i>
                 </button>
 
                 <div
@@ -205,10 +206,10 @@
                     justify-content-center
                 "
             >
-                <div class="m-5 p-1 btn-record-page">
-                    <a href="/u/recorder" class="text-dark">¡Graba tu Sueño!</a>
+                <div class="m-5 p-1 btn-record-page text-center">
+                    <a href="/u/recorder"><strong>¡Graba tu Sueño!</strong></a>
                 </div>
-                <div
+                <!--<div
                     class="
                         d-none
                         rounded
@@ -220,7 +221,7 @@
                     "
                 >
                     Total de puntos: {{ exchange_info.accumulated }}
-                </div>
+                </div>-->
             </div>
         </div>
     </div>
@@ -262,6 +263,7 @@ export default {
             this.bot_presentation = p;
         },
         sendCode() {
+            $("#modal-loading").modal("show");
             if (this.code && this.bot_presentation) {
                 axios
                     .post("/api/exchange", {
@@ -270,27 +272,27 @@ export default {
                     })
                     .then((response) => {
                         if (response.data.success) {
+                            
                             if (response.data.data.aditional_points > 0) {
                                 this.notification.type = "success-exchange-x2";
                                 this.notification.title =
                                     "¡FELICIDADES SOÑADOR!";
                                 this.notification.subtitle =
                                     "TU BIG HA SIDO PREMIADA con el DOBLE de PUNTOS.";
-                                $("#modal-message").modal("show");
                             } else {
                                 this.notification.type = "success-exchange";
                                 this.notification.title =
                                     "¡TU BIG HA SIDO CANJEADA!";
                                 this.notification.subtitle =
                                     "Sigue acumulando PUNTOS para que puedas grabar tu SUEÑO.";
-                                $("#modal-message").modal("show");
                             }
                         } else {
                             this.notification.type = "error";
                             this.notification.title = "INTENTA DE NUEVO";
                             this.notification.message = response.data.message;
-                            $("#modal-message").modal("show");
                         }
+                        $("#modal-loading").modal("hide");
+                        $("#modal-message").modal("show");
                     })
                     .catch((err) => {
                         this.notification.type = "error";
