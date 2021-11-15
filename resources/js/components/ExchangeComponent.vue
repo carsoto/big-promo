@@ -144,6 +144,7 @@
                     v-model="code"
                     class="form-control input-bigpromo text-center"
                     placeholder="Ingresar código"
+                    style="font-size: 20px;"
                 />
                 <button
                     type="button"
@@ -204,10 +205,10 @@
                     justify-content-center
                 "
             >
-                <div class="m-5 p-1 btn-record-page">
-                    <a href="/u/recorder" class="text-dark">¡Graba tu Sueño!</a>
+                <div class="m-5 p-1 btn-record-page text-center">
+                    <a href="/u/recorder"><strong>¡Graba tu Sueño!</strong></a>
                 </div>
-                <div
+                <!--<div
                     class="
                         rounded
                         border border-white
@@ -218,7 +219,7 @@
                     "
                 >
                     Total de puntos: {{ exchange_info.accumulated }}
-                </div>
+                </div>-->
             </div>
         </div>
     </div>
