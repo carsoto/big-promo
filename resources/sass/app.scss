@@ -11,8 +11,12 @@
 #app {
     position: relative;
     height: 100vh;
+    overflow-x: hidden;
     background: rgb(253,13,27);
     background: radial-gradient(circle, rgba(253,13,27,1) 0%, rgba(172,3,13,1) 100%);
+    @media screen and (max-width: 420px) {
+        height: 100%;
+    }
     h2{
         color:#FEDD31;
         font-size: 40px;
@@ -77,6 +81,9 @@
             }
             img{
                 width: 400px;
+                @media screen and (max-width: 420px) {
+                    width: 350px;
+                }
             }
         }
         .right-side{
@@ -214,6 +221,9 @@
         bottom: 0;
         left: 0;
         width: 100%;
+        @media screen and (max-width: 420px) {
+            position: relative;
+        }
         .content-footer{
             padding: 15px;
             .socials{
@@ -329,13 +339,13 @@
     background-color: #000;
 }
 
-.container{
-    overflow-x: hidden;
-    @media screen and (max-width: 420px) {
-        max-height: 420px;
-        overflow-y: scroll;
-    }
-}
+// .container{
+//     overflow-x: hidden;
+//     @media screen and (max-width: 420px) {
+//         max-height: 420px;
+//         overflow-y: scroll;
+//     }
+// }
 
 .text-yellow {
     color: #FEDD31;

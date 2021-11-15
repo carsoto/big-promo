@@ -10906,8 +10906,15 @@ a.text-dark:focus {
 #app {
   position: relative;
   height: 100vh;
+  overflow-x: hidden;
   background: #fd0d1b;
   background: radial-gradient(circle, #fd0d1b 0%, #ac030d 100%);
+}
+
+@media screen and (max-width: 420px) {
+  #app {
+    height: 100%;
+  }
 }
 
 #app h2 {
@@ -10990,6 +10997,12 @@ a.text-dark:focus {
 
 #app .main-banner .left-side img {
   width: 400px;
+}
+
+@media screen and (max-width: 420px) {
+  #app .main-banner .left-side img {
+    width: 350px;
+  }
 }
 
 #app .main-banner .right-side img {
@@ -11131,6 +11144,12 @@ a.text-dark:focus {
   bottom: 0;
   left: 0;
   width: 100%;
+}
+
+@media screen and (max-width: 420px) {
+  #app footer {
+    position: relative;
+  }
 }
 
 #app footer .content-footer {
@@ -11279,17 +11298,6 @@ a.text-dark:focus {
 
 .bg-black {
   background-color: #000;
-}
-
-.container {
-  overflow-x: hidden;
-}
-
-@media screen and (max-width: 420px) {
-  .container {
-    max-height: 420px;
-    overflow-y: scroll;
-  }
 }
 
 .text-yellow {
