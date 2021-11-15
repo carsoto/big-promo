@@ -60,3 +60,10 @@ Route::middleware('auth')->prefix('api')->group(function () {
     Route::post('upload-dream', [UserDreamController::class, 'store']);
     Route::get('dreams', [UserDreamController::class, 'show']);
 });
+
+Route::get('email-confirmation', function () {
+    $data['name'] = "Carmen";
+    $data['lastname'] = "Soto";
+    $data['confirmation_code'] = "Soasdasdsadaewqto";
+    return view('emails.users.confirmation_code', $data);
+})->name('user.home');
