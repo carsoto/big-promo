@@ -156,6 +156,7 @@
 
                 <div
                     class="
+                        d-none
                         rounded
                         border border-white
                         points-total
@@ -210,6 +211,7 @@
                 </div>
                 <!--<div
                     class="
+                        d-none
                         rounded
                         border border-white
                         points-total

@@ -14,7 +14,7 @@
                 <b>¿CUÁL ES TU SUEÑO y POR QUÉ DEBEMOS HACERLO REALIDAD?</b>
             </h5>
         </div>
-        <div class="col-md-8 d-flex flex-column justify-content-center">
+        <div class="col-10 col-md-7 d-flex flex-column justify-content-center">
             <video id="myVideo" playsinline class="video-js vjs-default-skin">
                 <p class="vjs-no-js">
                     To view this video please enable JavaScript, or consider
