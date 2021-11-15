@@ -5,6 +5,7 @@
             <div class="text-center">
                 <!--<img width="300" src="/img/Slogan.png" alt="">-->
                 <h2 class="p-2">Instrucciones</h2>
+                <br>
                 <p>Para participar de la <strong>PROMOCIÓN</strong>, con la cual <strong>BIG COLA TE AYUDARÁ A CUMPLIR UN SUEÑO,</strong> el participante deberá:</p>
             </div>
             <div class="text-justify">
