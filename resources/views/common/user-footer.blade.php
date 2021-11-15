@@ -1,5 +1,4 @@
 <footer>
-
     <div class="col-12 content-footer d-flex flex-column flex-md-row justify-content-md-between align-items-center">
         @if (request()->routeIs('user.home'))
         <div class="video-example d-block d-sm-none mb-3">
@@ -8,7 +7,15 @@
             </a>
         </div>
         @endif
-        <div class="socials">
+        
+    </div>
+    @if (request()->routeIs('user.exchange'))
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped" role="progressbar" style="width: {{ $data['progress'] }}%;" aria-valuenow="{{ $data['progress'] }}" aria-valuemin="0" aria-valuemax="{{ $data['max_points'] }}">{{ $data['progress'] }}%</div>
+    </div>
+    @endif
+    <div class="col-12 content-footer d-flex flex-column flex-md-row justify-content-md-between align-items-center">
+    <div class="socials">
             <a target="_blank" href="https://www.facebook.com/RefrescoBigCola/?brand_redir=128701980519740"><i class="fab fab-icon-social fa-facebook-f"></i></a>
             <a target="_blank" href="https://www.instagram.com/big_ecuador/"><i class="fab fab-icon-social fa-instagram"></i></a>
             <!--<a href="#"><i class="fab fab-icon-social fa-twitter"></i></a>
@@ -27,9 +34,4 @@
         | <a class="px-1"  href="/u/fq"><i class="fas fa-question-circle"></i> Preguntas frecuentes</a>
         </div>
     </div>
-    @if (request()->routeIs('user.exchange'))
-    <div class="progress">
-        <div class="progress-bar" role="progressbar" style="width: {{ $data['progress'] }}%;" aria-valuenow="{{ $data['progress'] }}" aria-valuemin="0" aria-valuemax="{{ $data['max_points'] }}">{{ $data['progress'] }}%</div>
-    </div>
-    @endif
 </footer>

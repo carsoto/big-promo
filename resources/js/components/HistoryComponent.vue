@@ -2,7 +2,7 @@
     <div class="container">
         <h2 class="text-center p-3">Mi historial de puntos</h2>
         <div class="table-responsive">
-            <table class="table table-fixed" v-if="history.length > 0">
+            <table class="table table-fixed text-center" v-if="history.length > 0">
                 <thead>
                     <tr>
                         <th class="col-3">Código</th>

@@ -11186,7 +11186,7 @@ a.text-dark:focus {
 }
 
 #app footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -11347,7 +11347,6 @@ a.text-dark:focus {
 @media screen and (max-width: 420px) {
   .container {
     max-height: 420px;
-    overflow-y: scroll;
   }
 }
 

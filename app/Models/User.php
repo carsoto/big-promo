@@ -47,6 +47,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'deleted_at',
     ];
 
+    protected $appends = ['accumulated'];
+
     /**
      * The attributes that should be cast to native types.
      *
@@ -79,5 +81,19 @@ class User extends Authenticatable implements MustVerifyEmail
     public function user_dreams()
     {
         return $this->hasMany(UserDream::class);
+    }
+
+    public function getAccumulatedAttribute() {
+        $max_points = env('MAX_POINTS', 5000);
+        $accumulated = $this->user_exchanges->sum('points') + $this->user_exchanges->sum('aditional_points');
+        if($accumulated > $max_points){
+            $dreams = $this->user_dreams()->count();
+            $points_used = $dreams * $max_points;
+            $dreams_points = $accumulated - $points_used;
+            $accumulated = $dreams_points;
+            return $accumulated;
+        }
+        
+        return $accumulated;
     }
 }
