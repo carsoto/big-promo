@@ -2,7 +2,7 @@
     <div class="container">
         <h2 class="text-center p-3">Mi historial de puntos</h2>
         <div class="table-responsive">
-            <table class="table table-fixed" v-if="history.length > 0">
+            <table class="table table-fixed text-center" v-if="history.length > 0">
                 <thead>
                     <tr>
                         <th class="col-3">Código</th>
@@ -13,7 +13,7 @@
                 </thead>
                 <tbody class="text-white font-weight-bold">
                     <tr v-bind:key="index" v-for="(item, index) in history">
-                        <th class="col-3">{{ item.code }}</th>
+                        <td class="col-3">{{ item.code }}</td>
                         <td class="col-3">{{ item.registered }}</td>
                         <td class="col-3">{{ item.points }}</td>
                         <td class="col-3">{{ item.aditional_points }}</td>

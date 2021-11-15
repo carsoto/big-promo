@@ -6,7 +6,11 @@
         </div>
 
         <div class="slogan pt-2 col-6 col-md-4 text-center">
+            @if(auth()->user() == null)
             <a href="/"><img src="{{ asset('img/Slogan.png') }}" alt=""></a>
+            @else
+            <a href="/u/exchange"><img src="{{ asset('img/Slogan.png') }}" alt=""></a>
+            @endif
         </div>
         <nav class="col-12 col-md-4">
         @else
@@ -19,8 +23,10 @@
             @if(!auth()->check())
             <a class="sign-in" href="/u/login"><i class="far fa-user"></i> Iniciar Sesión</a>
             @else
-            <label style="color: white"><strong>Hola, {{ auth()->user()->fullName() }}</strong></label>
-            <a class="sign-out" href="#" onclick="document.getElementById('logout-form').submit();"><i class="far fa-user"></i> Cerrar Sesión</a>
+            <div style="border-bottom: 1px solid white;">
+                <label style="color: white"><strong>Hola, {{ auth()->user()->fullName() }}</strong> | <a class="sign-out" href="#" onclick="document.getElementById('logout-form').submit();"><i class="far fa-user"></i> Cerrar Sesión</a></label>
+            </div>
+            <div class="flex mt-1"><label class="m-1" style="color: white; font-size: 16px;"><strong>Puntos Acumulados: </strong></label><label class="text-yellow" style="font-size: 16px;"><strong>{{ auth()->user()->accumulated }}</strong></label></div>
             <form id="logout-form" action="/logout" method="POST">
                 {{ csrf_field() }}
             </form>

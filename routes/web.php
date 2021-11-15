@@ -7,7 +7,6 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Api\GeneralController;
 use App\Http\Controllers\UserController as UserFront;
-use App\Http\Controllers\CodeController;
 use App\Http\Controllers\Api\UserController as UserApi;
 use App\Http\Controllers\Api\UserExchangeController;
 use App\Http\Controllers\Api\UserDreamController;
@@ -22,9 +21,6 @@ use App\Http\Controllers\Api\UserDreamController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::post('file-import', [CodeController::class, 'codeImport'])->name('file-import');
-Route::get('code-import', [CodeController::class, 'index']);
-
 Route::get('/admin', [LoginController::class, 'showLoginForm'])->name('home');
 
 Auth::routes(['verify' => true]);
@@ -42,19 +38,19 @@ Route::get('/', function () {
 Route::post('login-promo', [LoginController::class, 'login_promo'])->name('login.promo');
 
 Route::prefix('u')->group(function () {
-    Route::get('/login', [UserFront::class, 'login']);
+    Route::get('/login', [UserFront::class, 'login'])->name('u.login');
 
     Route::get('/register', [UserFront::class, 'register']);
 
-    Route::get('/recorder', [UserFront::class, 'recorder']);
+    Route::get('/recorder', [UserFront::class, 'recorder'])->middleware('auth');
 
-    Route::get('/videos-gallery', [UserFront::class, 'videosGallery']);
+    Route::get('/videos-gallery', [UserFront::class, 'videosGallery'])->middleware('auth');
 
-    Route::get('/exchange', [UserFront::class, 'exchange'])->name('user.exchange');
+    Route::get('/exchange', [UserFront::class, 'exchange'])->name('user.exchange')->middleware('auth');
 
-    Route::get('/history', [UserFront::class, 'history']);
+    Route::get('/history', [UserFront::class, 'history'])->middleware('auth');
 
-    Route::get('/fq', [UserFront::class, 'fq']);
+    Route::get('/fq', [UserFront::class, 'fq'])->middleware('auth');
 });
 
 Route::middleware('auth')->prefix('api')->group(function () {

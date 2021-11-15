@@ -12,7 +12,7 @@ use App\Models\User;
 class GeneralController extends Controller
 {
     public function cities(){ 
-        $data = Canton::all();
+        $data = Canton::orderBy('name', 'ASC')->get();
         
         return response()->json([
             'success' => true,
@@ -24,13 +24,13 @@ class GeneralController extends Controller
     public function political_division($type = null){
         switch($type) {
             case "provincias":
-                $data = Province::all();
+                $data = Province::orderBy('name', 'ASC')->get();
                 break;
             case "cantones":
-                $data = Canton::all();
+                $data = Canton::orderBy('name', 'ASC')->get();
                 break;
             case "parroquias":
-                $data = Parish::all();
+                $data = Parish::orderBy('name', 'ASC')->get();
                 break;
             default:
                 $provinces = Province::all();

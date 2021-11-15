@@ -44,26 +44,27 @@ class UserController extends Controller
     }
 
     public function validate_recorder() {
-        $accumulated = auth()->user()->user_exchanges->sum('points') + auth()->user()->user_exchanges->sum('aditional_points');
-        $data = [];
-        $data['total_accumulated'] = $accumulated;
-        $data['accumulated'] = $accumulated;
-        $data['recorder'] = false;
         $max_points = env('MAX_POINTS', 5000);
-        
-        if($accumulated > $max_points){
-            $dreams = auth()->user()->user_dreams()->count();
-            $points_used = $dreams * $max_points;
-            $dreams_points = $accumulated - $points_used;
-            $data['accumulated'] = $dreams_points;
+        $data = array('accumulated' => 0, 'total_accumulated' => 0, 'max_points' => $max_points, 'recorder' => false, 'progress' => 0);
 
-            if(floor($accumulated/$max_points) > $dreams){
-                $data['recorder'] = true;
+        if(auth()->user() != null){
+            $accumulated = auth()->user()->user_exchanges->sum('points') + auth()->user()->user_exchanges->sum('aditional_points');
+            $data['total_accumulated'] = $accumulated;
+            $data['accumulated'] = $accumulated;
+            if($accumulated > $max_points){
+                $dreams = auth()->user()->user_dreams()->count();
+                $points_used = $dreams * $max_points;
+                $dreams_points = $accumulated - $points_used;
+                $data['accumulated'] = $dreams_points;
+    
+                if(floor($accumulated/$max_points) > $dreams){
+                    $data['recorder'] = true;
+                }
             }
+            $percent = ($data['accumulated'] * 100)/$max_points;
+            $percent < 100 ? $data['progress'] = round($percent, 0) : $data['progress'] = 100;
         }
-        $percent = ($data['accumulated'] * 100)/$max_points;
-        $percent < 100 ? $data['progress'] = round($percent, 0) : $data['progress'] = 100;
-        $data['max_points'] = $max_points;
+        
         return $data;
     }
 }
