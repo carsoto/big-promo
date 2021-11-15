@@ -41,8 +41,10 @@ export default {
     },
     methods: {
         setHistory() {
+            $("#modal-loading").modal("show");
             axios.get("/api/exchange/history").then((response) => {
                 this.history = response.data.data;
+                $("#modal-loading").modal("hide");
             });
         },
     },

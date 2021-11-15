@@ -33,11 +33,11 @@
             @endif
             <div class="nav-options d-flex flex-row">
                 @if(auth()->user())
-                <a class="rounded m-1 p-2" href="/u/exchange">Canjear</a>
-                <a class="rounded m-1 p-2" href="/u/videos-gallery">Mis sueños</a>
-                <a class="rounded m-1 p-2" href="/u/history">Historial</a>
+                <a class="rounded m-1 p-3" style="font-size: 14px;" href="/u/exchange">Canjear</a>
+                <a class="rounded m-1 p-3" style="font-size: 14px;" href="/u/videos-gallery">Mis sueños</a>
+                <a class="rounded m-1 p-3" style="font-size: 14px;" href="/u/history">Historial</a>
                 @else
-                <a class="rounded m-1 p-2" href="#" data-toggle="modal" data-target="#modal-instructions" >Instrucciones</a>
+                <a class="rounded m-1 p-3" style="font-size: 14px;" href="#" data-toggle="modal" data-target="#modal-instructions" >Instrucciones</a>
                 @endif
             </div>
         </nav>
