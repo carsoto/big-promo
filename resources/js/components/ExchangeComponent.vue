@@ -191,8 +191,8 @@
             <div
                 class="rounded col-md-9 m-2 text-white bg-black dialog-exchange"
             >
-                <h5 class="font-weight-bold p-3 m-0">
-                    Ahora tienes 20 segundos para grabar tu sueño!
+                <h5 class="p-3 m-0 text-center">
+                    Ahora tienes <span class="font-weight-bold">20 segundos</span> para grabar tu sueño!
                 </h5>
             </div>
             <div
