@@ -60,3 +60,4 @@ Route::middleware('auth')->prefix('api')->group(function () {
     Route::post('upload-dream', [UserDreamController::class, 'store']);
     Route::get('dreams', [UserDreamController::class, 'show']);
 });
+

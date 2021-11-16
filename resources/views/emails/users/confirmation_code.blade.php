@@ -22,17 +22,29 @@
     </head>
 
     <body>
-        <div id="app">
-            <div class='logo'>
-                <img src="{{ asset('img/logo.png') }}" alt="">
-            </div>
-            <h2>Hola {{ $name }} {{ $lastname }}, gracias por registrarte en <strong>BIG Promo</strong> !</h2>
-            <p>Por favor confirma tu correo electrónico.</p>
-            <p>Para ello simplemente debes hacer click en el siguiente enlace:</p>
+        <div id="app" class="">
+            <img style="width: 25%"  src="{{ asset('img/Slogan.png') }}" alt="">
+            <div class="rounded p-5 m-5" style="width: 400px; height: 450px; background: white;">
+                <h4><strong>Hola {{ $name }} {{ $lastname }},</strong></h4>    
+                <p style="font-size: 16px;">Gracias por registrarte en <strong>BIG Promo!</strong><p>
+                <p style="font-size: 16px;">Por favor confirma tu correo electrónico.</p>
+                <p style="font-size: 16px;">Para ello simplemente debes hacer click en el siguiente enlace:</p>
 
-            <a href="{{ url('/register/verify/' . $confirmation_code) }}">
-                Click para confirmar tu email
-            </a>
+                <a href="{{ url('/register/verify/' . $confirmation_code) }}">
+                    Click para confirmar tu email
+                </a>
+                <br><br><img class="text-center" style="width: 25%" src="{{ asset('img/logo.png') }}" alt="">   
+                 
+            </div>
+            
         </div>
     </body>
+<style scoped>
+    #app {
+        position: relative;
+        overflow-x: hidden;
+        background: rgb(253,13,27);
+        background: radial-gradient(circle, rgba(253,13,27,1) 0%, rgba(172,3,13,1) 100%);
+    }
+</style>
 </html>
