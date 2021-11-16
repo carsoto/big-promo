@@ -9,9 +9,10 @@
         "
     >
         <div class="rounded col-md-9 m-2 text-white bg-black dialog-exchange">
-            <h5 class="font-weight-bold p-3 m-0">
-                <b>Recuerda:</b> GRABAR TU SUEÑO EN 20 SEGUNDOS indicando…
-                <b>¿CUÁL ES TU SUEÑO y POR QUÉ DEBEMOS HACERLO REALIDAD?</b>
+            <h5 class="p-3 m-0 text-center">
+                <b class="font-weight-bold">Recuerda:</b> GRABAR TU SUEÑO EN 20 SEGUNDOS indicando…
+                <br />
+                <b class="font-weight-bold">¿CUÁL ES TU SUEÑO y POR QUÉ DEBEMOS HACERLO REALIDAD?</b>
             </h5>
         </div>
         <div class="col-10 col-md-7 d-flex flex-column justify-content-center">
@@ -28,7 +29,7 @@
                 </p>
             </video>
             <br />
-            <div class="d-flex justify-content-around">
+            <div class="d-flex justify-content-around buttons-section-record">
                 <button
                     type="button"
                     class="btn btn-info"
@@ -165,6 +166,7 @@ export default {
             this.player.record().getDevice();
         },
         submitVideo() {
+            
             this.isSaveDisabled = true;
             this.isRetakeDisabled = true;
             var data = this.player.recordedData;
@@ -173,6 +175,8 @@ export default {
             this.submitText = "Uploading " + data.name;
             console.log("uploading recording:", data.name);
             this.player.record().stopDevice();
+            $("#modal-loading").modal("show");
+
             fetch(this.uploadurl, {
                 method: "POST",
                 body: formData,
@@ -200,6 +204,8 @@ export default {
                     this.notification.message =
                         "Ocurrió un error subiendo tu sueño.";
                     $("#modal-message").modal("show");
+                }).finally(() => {
+                    $("#modal-loading").modal("hide");
                 });
         },
         retakeVideo() {

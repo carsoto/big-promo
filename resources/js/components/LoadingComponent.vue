@@ -1,5 +1,5 @@
 <template>
-    <div id="modal-loading" data-backdrop="static" data-keyboard="false" class="modal fade modal-loading">
+    <div id="modal-loading" data-backdrop="static" data-keyboard="false" class="modal modal-loading">
         <div class="modal-dialog modal-dialog-centered d-flex justify-content-center">
             <div class="d-flex justify-content-center">
                 <div class="spinner-border text-yellow" role="status">

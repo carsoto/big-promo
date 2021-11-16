@@ -50,7 +50,7 @@ Route::prefix('u')->group(function () {
 
     Route::get('/history', [UserFront::class, 'history'])->middleware('auth');
 
-    Route::get('/fq', [UserFront::class, 'fq'])->middleware('auth');
+    Route::get('/fq', [UserFront::class, 'fq']);
 });
 
 Route::middleware('auth')->prefix('api')->group(function () {
@@ -60,4 +60,3 @@ Route::middleware('auth')->prefix('api')->group(function () {
     Route::post('upload-dream', [UserDreamController::class, 'store']);
     Route::get('dreams', [UserDreamController::class, 'show']);
 });
-
