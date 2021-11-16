@@ -30,7 +30,7 @@
                 </p>
             </video>
             <br />
-            <div class="d-flex justify-content-around">
+            <div class="d-flex justify-content-around buttons-section-record">
                 <button
                     type="button"
                     class="btn btn-info"
@@ -167,6 +167,7 @@ export default {
             this.player.record().getDevice();
         },
         submitVideo() {
+            
             this.isSaveDisabled = true;
             this.isRetakeDisabled = true;
             var data = this.player.recordedData;
@@ -175,6 +176,8 @@ export default {
             this.submitText = "Uploading " + data.name;
             console.log("uploading recording:", data.name);
             this.player.record().stopDevice();
+            $("#modal-loading").modal("show");
+
             fetch(this.uploadurl, {
                 method: "POST",
                 body: formData,
@@ -202,6 +205,8 @@ export default {
                     this.notification.message =
                         "Ocurrió un error subiendo tu sueño.";
                     $("#modal-message").modal("show");
+                }).finally(() => {
+                    $("#modal-loading").modal("hide");
                 });
         },
         retakeVideo() {
