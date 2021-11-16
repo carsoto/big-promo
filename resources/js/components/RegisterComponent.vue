@@ -20,7 +20,7 @@
                         class="error text-warning"
                         v-if="!$v.user.name.required"
                     >
-                        Campo requerido
+                        <PopupComponent text="Campo requerido" />
                     </div>
                 </div>
             </div>
@@ -37,7 +37,7 @@
                         class="error text-warning"
                         v-if="!$v.user.lastname.required"
                     >
-                        Campo requerido
+                        <PopupComponent text="Campo requerido" />
                     </div>
                 </div>
             </div>
@@ -56,7 +56,7 @@
                         class="error text-warning"
                         v-if="!$v.user.phone.required"
                     >
-                        Campo requerido
+                        <PopupComponent text="Campo requerido" />
                     </div>
                 </div>
             </div>
@@ -74,7 +74,7 @@
                         class="error text-warning"
                         v-if="!$v.user.aditional_phone.required"
                     >
-                        Campo requerido
+                        <PopupComponent text="Campo requerido" />
                     </div>
                 </div>-->
             </div>
@@ -98,7 +98,7 @@
                         class="error text-warning"
                         v-if="!$v.user.city_id.required"
                     >
-                        Campo requerido
+                        <PopupComponent text="Campo requerido" />
                     </div>
                 </div>
             </div>
@@ -117,7 +117,7 @@
                         class="error text-warning"
                         v-if="!$v.user.birthday.required"
                     >
-                        Campo requerido
+                        <PopupComponent text="Campo requerido" />
                     </div>
                 </div>
             </div>
@@ -138,7 +138,7 @@
                                 class="error text-warning"
                                 v-if="!$v.user.email.required"
                             >
-                                Campo requerido
+                                <PopupComponent text="Campo requerido" />
                             </div>
                         </div>
                     </div>
@@ -155,7 +155,7 @@
                                 class="error text-warning"
                                 v-if="!$v.user.password.required"
                             >
-                                Campo requerido
+                                <PopupComponent text="Campo requerido" />
                             </div>
                         </div>
                     </div>
@@ -171,7 +171,7 @@
                         id="gridCheck"
                     />
                     <label
-                        class="form-check-label check-text font-weight-bold"
+                        class="form-check-label check-text font-weight-bold mb-3"
                         for="gridCheck"
                     >
                         Aceptar los términos y condiciones de la promoción
@@ -179,9 +179,9 @@
                     <div v-if="$v.user.terms_conditions.$dirty">
                         <div
                             class="error text-warning"
-                            v-if="!$v.user.terms_conditions"
+                            v-if="$v.user.terms_conditions.$invalid"
                         >
-                            Debes aceptar los términos y condiciones
+                            <PopupComponent text="Debes aceptar los términos y condiciones" />
                         </div>
                     </div>
                 </div>
@@ -207,10 +207,12 @@
 import { validationMixin } from "vuelidate";
 import { required, minLength, between, sameAs } from "vuelidate/lib/validators";
 import ModalComponent from "./ModalComponent";
+import PopupComponent from "./general/PopupComponent";
 export default {
     mixins: [validationMixin],
     components: {
-        ModalComponent
+        ModalComponent,
+        PopupComponent
     },
     data() {
         return {
@@ -259,7 +261,7 @@ export default {
                 required
             },
             terms_conditions: {
-                sameAs: sameAs(() => true)
+                checked: (v) => v
             }
         }
     },
@@ -279,6 +281,8 @@ export default {
                 console.log("upss", this.$v.user.$invalid);
                 return;
             }
+            console.log("Registrando");
+            return false;
 
             $('#modal-loading').modal('show');
 

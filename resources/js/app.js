@@ -31,6 +31,7 @@ Vue.component('loading-component', require('./components/LoadingComponent.vue').
 Vue.component('instructions-component', require('./components/InstructionsComponent.vue').default);
 Vue.component('history-component', require('./components/HistoryComponent.vue').default);
 Vue.component('fq-component', require('./components/FQComponent.vue').default);
+Vue.component('popup-component', require('./components/general/PopupComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
