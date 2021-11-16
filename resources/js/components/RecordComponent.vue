@@ -9,11 +9,10 @@
         "
     >
         <div class="rounded col-md-9 m-2 text-white bg-black dialog-exchange">
-            <h5 class="font-weight-bold p-3 m-0">
-                <b>Recuerda:</b> GRABAR TU SUEÑO EN 20 SEGUNDOS indicando…
+            <h5 class="p-3 m-0 text-center">
+                <b class="font-weight-bold">Recuerda:</b> GRABAR TU SUEÑO EN 20 SEGUNDOS indicando…
                 <br />
-                <br />
-                <b>¿CUÁL ES TU SUEÑO y POR QUÉ DEBEMOS HACERLO REALIDAD?</b>
+                <b class="font-weight-bold">¿CUÁL ES TU SUEÑO y POR QUÉ DEBEMOS HACERLO REALIDAD?</b>
             </h5>
         </div>
         <div class="col-10 col-md-7 d-flex flex-column justify-content-center">
