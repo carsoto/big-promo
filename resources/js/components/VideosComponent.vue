@@ -13,11 +13,18 @@
                 v-bind:key="index"
                 v-for="(item, index) in videos"
                 ><video width="100%" controls>
-                    <source :src="item.dream" type="video/webm" /></video
-            ></slide>
+                    <source :src="item.dream" type="video/mp4" />
+                </video>
+                <div class="text-white text-center">
+                    <strong>Enviado el:</strong> {{ item.registered }}
+                </div></slide
+            >
         </carousel>
 
-        <h3 class="text-white text-lg-center p-5" v-show="this.videos.length === 0">
+        <h3
+            class="text-white text-lg-center p-5"
+            v-show="this.videos.length === 0"
+        >
             Aún no has grabado un sueño...
         </h3>
 
