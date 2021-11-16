@@ -299,6 +299,7 @@ export default {
                         this.notification.title = "INTENTA DE NUEVO";
                         this.notification.message =
                             "Revisa tu código y registra correctamente el litraje de tu botella BIG o el código en la tapa amarilla.";
+                        $("#modal-loading").modal("hide");
                         $("#modal-message").modal("show");
                     });
             } else {
@@ -306,6 +307,7 @@ export default {
                 this.notification.title = "INTENTA DE NUEVO";
                 this.notification.message =
                     "Revisa tu código y registra correctamente el litraje de tu botella BIG o el código en la tapa amarilla.";
+                $("#modal-loading").modal("hide");
                 $("#modal-message").modal("show");
             }
         },
