@@ -7,6 +7,16 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
 
+    public function home_big()
+    {
+        if(auth()->user() == null){
+            return view('user.home');
+        } else {
+            $data = $this->validate_recorder();
+            return view('user.exchange', ['data' => $data]);
+        }
+    }
+
     public function login()
     {
         return view('user.auth.login');
