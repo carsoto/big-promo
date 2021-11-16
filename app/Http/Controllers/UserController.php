@@ -19,12 +19,22 @@ class UserController extends Controller
 
     public function login()
     {
-        return view('user.auth.login');
+        if(auth()->user() == null){
+            return view('user.auth.login');
+        } else {
+            $data = $this->validate_recorder();
+            return view('user.exchange', ['data' => $data]);
+        }
     }
 
     public function register()
     {
-        return view('user.auth.register');
+        if(auth()->user() == null){
+            return view('user.auth.register');
+        } else {
+            $data = $this->validate_recorder();
+            return view('user.exchange', ['data' => $data]);
+        }
     }
 
     public function recorder()
