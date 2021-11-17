@@ -28,7 +28,7 @@
                     </div>
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#fqAccordion">
                     <div class="card-body">
-                        La página web de la promoción es <a href="https://bigpromo.ec">www.bigpromo.ec</a>
+                        La página web de la promoción es <a href="https://bigpromo.ec" class="link-yellow">www.bigpromo.ec</a>
                     </div>
                     </div>
                 </div>
@@ -44,9 +44,9 @@
                         <div class="card-body">
                             Debes encontrar en las tapas amarillas de Big Cola códigos alfanuméricos impresos:
                             <ol>
-                                <li>Regístralos en <a href="https://bigpromo.ec">www.bigpromo.ec</a>,</li>
-                                <li>Completa los puntos para habilitar el botón de grabar,</li>
-                                <li>Cuéntanos en un video de 20 segundos, cúal es tu sueño y por qué BIG COLA lo debería hacer realidad.</li>
+                                <li>Regístralos en <a href="https://bigpromo.ec" class="link-yellow">www.bigpromo.ec</a>,</li>
+                                <li>Completa los 5000 puntos para habilitar el botón de grabar</li>
+                                <li>Cuéntanos en un video de 20 segundos, cúal es tu sueño  y por qué BIG COLA lo debería hacer realidad, y automáticamente estarás participando en el concurso.</li>
                             </ol>
                         </div>
                     </div>
@@ -62,7 +62,7 @@
                     </div>
                     <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#fqAccordion">
                         <div class="card-body">
-                            Participan todos los sabores de los formatos de BIG: 300ml, 911ml, 18000ml, 2250ml y 3050ml.
+                            Participan todos los sabores y presentaciones de BIG Cola: 300ml, 911ml, 18000ml, 2250ml y 3050ml. Cada tapa tiene asignado un valor de puntos, lo cuales descubrirás una vez que los canjees. Algunas tapas tienen puntos dobles.
                         </div>
                     </div>
                 </div>
@@ -86,13 +86,13 @@
                     <div class="card-header" id="headingSix">
                         <h2 class="mb-0">
                             <button class="btn btn-link text-white font-weight-bold btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                            ¿Qué logro subiendo los códigos de las tapas de Big cola en el website de la promoción?
+                                ¿Qué logro subiendo los códigos de las tapas de Big Cola en el website de la promoción?
                             </button>
                         </h2>
                     </div>
                     <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#fqAccordion">
                         <div class="card-body">
-                            Al completar los 5000 puntos de la BARRA DE PUNTOS, se activará el botón para grabar un video en el que deberás contarnos tu sueño y por qué quisieras que Big Cola te lo hiciera realidad.
+                            Al completar los 5000 puntos de la BARRA DE PUNTOS, se activará el botón para grabar un video en el que deberás contarnos tu sueño y por qué quisieras que Big Cola te lo hiciera realidad. Una vez subido el sueño en la plataforma ya estas participando en el concurso.
                         </div>
                     </div>
                 </div>
@@ -107,7 +107,7 @@
                     </div>
                     <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#fqAccordion">
                         <div class="card-body">
-                            Se necesitan 5000 puntos equivalentes a 5000 mililitros. Algunas tapas te podrían dar puntos extras.
+                            Se necesitan 5000 puntos. Algunas tapas te podrían dar el doble de puntos.
                         </div>
                     </div>
                 </div>
@@ -122,7 +122,7 @@
                     </div>
                     <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#fqAccordion">
                         <div class="card-body">
-                            Todos los que desees. Cumpliendo siempre con la mecánica de la promoción.
+                            Todos los que desees, cumpliendo siempre con la mecánica de la promoción. Es requisito al completar 5000 puntos grabar tu primer sueño, para que así puedas seguir canjeando y grabando más sueños. El número de sueños son ilimitados, mientras más participes más oportunidades tendrás de que te cumplan uno de ellos.
                         </div>
                     </div>
                 </div>
@@ -146,7 +146,7 @@
                     <div class="card-header" id="headingTeen">
                         <h2 class="mb-0">
                             <button class="btn btn-link text-white font-weight-bold btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTeen" aria-expanded="false" aria-controls="collapseTeen">
-                            ¿Cuándo conoceremos quienes son los ganadores de la promoción?
+                                ¿Cuándo conoceremos quienes son los ganadores de la promoción?
                             </button>
                         </h2>
                     </div>
@@ -176,16 +176,13 @@
                     <div class="card-header" id="headingTwelve">
                         <h2 class="mb-0">
                             <button class="btn btn-link text-white font-weight-bold btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
-                            ¿AJE podrá usar la imagen de los participantes?
+                                ¿AJE podrá usar la imagen de los participantes?
                             </button>
                         </h2>
                     </div>
                     <div id="collapseTwelve" class="collapse" aria-labelledby="headingTwelve" data-parent="#fqAccordion">
                         <div class="card-body">
-                            La participación en la promoción importará la expresa autorización a AJE para la difusión pública
-                            de datos personales y material audiovisual de los participantes, con fines comerciales o con
-                            cualquier otra finalidad, sin que el participante tenga derecho a reclamo de indemnización,
-                            contraprestación o retribución alguna.
+                            La participación en la promoción importará la expresa autorización a AJE para la difusión pública de datos personales y material audiovisual de los participantes, con fines comerciales o con cualquier otra finalidad, sin que el participante tenga derecho a reclamo de indemnización, contraprestación o retribución alguna.
                         </div>
                     </div>
                 </div>
