@@ -43,10 +43,11 @@ class UserExchangeRequest extends FormRequest
     public function failedValidation(Validator $validator) { 
         $errors = $validator->errors();
 
-        throw new HttpResponseException(response()->json([
-            'success' => false,
-            'message' => $errors->messages(),
-            'data'    => [],
-        ], 422));
+        foreach($errors->messages() AS $key => $error){
+            throw new HttpResponseException(response()->json([
+                'success' => false,
+                'message' => $error[0]
+            ], 200)); 
+        }
    }
 }

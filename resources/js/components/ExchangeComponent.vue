@@ -144,7 +144,7 @@
                     v-model="code"
                     class="form-control input-bigpromo text-center"
                     placeholder="Ingresar código"
-                    style="font-size: 20px;"
+                    style="font-size: 20px"
                 />
                 <button
                     type="button"
@@ -192,7 +192,9 @@
                 class="rounded col-md-9 m-2 text-white bg-black dialog-exchange"
             >
                 <h5 class="p-3 m-0 text-center">
-                    Ahora tienes <span class="font-weight-bold">20 segundos</span> para grabar tu sueño!
+                    Ahora tienes
+                    <span class="font-weight-bold">20 segundos</span> para
+                    grabar tu sueño!
                 </h5>
             </div>
             <div
@@ -272,7 +274,6 @@ export default {
                     })
                     .then((response) => {
                         if (response.data.success) {
-                            
                             if (response.data.data.aditional_points > 0) {
                                 this.notification.type = "success-exchange-x2";
                                 this.notification.title =
@@ -297,8 +298,8 @@ export default {
                     .catch((err) => {
                         this.notification.type = "error";
                         this.notification.title = "INTENTA DE NUEVO";
-                        this.notification.message =
-                            "Revisa tu código y registra correctamente el litraje de tu botella BIG o el código en la tapa amarilla.";
+                        this.notification.message = response.data.message;
+                        //"Revisa tu código y registra correctamente el litraje de tu botella BIG o el código en la tapa amarilla.";
                         $("#modal-loading").modal("hide");
                         $("#modal-message").modal("show");
                     });
@@ -306,7 +307,7 @@ export default {
                 this.notification.type = "error";
                 this.notification.title = "INTENTA DE NUEVO";
                 this.notification.message =
-                    "Revisa tu código y registra correctamente el litraje de tu botella BIG o el código en la tapa amarilla.";
+                    "Revisa si escogiste el litraje correspondiente a tu botella BIG";
                 $("#modal-loading").modal("hide");
                 $("#modal-message").modal("show");
             }
