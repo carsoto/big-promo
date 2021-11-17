@@ -7,6 +7,10 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+html, body {
+    width: 100%;
+    height: 100%;
+}
 
 #app {
     position: relative;
@@ -14,6 +18,10 @@
     overflow-x: hidden;
     background: rgb(253,13,27);
     background: radial-gradient(circle, rgba(253,13,27,1) 0%, rgba(172,3,13,1) 100%);
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
     @media screen and (max-width: 420px) {
         height: 100%;
     }
@@ -217,10 +225,7 @@
     }
 
     footer{
-        // position: absolute;
-        // bottom: 0;
-        // left: 0;
-        // width: 100%;
+        flex-shrink: 0;
         @media screen and (max-width: 420px) {
             position: relative;
         }
@@ -338,9 +343,8 @@
 .bg-black {
     background-color: #000;
 }
-
 .container {
-    min-height: 90vh;
+    flex-grow: 1;
 }
 // .container{
 //     overflow-x: hidden;
@@ -417,6 +421,10 @@
     }
 }
 
+.link-yellow {
+    font-weight: 700;
+    color: $yellow;
+}
 
 .buttons-section-record {
     button:disabled {
