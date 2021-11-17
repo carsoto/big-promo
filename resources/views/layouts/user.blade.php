@@ -27,6 +27,7 @@
         @yield('content')
         @include('common.user-footer')
         <instructions-component></instructions-component>
+        <help-component />
     </div>
 </body>
 </html>

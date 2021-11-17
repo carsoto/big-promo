@@ -425,6 +425,35 @@
     }
 }
 
+.float-help-button {
+    position: fixed;
+    top: 30%;
+    right: 15px;
+    background: #FFF;
+    width: fit-content;
+    display: block;
+    padding: 10px 0;
+    transform-origin: 100% 100%;
+    transform: rotate(-90deg);
+    border-radius: 10px 10px 0 0;
+    a {
+        color: $red;
+        text-decoration: none;
+        span {
+            font-size: 16px;
+            font-weight: bolder;
+        }
+        img {
+            margin-top: -5px;
+            margin-left: 5px;
+        }
+    }
+
+    &:hover {
+        box-shadow: 0px -20px 15px -5px rgba(108, 108, 108, 0.42);
+    }
+}
+
 
 @media screen and (max-width: 768px) {
     .buttons-section-record {
