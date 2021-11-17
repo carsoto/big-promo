@@ -30,9 +30,9 @@ class UserExchangeController extends Controller
      */
     public function store(UserExchangeRequest $request)
     {
-        $code = Code::where(DB::raw('BINARY `code`'), $request->code)->where('is_active', true)->first();
-
-        if($code == null){
+        $code = Code::where(DB::raw('BINARY `code`'), $request->code)->where('is_active', true)->get();
+    
+        if(count($code) == 0){
             return response()->json([
                 'success' => false,
                 'message' => 'Hubo un error, el código no se encuentra registrado. Por favor, verifica tu código.',
@@ -52,7 +52,7 @@ class UserExchangeController extends Controller
                 'user_id' => auth()->user()->id,
                 'bot_presentation' => $request->bot_presentation,
                 'code' => $request->code,
-                'points' => $code->value,
+                'points' => $code->first()->value,
                 'aditional_points' => $aditional
             ]);
 
