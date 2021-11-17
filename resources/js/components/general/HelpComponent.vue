@@ -27,8 +27,8 @@
             <div class="text-justify">
                 <p>
                     Si has tenido algun problema con el registro de códigos, grabación de video o con nuestra plataforma en general, 
-                    escríbenos tu caso a: <a href="mailto:bigpromoecuador@gmail.com">bigpromoecuador@gmail.com</a> / 
-                    <a href="mailto:soporte@bigpromo.ec">soporte@bigpromo.ec</a>
+                    escríbenos tu caso a: <a href="mailto:bigpromoecuador@gmail.com" class="link-yellow">bigpromoecuador@gmail.com</a> / 
+                    <a href="mailto:soporte@bigpromo.ec" class="link-yellow">soporte@bigpromo.ec</a>
                 </p>
             </div>
         </div>
