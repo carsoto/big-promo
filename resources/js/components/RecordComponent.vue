@@ -10,7 +10,7 @@
     >
         <div class="rounded col-md-9 m-2 text-white bg-black dialog-exchange">
             <h5 class="p-3 m-0 text-center">
-                <b class="font-weight-bold">Recuerda:</b> GRABAR TU SUEÑO EN 20 SEGUNDOS indicando…
+                GRABAR TU SUEÑO EN 20 SEGUNDOS INDICANDO...
                 <br />
                 <b class="font-weight-bold">¿CUÁL ES TU SUEÑO y POR QUÉ DEBEMOS HACERLO REALIDAD?</b>
             </h5>
