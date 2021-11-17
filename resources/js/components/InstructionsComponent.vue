@@ -27,7 +27,7 @@
                 <ol>
                     <li>
                         Visitar la página web
-                        <a href="https://www.bigpromo.ec/" target="_blank"
+                        <a href="https://www.bigpromo.ec/" target="_blank" class="text-yellow font-weight-bold"
                             >www.bigpromo.ec</a
                         >
                     </li>
