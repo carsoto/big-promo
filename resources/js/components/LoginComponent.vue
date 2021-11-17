@@ -19,7 +19,8 @@
                         class="error text-warning"
                         v-if="!$v.user.email.required"
                     >
-                        Campo requerido
+                        <PopupComponent text="Campo requerido" />
+
                     </div>
                 </div>
             </div>
@@ -36,7 +37,8 @@
                         class="error text-warning"
                         v-if="!$v.user.password.required"
                     >
-                        Campo requerido
+                        <PopupComponent text="Campo requerido" />
+
                     </div>
                 </div>
             </div>
@@ -62,11 +64,13 @@
 import { validationMixin } from "vuelidate";
 import { required } from "vuelidate/lib/validators";
 import ModalComponent from "./ModalComponent";
+import PopupComponent from "./general/PopupComponent";
 
 export default {
     mixins: [validationMixin],
     components: {
         ModalComponent,
+        PopupComponent
     },
     data() {
         return {

@@ -2,7 +2,15 @@
     <div class="container main-banner">
         <div class="row justify-content-between">
             <div class="col-lg-6 col-xs-12 col-sm-12 left-side">
-                <img src="/img/Slogan.png" alt="" />
+                <img src="/img/Slogan.png" id="img-slogan-main" alt="" />
+
+                <div
+                    class="d-md-none d-lg-none d-xl-none right-side"
+                >
+                <ImgArtMainComponent />
+
+                </div>
+
                 <a href="u/register" class="btn btn-primary py-3 mt-3"
                     >Comenzar <i class="fas fa-arrow-right"></i
                 ></a>
@@ -14,7 +22,7 @@
             <div
                 class="col-lg-6 col-xs-12 col-sm-12 d-none d-sm-none d-md-block right-side"
             >
-                <img src="/img/arte-principal.png" alt="" />
+                <ImgArtMainComponent />
             </div>
         </div>
         <video-show-component
@@ -25,9 +33,11 @@
 
 <script>
 import VideoShowComponent from "./VideoShowComponent";
+import ImgArtMainComponent from "./general/ImgArtMainComponent";
 export default {
     components: {
-        VideoShowComponent
+        VideoShowComponent,
+        ImgArtMainComponent
     },
     mounted() {
         //
