@@ -104,9 +104,8 @@
             </div>
             <div class="col-md-6">
                 <input
-                    type="text"
+                    type="date"
                     placeholder="Fecha de nacimiento"
-                    onfocus="(this.type='date')"
                     v-model.trim="user.birthday"
                     class="form-control"
                     max='2002-01-01'
