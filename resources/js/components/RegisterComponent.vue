@@ -281,8 +281,6 @@ export default {
                 console.log("upss", this.$v.user.$invalid);
                 return;
             }
-            console.log("Registrando");
-            return false;
 
             $('#modal-loading').modal('show');
 
