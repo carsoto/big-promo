@@ -16,6 +16,7 @@ class CreateCodesTable extends Migration
         Schema::create('codes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('code');
+            $table->integer('value');
             $table->boolean('is_active')->default(true);
             $table->timestamps();
             $table->softDeletes();;

@@ -36,7 +36,7 @@ class UserExchangeRequest extends FormRequest
             'bot_presentation.required' => 'La presentación de la botella es obligatoria',
             'bot_presentation.numeric'  => 'La presentación debe ser un número',
             'code.required'             => 'El código de canje es obligatorio',
-            'code.unique'               => 'El código se encuentra registrado',
+            'code.unique'               => 'El código ya ha sido registrado anteriormente',
         ];
     }
 

@@ -31,9 +31,10 @@ Route::get('/user-not-found', function() {
     return "<h2>USUARIO NO ENCONTRADO</h2>";
 });
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('user.home');
-})->name('user.home');
+})->name('user.home');*/
+Route::get('/', [UserFront::class, 'home_big'])->name('user.home');
 
 Route::post('login-promo', [LoginController::class, 'login_promo'])->name('login.promo');
 
@@ -50,7 +51,7 @@ Route::prefix('u')->group(function () {
 
     Route::get('/history', [UserFront::class, 'history'])->middleware('auth');
 
-    Route::get('/fq', [UserFront::class, 'fq'])->middleware('auth');
+    Route::get('/fq', [UserFront::class, 'fq']);
 });
 
 Route::middleware('auth')->prefix('api')->group(function () {
