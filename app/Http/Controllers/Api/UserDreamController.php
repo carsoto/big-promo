@@ -10,34 +10,22 @@ class UserDreamController extends Controller
 {
     public function store(Request $request)
     {
+        $data = new UserDream;
+        $data->user_id = auth()->user()->id;
+
         if ($request->hasFile('file'))
         {
-            $data = new UserDream;
-            $data->user_id = auth()->user()->id;
+            $file = $request->file->store('public');
 
-            // Get filename with the extension
-            $filenameWithExt = $request->file('file')->getClientOriginalName();
-            //Get just filename
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            // Get just ext
-            $extension = $request->file('file')->getClientOriginalExtension();
-            // Filename to store
-            $fileNameToStore = $filename.'_'.time().'.'.$extension;
-            // Upload Image
-            $path = $request->file('file')->storeAs('public/videos',$fileNameToStore);
-            dd($filenameWithExt, $filename, $extension, $fileNameToStore, $path);
-            $data->dream = "/".$fileNameToStore;
-            
-            $data->save();
-            return response()->json([
-                'success' => true,
-                'message' => 'Sueño registrado exitosamente',
-                'data'    => [],
-            ], 200);
+            $dream = $request->file('file')->store('videos', ['disk' => 'videos']);
+            $data->dream = "/".$dream;
         }
+
+        $data->save();
+
         return response()->json([
-            'success' => false,
-            'message' => 'Ocurrió un error registrando el sueño',
+            'success' => true,
+            'message' => 'Sueño registrado exitosamente',
             'data'    => [],
         ], 200);
     }
