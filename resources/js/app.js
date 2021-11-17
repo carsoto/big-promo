@@ -32,6 +32,8 @@ Vue.component('instructions-component', require('./components/InstructionsCompon
 Vue.component('history-component', require('./components/HistoryComponent.vue').default);
 Vue.component('fq-component', require('./components/FQComponent.vue').default);
 Vue.component('popup-component', require('./components/general/PopupComponent.vue').default);
+Vue.component('help-component', require('./components/general/HelpComponent.vue').default);
+Vue.component('img-art-main-component', require('./components/general/ImgArtMainComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
