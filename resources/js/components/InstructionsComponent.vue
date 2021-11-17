@@ -27,7 +27,7 @@
                 <ol>
                     <li>
                         Visitar la página web
-                        <a href="https://www.bigpromo.ec/" target="_blank"
+                        <a href="https://www.bigpromo.ec/" target="_blank" class="link-yellow"
                             >www.bigpromo.ec</a
                         >
                     </li>
@@ -42,17 +42,14 @@
                     </li>
                     <li>
                         Dar click en la pestaña de canje, ingresar el código que se mostrará en las tapas de las botellas de <strong>“BIG COLA”</strong> de todos los sabores, y presentaciones de: 300ml, 911ml, 1800ml, 2250ml y 3050ml. 
-                        
-                    </li>
-                </ol>
-                <p>
-                    Al ingresar los códigos se acumularán los puntos asignados a tus tapas, ciertas tapas tendrán la posibilidad de duplicar el número de puntos. Mientras más códigos escanees, más oportunidades tendrás para llenar la barra de sueño.
-                </p>
-                <p>
-                    Una vez acumulada la cantidad de <strong
+                        <br />
+                        Al ingresar los códigos se acumularán los puntos asignados a tus tapas, ciertas tapas tendrán la posibilidad de duplicar el número de puntos. Mientras más códigos escanees, más oportunidades tendrás para llenar la barra de sueño.
+                        <br />
+                        Una vez acumulada la cantidad de <strong
                         >cinco mil puntos</strong
                     > se llenará la barra, el usuario podrá grabar un video (máximo 20 segundos) en el que nos cuente acerca del sueño que quiera cumplir y el por qué BIG COLA debería cumplírselo, subiendo este video en la plataforma automáticamente el usuario estará participando. 
-                </p>
+                    </li>
+                </ol>
             </div>
         </div>
     </div>
