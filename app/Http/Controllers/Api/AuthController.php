@@ -41,7 +41,7 @@ class AuthController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Se ha enviado un correo de confirmación al email que pusiste en el formulario',
+            'message' => 'Se ha enviado un correo para la confirmación de su registro, revisar en su bandeja de entrada o spam',
             'data'    => []
         ], 200);
     }
