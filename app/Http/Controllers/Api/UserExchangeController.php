@@ -35,7 +35,7 @@ class UserExchangeController extends Controller
         if($code == null){
             return response()->json([
                 'success' => false,
-                'message' => 'Hubo un error, el código no se encuentra registrado. Por favor, verifica tu código.',
+                'message' => 'El código ya ha sido registrado anteriormente',
                 'data'    => [],
             ], 200);
         } else {
