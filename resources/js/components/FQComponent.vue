@@ -7,7 +7,7 @@
                     <div class="card-header" id="headingOne">
                     <h2 class="mb-0">
                         <button class="btn text-white font-weight-bold btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                        Cuál es el nombre de la promoción?
+                        ¿Cuál es el nombre de la promoción?
                         </button>
                     </h2>
                     </div>
@@ -22,13 +22,13 @@
                     <div class="card-header" id="headingTwo">
                         <h2 class="mb-0">
                             <button class="btn text-white font-weight-bold btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            En qué dirección web se puede acceder a la promoción?
+                            ¿Cuál es la dirección web para acceder a la promoción?
                             </button>
                         </h2>
                     </div>
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#fqAccordion">
                     <div class="card-body">
-                        La página web de la promoción es www.bigpromo.ec
+                        La página web de la promoción es <a href="https://bigpromo.ec">www.bigpromo.ec</a>
                     </div>
                     </div>
                 </div>
@@ -36,13 +36,18 @@
                     <div class="card-header" id="headingThree">
                         <h2 class="mb-0">
                             <button class="btn btn-link text-white font-weight-bold btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            Qué debo hacer para participar?
+                            ¿Qué debo hacer para participar?
                             </button>
                         </h2>
                     </div>
                     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#fqAccordion">
                         <div class="card-body">
-                            Registrarte e ingresar los códigos ubicados en las tapas de Big Cola
+                            Debes encontrar en las tapas amarillas de Big Cola códigos alfanuméricos impresos:
+                            <ol>
+                                <li>Regístralos en <a href="https://bigpromo.ec">www.bigpromo.ec</a>,</li>
+                                <li>Completa los puntos para habilitar el botón de grabar,</li>
+                                <li>Cuéntanos en un video de 20 segundos, cúal es tu sueño y por qué BIG COLA lo debería hacer realidad.</li>
+                            </ol>
                         </div>
                     </div>
                 </div>
@@ -51,13 +56,13 @@
                     <div class="card-header" id="headingFour">
                         <h2 class="mb-0">
                             <button class="btn btn-link text-white font-weight-bold btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                            Qué presentaciones de Big Cola participan en la promoción?
+                            ¿Qué presentaciones de Big Cola participan en la promoción?
                             </button>
                         </h2>
                     </div>
                     <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#fqAccordion">
                         <div class="card-body">
-                            Las botellas de 300ml, 911ml, 18000ml, 2250ml y 3050ml de todos los sabores
+                            Participan todos los sabores de los formatos de BIG: 300ml, 911ml, 18000ml, 2250ml y 3050ml.
                         </div>
                     </div>
                 </div>
@@ -66,13 +71,13 @@
                     <div class="card-header" id="headingFive">
                         <h2 class="mb-0">
                             <button class="btn btn-link text-white font-weight-bold btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                            Durante cuánto tiempo estará vigente la promoción?
+                            ¿Cuál es el tiempo de vigencia de la promoción?
                             </button>
                         </h2>
                     </div>
                     <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#fqAccordion">
                         <div class="card-body">
-                            Desde el día 15 de noviembre de 2021 hasta el 8 de enero de 2022.
+                            La Big promo está vigente desde el día 15 de noviembre de 2021 hasta el 8 de enero de 2022.
                         </div>
                     </div>
                 </div>
@@ -81,13 +86,13 @@
                     <div class="card-header" id="headingSix">
                         <h2 class="mb-0">
                             <button class="btn btn-link text-white font-weight-bold btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                            Qué logro subiendo los códigos a la página web de la promoción?
+                            ¿Qué logro subiendo los códigos de las tapas de Big cola en el website de la promoción?
                             </button>
                         </h2>
                     </div>
                     <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#fqAccordion">
                         <div class="card-body">
-                            Se irá llenando la BARRA DE SUEÑO y al completarla, se activará la opción para subir un video del sueño que quieras que Big Cola cumpla para ti, explicando por qué debería cumplirse.
+                            Al completar los 5000 puntos de la BARRA DE PUNTOS, se activará el botón para grabar un video en el que deberás contarnos tu sueño y por qué quisieras que Big Cola te lo hiciera realidad.
                         </div>
                     </div>
                 </div>
@@ -96,13 +101,13 @@
                     <div class="card-header" id="headingSeven">
                         <h2 class="mb-0">
                             <button class="btn btn-link text-white font-weight-bold btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-                        Cuántos puntos necesito para llenar la BARRA DE SUEÑO?
+                            ¿Cuántos puntos necesito para habilitar el botón de grabación?
                             </button>
                         </h2>
                     </div>
                     <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#fqAccordion">
                         <div class="card-body">
-                            Se necesitan 5000 puntos.
+                            Se necesitan 5000 puntos equivalentes a 5000 mililitros. Algunas tapas te podrían dar puntos extras.
                         </div>
                     </div>
                 </div>
@@ -111,13 +116,13 @@
                     <div class="card-header" id="headingEight">
                         <h2 class="mb-0">
                             <button class="btn btn-link text-white font-weight-bold btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
-                            Qué edad debo tener para participar?
+                            ¿Cuántos sueños puedo grabar?
                             </button>
                         </h2>
                     </div>
                     <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#fqAccordion">
                         <div class="card-body">
-                            Los participantes deben ser mayores de edad.
+                            Todos los que desees. Cumpliendo siempre con la mecánica de la promoción.
                         </div>
                     </div>
                 </div>
@@ -126,13 +131,13 @@
                     <div class="card-header" id="headingNine">
                         <h2 class="mb-0">
                             <button class="btn btn-link text-white font-weight-bold btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
-                            Puedo participar en la promoción si soy empleado de AJE?
+                            ¿Qué edad debo tener para participar?
                             </button>
                         </h2>
                     </div>
                     <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#fqAccordion">
                         <div class="card-body">
-                            No pueden participar ni son elegibles como ganadores, los empleados de AJECUADOR, trabajadores o funcionarios de las empresas distribuidoras, clientes de las marcas que comercializa LA ORGANIZADORA, así como los miembros o empleados de las agencias de publicidad, agencias de medios, contratistas o proveedores de AJECUADOR o sus familiares directos en primer grado de consanguinidad y hasta segundo grado de afinidad.
+                            Los participantes deben ser mayores a 18 años de edad, en caso de que en el video aparezca un niño/a debe ser siempre acompañado por un adulto.
                         </div>
                     </div>
                 </div>
@@ -141,13 +146,13 @@
                     <div class="card-header" id="headingTeen">
                         <h2 class="mb-0">
                             <button class="btn btn-link text-white font-weight-bold btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTeen" aria-expanded="false" aria-controls="collapseTeen">
-                            Cuántos ganadores tendrá LA PROMOCION?
+                            ¿Cuándo conoceremos quienes son los ganadores de la promoción?
                             </button>
                         </h2>
                     </div>
                     <div id="collapseTeen" class="collapse" aria-labelledby="headingTeen" data-parent="#fqAccordion">
                         <div class="card-body">
-                            Habrá un ganador semanal desde la semana del 22 de noviembre hasta la semana del 8 de enero del 2022.
+                            Un día de cada semana, a partir de la semana del 22 de noviembre hasta la semana del 8 de enero del año 2022, se realizará un show vivo a través de Facebook live en el que realizaremos las entregas de los sueños que hayan sido seleccionados.
                         </div>
                     </div>
                 </div>
@@ -156,13 +161,13 @@
                     <div class="card-header" id="headingEleven">
                         <h2 class="mb-0">
                             <button class="btn btn-link text-white font-weight-bold btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
-                            Cómo saber si he ganado?
+                            ¿Cómo saber si he ganado?
                             </button>
                         </h2>
                     </div>
                     <div id="collapseEleven" class="collapse" aria-labelledby="headingEleven" data-parent="#fqAccordion">
                         <div class="card-body">
-                            La entrega del o los PREMIOS se hará semanalmente desde la semana del 22 de noviembre 2021 hasta la semana del 7 de enero del 2022 en un show en vivo que será transmitido en Facebook y Youtube.
+                            Deberás registrarte con los datos correctos para que nuestro staff de AJE se pueda comunicar contigo; además podrás seguirnos en nuestras redes en donde realizaremos todos los comunicados oficiales.
                         </div>
                     </div>
                 </div>
@@ -171,28 +176,16 @@
                     <div class="card-header" id="headingTwelve">
                         <h2 class="mb-0">
                             <button class="btn btn-link text-white font-weight-bold btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
-                            Qué restricciones existen en caso de que el sueño a cumplir sea un viaje?
+                            ¿AJE podrá usar la imagen de los participantes?
                             </button>
                         </h2>
                     </div>
                     <div id="collapseTwelve" class="collapse" aria-labelledby="headingTwelve" data-parent="#fqAccordion">
                         <div class="card-body">
-                            El ganador deberá cointar con pasaporte vigente por más de 6 meses y la visa requerida para el país de destino. Tendrá que asistir a los eventos que AJE coordine y además es indispensable contar con seguro médico de viaje internacional. Todos los gastos que no involucren pasajes o estadía los asumirá el ganador. AJE no se hace responsable si hay viajes cancelados por termas de fuerza mayor.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card my-3">
-                    <div class="card-header" id="headingThreeTeen">
-                        <h2 class="mb-0">
-                            <button class="btn btn-link text-white font-weight-bold btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThreeTeen" aria-expanded="false" aria-controls="collapseThreeTeen">
-                            AJE podrá usar la imagen de los participantes?
-                            </button>
-                        </h2>
-                    </div>
-                    <div id="collapseThreeTeen" class="collapse" aria-labelledby="headingThreeTeen" data-parent="#fqAccordion">
-                        <div class="card-body">
-                            La participación en la promoción importará la expresa autorización a AJE para la difusión pública de datos personales y material audiovisual de los participantes, con fines comerciales o con cualquier otra finalidad, sin que el participante tenga derecho a reclamo de indemnización, contraprestación o retribución alguna.
+                            La participación en la promoción importará la expresa autorización a AJE para la difusión pública
+                            de datos personales y material audiovisual de los participantes, con fines comerciales o con
+                            cualquier otra finalidad, sin que el participante tenga derecho a reclamo de indemnización,
+                            contraprestación o retribución alguna.
                         </div>
                     </div>
                 </div>
