@@ -34,6 +34,8 @@ Vue.component('fq-component', require('./components/FQComponent.vue').default);
 Vue.component('popup-component', require('./components/general/PopupComponent.vue').default);
 Vue.component('help-component', require('./components/general/HelpComponent.vue').default);
 Vue.component('img-art-main-component', require('./components/general/ImgArtMainComponent.vue').default);
+Vue.component('recover-password-component', require('./components/RecoverPasswordComponent.vue').default);
+Vue.component('reset-password-component', require('./components/ResetPasswordComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

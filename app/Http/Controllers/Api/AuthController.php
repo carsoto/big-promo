@@ -8,6 +8,8 @@ use App\Models\User;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Mail;
+use DB;
+use Carbon\Carbon;
 
 class AuthController extends Controller
 {
@@ -91,6 +93,62 @@ class AuthController extends Controller
             'success' => true,
             'message' => 'Ha cerrado sesión',
             'data'    => auth()->user(),
+        ], 200);
+    }
+
+    public function recoverPassword(Request $request){
+        $data = $request->toArray();
+        $user = User::where('email', $data['email'])->first();
+
+        if($user == null){
+            return response()->json([
+                'success' => false,
+                'message' => 'Este correo no se encuentra registrado en nuestra plataforma',
+                'data'    => []
+            ], 200); 
+        }
+
+        $data = $user->toArray();
+
+        $token = Str::random(64);
+
+        DB::table('password_resets')->insert(
+            ['email' => $data['email'], 'token' => $token, 'created_at' => Carbon::now()]
+        );
+      
+        $data['confirmation_code'] = $token;
+
+        Mail::send('emails.users.recoverPassword', $data, function($message) use ($data, $user) {
+            $message->to($data['email'], $user->fullName())->subject('Recupera tu contraseña BIG');
+        });
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Se ha enviado un correo para recuperar la contraseña, revisar en su bandeja de entrada o spam',
+            'data'    => []
+        ], 200);
+        
+    }
+
+    public function resetPassword(Request $request) {
+        $updatePassword = DB::table('password_resets')->where(['email' => $request->email, 'token' => $request->token])->first();
+
+        if(!$updatePassword) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Este correo no se encuentra registrado en nuestra plataforma',
+                'data'    => []
+            ], 200);
+        }
+        
+        $user = User::where('email', $request->email)->update(['password' => bcrypt($request->password)]);
+
+        DB::table('password_resets')->where(['email'=> $request->email])->delete();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Contraseña actualizada exitosamente.',
+            'data'    => []
         ], 200);
     }
 }

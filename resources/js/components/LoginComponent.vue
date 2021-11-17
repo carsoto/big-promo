@@ -32,6 +32,7 @@
                     id="password"
                     v-model.trim="user.password"
                 />
+                <div class="text-right pt-1"><a href="recover-password" class="link-yellow">¿Olvidó su contraseña?</a></div>
                 <div v-if="$v.user.password.$dirty">
                     <div
                         class="error text-warning"

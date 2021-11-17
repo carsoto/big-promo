@@ -32,3 +32,6 @@ Route::get('cities', [GeneralController::class, 'cities']);
 Route::middleware('auth:api')->group(function () {
     Route::post('logout', [AuthController::class, 'logout']);
 });
+
+Route::post('recover-password', [AuthController::class, 'recoverPassword'])->name('api.recoverPassword');
+Route::post('reset-password', [AuthController::class, 'resetPassword'])->name('api.resetPassword');

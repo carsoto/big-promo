@@ -424,6 +424,10 @@ html, body {
 .link-yellow {
     font-weight: 700;
     color: $yellow;
+    &:hover, &:focus {
+        color: #fff;
+        transition: 0.5s;
+    }
 }
 
 .buttons-section-record {

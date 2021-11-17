@@ -87,4 +87,12 @@ class UserController extends Controller
         
         return $data;
     }
+
+    public function recoverPassword() {
+        return view('user.auth.recoverPassword');
+    }
+
+    public function resetPassword($token) {
+        return view('user.auth.resetPassword', ['token' => $token]);
+    }
 }

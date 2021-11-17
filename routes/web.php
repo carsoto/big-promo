@@ -41,6 +41,10 @@ Route::post('login-promo', [LoginController::class, 'login_promo'])->name('login
 Route::prefix('u')->group(function () {
     Route::get('/login', [UserFront::class, 'login'])->name('u.login');
 
+    Route::get('/recover-password', [UserFront::class, 'recoverPassword'])->name('u.recoverPassword');
+
+    Route::get('/reset-password/{token}', [UserFront::class, 'resetPassword'])->name('u.resetPassword');
+
     Route::get('/register', [UserFront::class, 'register']);
 
     Route::get('/recorder', [UserFront::class, 'recorder'])->middleware('auth');
