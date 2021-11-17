@@ -15,12 +15,6 @@ class UserDreamController extends Controller
             $data = new UserDream;
             $data->user_id = auth()->user()->id;
 
-            $file = $request->file->store('public');
-            $extension = File::extension($file->getClientOriginalName(), $file->getMimetype());
-            $dream = $request->file('file')->store('videos', ['disk' => 'videos']);
-            $data->dream = "/".$dream.$extension;
-
-
             // Get filename with the extension
             $filenameWithExt = $request->file('file')->getClientOriginalName();
             //Get just filename
@@ -31,7 +25,7 @@ class UserDreamController extends Controller
             $fileNameToStore = $filename.'_'.time().'.'.$extension;
             // Upload Image
             $path = $request->file('file')->storeAs('public/videos',$fileNameToStore);
-
+            dd($filenameWithExt, $filename, $extension, $fileNameToStore, $path);
             $data->dream = "/".$fileNameToStore;
             
             $data->save();
