@@ -19,5 +19,6 @@ return [
     'users'                         => 'Usuarios',
     'competitor'                    => 'Participantes',
     'dreams'                        => 'Sueños',
-    'log_out'                       => 'Cerrar sesión'
+    'log_out'                       => 'Cerrar sesión',
+    'dashboard'                     => 'Dashboard',
 ];

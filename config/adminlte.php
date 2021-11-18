@@ -251,6 +251,11 @@ return [
         ],
         ['header' => 'account_settings'],*/
         [
+            'text' => 'dashboard',
+            'url'  => 'admin/dashboard',
+            'icon' => 'fas fa-fw fa-tachometer-alt',
+        ],
+        [
             'text' => 'competitor',
             'url'  => 'admin/users',
             'icon' => 'fas fa-fw fa-user',

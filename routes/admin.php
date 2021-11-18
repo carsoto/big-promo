@@ -19,6 +19,7 @@ use App\Http\Controllers\Auth\LoginController;
 });*/
 
 Route::get('/', [LoginController::class, 'showLoginForm'])->name('admin.login');
+Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 Route::get('/users', [AdminController::class, 'usersIndex'])->middleware('is_admin');
 Route::get('/user/details/{id}', [AdminController::class, 'userDetails'])->middleware('is_admin');
 Route::get('/dreams', [AdminController::class, 'dreamsIndex'])->middleware('is_admin');
