@@ -436,7 +436,7 @@ html, body {
 .float-help-button {
     position: fixed;
     top: 30%;
-    right: 15px;
+    right: 0;
     background: #FFF;
     width: fit-content;
     display: block;
@@ -462,6 +462,12 @@ html, body {
     }
 }
 
+.vdp-datepicker {
+    input {
+        width: 100%;
+        margin-left: 15px;
+    }
+}
 
 @media screen and (max-width: 768px) {
     .buttons-section-record {

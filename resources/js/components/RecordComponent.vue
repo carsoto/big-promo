@@ -152,9 +152,9 @@ export default {
         // user completed recording and stream is available
         this.player.on("finishRecord", () => {
             this.isSaveDisabled = false;
-            if (this.retake == 0) {
+            // if (this.retake == 0) {
                 this.isRetakeDisabled = false;
-            }
+            // }
             // the blob object contains the recorded data that
             // can be downloaded by the user, stored on server etc.
             console.log("finished recording: ", this.player.recordedData);
