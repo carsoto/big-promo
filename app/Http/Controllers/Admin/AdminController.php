@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\UserExchange;
+use App\Models\UserDream;
 use App\Models\Canton;
 use DB;
 
@@ -83,13 +84,15 @@ class AdminController extends Controller
 
     public function dreamsIndex()
     {
-        //$users = User::where('type', 'user')->get();
- 
-        return view('admin.dreams.index', ['dreams' => []]);
+        $count_dreams = UserDream::select(DB::raw('DATE(created_at) as fecha'),  DB::raw('count(*) as total'))->groupBy('created_at')->pluck('total','fecha')->toArray();
+        return view('admin.dreams.index', ['count_dreams' => $count_dreams]);
     }
 
     public function dreamsDetails($date)
     {
-        return view('admin.dreams.details', ['date' => $date]);
+        $data['date'] = $date;
+        $dreams = UserDream::where('created_at', $date)->get();
+        $data['dreams'] = $dreams;
+        return view('admin.dreams.details', ['data' => $data]);
     }
 }

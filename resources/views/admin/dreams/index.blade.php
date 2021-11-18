@@ -34,21 +34,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($dreams as $key => $dream)
-
-                        <!--<tr data-entry-id="{{ $dream->id }}">
+                    @foreach($count_dreams as $key => $cantidad)
+                        <tr>
                             <td>
-                                {{ $dream }}
+                                {{ Carbon\Carbon::parse($key)->format('d-m-Y') }}
                             </td>
                             <td>
-                                {{ $dream }}
+                                {{ $cantidad }}
                                 <div class="float-right">
-                                    <a href="dreams/details/08-06-2021" title="Detalles">
+                                    <a href="dreams/details/{{ $key }}" title="Detalles">
                                         <i class="far fa-eye"></i>
                                     </a>
                                 </div>
                             </td>
-                        </tr>-->
+                        </tr>
                     @endforeach
                 </tbody>
             </table>
