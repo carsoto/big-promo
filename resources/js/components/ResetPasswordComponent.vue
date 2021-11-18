@@ -3,7 +3,8 @@
         <form class="row g-2" v-on:submit.prevent="sendForm">
             <h2 class="col-sm-12 text-center">Cambiar contraseña</h2>
             <p class="col-sm-12 text-center text-white">
-                Ingresa con los datos de tu cuenta registrada para poder recuperar tu contraseña y sigas canjeando tus tapas BIG.
+                Ingresa con los datos de tu cuenta registrada para poder
+                recuperar tu contraseña y sigas canjeando tus tapas BIG.
             </p>
             <div class="col-sm-12 mt-5">
                 <input
@@ -11,6 +12,7 @@
                     placeholder="Correo"
                     class="form-control"
                     id="email"
+                    @blur="$v.user.email.$touch"
                     v-model.trim="user.email"
                 />
                 <div v-if="$v.user.email.$dirty">
@@ -19,7 +21,6 @@
                         v-if="!$v.user.email.required"
                     >
                         <PopupComponent text="Campo requerido" />
-
                     </div>
                 </div>
             </div>
@@ -29,16 +30,16 @@
                     placeholder="Contraseña"
                     class="form-control"
                     id="password"
+                    @blur="$v.user.password.$touch"
                     v-model.trim="user.password"
                 />
-                
+
                 <div v-if="$v.user.password.$dirty">
                     <div
                         class="error text-warning"
                         v-if="!$v.user.password.required"
                     >
                         <PopupComponent text="Campo requerido" />
-
                     </div>
                 </div>
             </div>
@@ -48,17 +49,20 @@
                     type="password"
                     placeholder="Repetir contraseña"
                     class="form-control"
-                    id="password"
+                    id="password-confirm"
+                    @blur="$v.user.password_confirm.$touch"
                     v-model.trim="user.password_confirm"
                 />
-                
+
                 <div v-if="$v.user.password_confirm.$dirty">
                     <div
                         class="error text-warning"
                         v-if="!$v.user.password_confirm.required"
                     >
                         <PopupComponent text="Campo requerido" />
-
+                    </div>
+                    <div v-else-if="!$v.user.password_confirm.sameAsPassword">
+                        <PopupComponent text="Las contraseñas no coinciden" />
                     </div>
                 </div>
             </div>
@@ -82,7 +86,7 @@
 
 <script>
 import { validationMixin } from "vuelidate";
-import { required } from "vuelidate/lib/validators";
+import { required, email, minLength, sameAs } from "vuelidate/lib/validators";
 import ModalComponent from "./ModalComponent";
 import PopupComponent from "./general/PopupComponent";
 
@@ -91,7 +95,7 @@ export default {
     props: ["token"],
     components: {
         ModalComponent,
-        PopupComponent
+        PopupComponent,
     },
     data() {
         return {
@@ -99,7 +103,7 @@ export default {
                 email: null,
                 password: null,
                 password_confirm: null,
-                token: null
+                token: null,
             },
             notification: {
                 title: null,
@@ -112,14 +116,11 @@ export default {
     },
     validations: {
         user: {
-            email: {
-                required,
-            },
-            password: {
-                required,
-            },
+            email: { required, email },
+            password: { required, minLength: minLength(6) },
             password_confirm: {
                 required,
+                sameAsPassword: sameAs("password"),
             },
         },
     },
@@ -128,14 +129,15 @@ export default {
     },
     methods: {
         sendForm() {
+            $("#modal-loading").modal("show");
             this.isSubmitting = true;
             this.$v.user.$touch();
             if (this.$v.user.$invalid) {
                 console.log("upss", this.$v.user.$invalid);
+                $("#modal-loading").modal("hide");
                 return;
             }
             this.user.token = this.token;
-            console.log(this.user, this.token);
             axios
                 .post("/api/reset-password", this.user, {
                     headers: {
@@ -146,8 +148,11 @@ export default {
                 })
 
                 .then((response) => {
+                    $("#modal-loading").modal("hide");
                     if (response.data.success) {
-                        this.redirectTo("exchange");
+                        this.notification.type = "success";
+                        this.notification.title = "Contraseña Actualizada!";
+                        this.notification.message = response.data.message;
                     } else {
                         this.notification.type = "error";
                         this.notification.title = "Ha ocurrido un error!";
@@ -156,6 +161,7 @@ export default {
                     }
                 })
                 .catch((err) => {
+                    $("#modal-loading").modal("hide");
                     this.notification.type = "error";
                     this.notification.title = "Ha ocurrido un error!";
                     this.notification.message = err.response.data.message;

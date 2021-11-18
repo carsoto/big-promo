@@ -8,11 +8,13 @@
             justify-content-center
         "
     >
-        <div class="rounded col-md-9 m-2 text-white bg-black dialog-exchange">
+        <div class="rounded m-2 text-white bg-black dialog-exchange">
             <h5 class="p-3 m-0 text-center">
-                GRABAR TU SUEÑO EN 20 SEGUNDOS INDICANDO...
+                GRABA TU SUEÑO EN 20 SEGUNDOS INDICANDO...
                 <br />
-                <b class="font-weight-bold">¿CUÁL ES TU SUEÑO y POR QUÉ DEBEMOS HACERLO REALIDAD?</b>
+                <b class="font-weight-bold"
+                    >¿CUÁL ES TU SUEÑO y POR QUÉ DEBEMOS HACERLO REALIDAD?</b
+                >
             </h5>
         </div>
         <div class="col-10 col-md-7 d-flex flex-column justify-content-center">
@@ -166,7 +168,6 @@ export default {
             this.player.record().getDevice();
         },
         submitVideo() {
-            
             this.isSaveDisabled = true;
             this.isRetakeDisabled = true;
             var data = this.player.recordedData;
@@ -204,7 +205,8 @@ export default {
                     this.notification.message =
                         "Ocurrió un error subiendo tu sueño.";
                     $("#modal-message").modal("show");
-                }).finally(() => {
+                })
+                .finally(() => {
                     $("#modal-loading").modal("hide");
                 });
         },
