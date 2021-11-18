@@ -13,7 +13,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-4 p-4">
+        <div class="col-md-3 p-4">
             <div class="small-box bg-red">
                 <div class="inner">
                     <h1>{{ $data['total_users'] }}</h1>
@@ -21,7 +21,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4 p-4">
+        <div class="col-md-3 p-4">
             <div class="small-box bg-red">
                 <div class="inner">
                     <h1>{{ $data['users_confirmed'] }}</h1>
@@ -29,11 +29,19 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4 p-4">
+        <div class="col-md-3 p-4">
             <div class="small-box bg-red">
                 <div class="inner">
                     <h1>{{ $data['exchanges'] }}</h1>
                     <h2>Cantidad de canjes</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 p-4">
+            <div class="small-box bg-red">
+                <div class="inner">
+                    <h1>{{ $data['dreams'] }}</h1>
+                    <h2>Cantidad de sueños</h2>
                 </div>
             </div>
         </div>

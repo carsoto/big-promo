@@ -58,6 +58,9 @@ class AdminController extends Controller
             ->groupBy('users.city_id')
             ->get();
 
+        //Cantidad de sueños
+        $dreams = UserDream::all()->count();
+
         $data['daily_user_records'] = $daily_user_records;
         $data['total_users'] = $total_users;
         $data['users_confirmed'] = $users_confirmed;
@@ -65,6 +68,7 @@ class AdminController extends Controller
         $data['format_exchanges'] = $format_exchanges;
         $data['participating_cities'] = $participating_cities;
         $data['bot_presentation'] = ['1' => 300, '2' => 911, '3' => 1800, '4' => 2250, '5' => 3050];
+        $data['dreams'] = $dreams;
 
         return view('admin.dashboard.index', ['data' => $data]);
     }
