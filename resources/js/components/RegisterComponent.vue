@@ -102,15 +102,16 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <input
+            <div clams="col-md-6">
+                 <datepicker :language="es" format="yyyy-MM-dd" placeholder="Fecha de nacimiento" v-model.trim="user.birthday" bootstrap-styling="true"></datepicker>
+                <!-- <input
                     type="date"
                     placeholder="Fecha de nacimiento"
                     v-model.trim="user.birthday"
                     class="form-control"
                     max='2002-01-01'
                     id="birthday"
-                />
+                /> -->
                 <div v-if="$v.user.birthday.$dirty">
                     <div
                         class="error text-warning"
@@ -207,6 +208,9 @@ import { validationMixin } from "vuelidate";
 import { required, minLength, between, sameAs } from "vuelidate/lib/validators";
 import ModalComponent from "./ModalComponent";
 import PopupComponent from "./general/PopupComponent";
+import Datepicker from 'vuejs-datepicker';
+import { es } from 'vuejs-datepicker/dist/locale';
+
 export default {
     mixins: [validationMixin],
     components: {
@@ -215,6 +219,7 @@ export default {
     },
     data() {
         return {
+            es,
             cities: [],
             notification: {
                 title: null,
@@ -306,6 +311,9 @@ export default {
                 window.location.href = url;
             }
         }
+    },
+    components: {
+        Datepicker
     }
 };
 </script>

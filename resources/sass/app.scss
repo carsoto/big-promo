@@ -462,6 +462,12 @@ html, body {
     }
 }
 
+.vdp-datepicker {
+    input {
+        width: 100%;
+        margin-left: 15px;
+    }
+}
 
 @media screen and (max-width: 768px) {
     .buttons-section-record {
