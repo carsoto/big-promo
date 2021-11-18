@@ -153,6 +153,10 @@ export default {
                         this.notification.type = "success";
                         this.notification.title = "Contraseña Actualizada!";
                         this.notification.message = response.data.message;
+                        $("#modal-message").modal("show");
+                        setTimeout(() => {
+                            this.redirectTo("login");
+                        }, 600);
                     } else {
                         this.notification.type = "error";
                         this.notification.title = "Ha ocurrido un error!";
