@@ -30,6 +30,9 @@
                             Teléfono
                         </th>
                         <th>
+                            Ciudad
+                        </th>
+                        <th>
                             Puntaje
                         </th>
                         <th>
@@ -63,23 +66,21 @@
                                 {{ $user->phone ?? '' }}
                             </td>
                             <td>
-                                {{ '' }}
+                                {{ $user->city->name ?? '' }}
                             </td>
                             <td>
-                                {{ '' }}
+                                {{ $user->score ?? '0' }}
+                            </td>
+                            <td>
+                                {{ $user->user_dreams->count() ?? '0' }}
                             </td>
                             <td>
                                 {{ $user->formattedRegister() }}
                             </td>
                             <td>
-                                <a href="#" title="Detalles">
+                                <a href="user/details/{{ $user->id }}" title="Detalles">
                                     <i class="far fa-eye"></i>
                                 </a>
-                                |
-                                <a href="#" title="Enviar correo">
-                                    <i class="fas fa-paper-plane"></i>
-                                </a>
-                                <ion-icon name="color-wand-outline"></ion-icon>
                             </td>
                         </tr>
                     @endforeach
@@ -92,6 +93,14 @@
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
+    <style scoped>
+        .page-item.active .page-link {
+            z-index: 3;
+            color: #fff;
+            background-color: #dc3545 !important;
+            border-color: #dc3545 !important;
+        }
+    </style>
 @stop
 
 @section('js')
@@ -102,8 +111,14 @@
                     "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
                 },
                 dom: 'Bfrtip',
+                
                 buttons: [
-                    'copy', 'csv', 'excel', 'pdf', 'print'
+                    {
+                        text: "Exportar a Excel",
+                        extend: 'excelHtml5',
+                        title: 'Participantes_Destapa_tu_sueno',
+                        className: 'btn-danger'
+                    }
                 ]
             });
         });

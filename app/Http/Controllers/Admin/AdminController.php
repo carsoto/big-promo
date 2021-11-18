@@ -35,6 +35,12 @@ class AdminController extends Controller
         return view('admin.users.index', ['users' => $users]);
     }
 
+    public function userDetails($id)
+    {
+        $user = User::find($id);
+        return view('admin.users.details', ['user' => $user]);
+    }
+
     public function dreamsIndex()
     {
         //$users = User::where('type', 'user')->get();

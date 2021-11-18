@@ -39,4 +39,8 @@ class Canton extends Model
     {
         return $this->hasMany(Parish::class);
     }
+
+    public function users() {
+        return $this->hasMany(User::class);
+    }
 }

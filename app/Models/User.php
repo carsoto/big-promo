@@ -47,7 +47,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'deleted_at',
     ];
 
-    protected $appends = ['accumulated'];
+    protected $appends = ['accumulated', 'score'];
 
     /**
      * The attributes that should be cast to native types.
@@ -95,5 +95,19 @@ class User extends Authenticatable implements MustVerifyEmail
         }
         
         return $accumulated;
+    }
+
+    public function city() {
+        return $this->belongsTo(Canton::class);
+    }
+
+    public function getScoreAttribute() {
+        $score = $this->user_exchanges->sum('points') + $this->user_exchanges->sum('aditional_points');
+        return $score;
+    }
+
+    public function getDreamsCountAttribute() {
+        $score = $this->user_exchanges->sum('points') + $this->user_exchanges->sum('aditional_points');
+        return $score;
     }
 }

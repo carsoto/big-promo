@@ -38,7 +38,7 @@ class UserDreamController extends Controller
      */
     public function show()
     {
-        $data = auth()->user()->user_dreams;
+        $data = auth()->user()->user_dreams->orderBy('created_at', 'desc');
         return response()->json([
             'success' => true,
             'message' => '',
