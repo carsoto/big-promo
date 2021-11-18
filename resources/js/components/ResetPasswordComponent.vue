@@ -41,6 +41,14 @@
                     >
                         <PopupComponent text="Campo requerido" />
                     </div>
+                    <div
+                        class="error text-warning"
+                        v-else-if="!$v.user.password.minLength"
+                    >
+                        <PopupComponent
+                            text="La clave debe contener mínimo 6 caracteres"
+                        />
+                    </div>
                 </div>
             </div>
 
