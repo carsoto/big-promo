@@ -155,8 +155,8 @@ export default {
                         this.notification.message = response.data.message;
                         $("#modal-message").modal("show");
                         setTimeout(() => {
-                            this.redirectTo("login");
-                        }, 600);
+                            this.redirectTo("/u/login");
+                        }, 1000);
                     } else {
                         this.notification.type = "error";
                         this.notification.title = "Ha ocurrido un error!";
