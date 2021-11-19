@@ -39,7 +39,7 @@
                     v-bind:disabled="isStartRecording"
                     id="btnStart"
                 >
-                    Grabar
+                    <img src="/img/btn-record.svg" alt="" width="30px" class="mr-3"> Grabar
                 </button>
                 <button
                     type="button"
@@ -48,7 +48,7 @@
                     v-bind:disabled="isSaveDisabled"
                     id="btnSave"
                 >
-                    Enviar
+                    Enviar <img src="/img/btn-re-record.svg" alt="" width="25px" class="ml-3">
                 </button>
                 <button
                     type="button"
@@ -57,7 +57,7 @@
                     v-bind:disabled="isRetakeDisabled"
                     id="btnRetake"
                 >
-                    Re-Grabar
+                    Re-Grabar <img src="/img/btn-send.svg" alt="" width="25px" class="ml-3">
                 </button>
             </div>
         </div>

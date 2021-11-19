@@ -328,6 +328,13 @@ html, body {
 
 }
 
+.modal {
+    .close-modal-btn {
+        position: absolute;
+        right: 0;
+    }
+}
+
 #modal-message{
     background-color: rgba(0, 0, 0, 0.8);
 }

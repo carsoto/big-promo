@@ -23,12 +23,16 @@
 </head>
 <body>
     <div id="app">
-        <loading-component :active="false"></loading-component>
-        @include('common.user-nav')
-        @yield('content')
-        @include('common.user-footer')
-        <instructions-component></instructions-component>
-        <help-component />
+            <loading-component :active="false"></loading-component>
+            @include('common.user-nav')
+            
+            <wrapper-transition-component>
+                @yield('content')
+            </wrapper-transition-component>
+
+            @include('common.user-footer')
+            <instructions-component></instructions-component>
+            <help-component />
     </div>
 </body>
 </html>
