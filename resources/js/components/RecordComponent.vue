@@ -25,7 +25,7 @@ import RecordRTC from 'recordrtc'
 import Record from 'videojs-record/dist/videojs.record.js'
 import FFmpegjsEngine from 'videojs-record/dist/plugins/videojs.record.ffmpegjs.js';
 export default {
-    props: ['uploadUrl'],
+    props: ['uploadurl'],
     data() {
         return {
             player: '',
@@ -105,7 +105,7 @@ export default {
             this.submitText = "Uploading "+data.name;
             console.log('uploading recording:', data.name);
             this.player.record().stopDevice();
-            fetch(this.uploadUrl, {
+            fetch(this.uploadurl, {
                 method: 'POST',
                 body: formData,
                 headers: {
