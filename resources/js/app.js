@@ -34,6 +34,7 @@ Vue.component('fq-component', require('./components/FQComponent.vue').default);
 Vue.component('popup-component', require('./components/general/PopupComponent.vue').default);
 Vue.component('help-component', require('./components/general/HelpComponent.vue').default);
 Vue.component('img-art-main-component', require('./components/general/ImgArtMainComponent.vue').default);
+Vue.component('wrapper-transition-component', require('./components/WrapperTransitionComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
