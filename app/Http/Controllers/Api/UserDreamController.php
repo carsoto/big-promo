@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\UserDream;
 use Illuminate\Http\Request;
-use ProtoneMedia\LaravelFFMpeg\Support\FFMpeg;
-use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage;
+use FFMpeg;
+use FFMpeg\Filters\Video\VideoFilters;
+
+
 
 class UserDreamController extends Controller
 {
@@ -36,17 +38,9 @@ class UserDreamController extends Controller
         $data->user_id = auth()->user()->id;
 
         $file = tap($request->file('video'))->store('local');
-        $filename = Input::file('video')->getClientOriginalName();
-        //$filename = pathinfo($file->hashName(), PATHINFO_FILENAME);
+        $filename = pathinfo($file->hashName(), PATHINFO_FILENAME);
 
-        $storagePath = 'uploads/temp';
-        if (!Storage::exists($storagePath)) {
-            Storage::makeDirectory($storagePath);
-        }
-
-        Input::file('video')->storeAs($storagePath, $filename);
-
-        FFMpeg::fromDisk('local')->open($storagePath.'/'.$filename)->export()->toDisk('local')->inFormat(new \FFMpeg\Format\Video\x264('libmp3lame', 'libx264'))->save('converted_videos/'.$filename.'.mp4');
+        FFMpeg::fromDisk('local')->open('videos/'.$file->hashName())->export()->toDisk('local')->inFormat(new \FFMpeg\Format\Video\X264('libmp3lame', 'libx264'))->save('converted_videos/'.$filename.'.mp4');
         $data->dream = "/converted_videos/".$filename.".mp4";
 
         $data->save();
