@@ -47,7 +47,7 @@ Route::prefix('u')->group(function () {
 
     Route::get('/register', [UserFront::class, 'register']);
 
-    Route::get('/recorder', [UserFront::class, 'recorder'])->middleware('auth');
+    Route::get('/recorder', [UserFront::class, 'recorder']);
 
     Route::get('/videos-gallery', [UserFront::class, 'videosGallery'])->middleware('auth');
 

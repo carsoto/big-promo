@@ -5,12 +5,13 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\UserDream;
 use Illuminate\Http\Request;
+use ProtoneMedia\LaravelFFMpeg\Support\FFMpeg;
 
 class UserDreamController extends Controller
 {
     public function store(Request $request)
     {
-        $data = new UserDream;
+        /*$data = new UserDream;
         $data->user_id = auth()->user()->id;
 
         if ($request->hasFile('file'))
@@ -20,6 +21,23 @@ class UserDreamController extends Controller
             $dream = $request->file('file')->store('videos', ['disk' => 'videos']);
             $data->dream = "/".$dream;
         }
+
+        $data->save();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Sueño registrado exitosamente',
+            'data'    => [],
+        ], 200);*/
+
+        $data = new UserDream;
+        $data->user_id = auth()->user()->id;
+
+        $file = tap($request->file('video'))->store('videos');
+        $filename = pathinfo($file->hashName(), PATHINFO_FILENAME);
+
+        FFMpeg::fromDisk('videos')->open('videos/'.$file->hashName())->export()->toDisk('videos')->inFormat(new \FFMpeg\Format\Video\x264('libmp3lame', 'libx264'))->save('converted_videos/'.$filename.'.mp4');
+        $data->dream = "/converted_videos/".$filename.".mp4";
 
         $data->save();
 
