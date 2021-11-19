@@ -37,7 +37,7 @@ class UserDreamController extends Controller
         $data = new UserDream;
         $data->user_id = auth()->user()->id;
 
-        $file = $request->file->store('public');
+        $file = $request->file('video')->store('videos', ['disk' => 'videos']);
         $filename = pathinfo($file->hashName(), PATHINFO_FILENAME);
         
 
