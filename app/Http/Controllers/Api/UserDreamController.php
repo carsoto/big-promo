@@ -37,11 +37,12 @@ class UserDreamController extends Controller
         $data = new UserDream;
         $data->user_id = auth()->user()->id;
 
-        $file = tap($request->file('video'))->store('local');
+        $file = tap($request->file('video'))->store('videos');
         $filename = pathinfo($file->hashName(), PATHINFO_FILENAME);
+        
 
-        FFMpeg::fromDisk('local')->open('videos/'.$file->hashName())->export()->toDisk('local')->inFormat(new \FFMpeg\Format\Video\X264('libmp3lame', 'libx264'))->save('converted_videos/'.$filename.'.mp4');
-        $data->dream = "/converted_videos/".$filename.".mp4";
+        FFMpeg::fromFilesystem(Storage::disk('videos'))->open($file->hashName())->export()->toDisk('videos')->inFormat(new \FFMpeg\Format\Video\X264('libmp3lame', 'libx264'))->save('converted/'.$filename.'.mp4');
+        $data->dream = '/videos/converted/'.$filename.'.mp4';
 
         $data->save();
 
