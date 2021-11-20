@@ -128,7 +128,7 @@ export default {
                         pip: false,
                         audio: true,
                         video: true,
-                        maxLength: 20,
+                        maxLength: 10,
                         debug: true,
                     },
                 },
