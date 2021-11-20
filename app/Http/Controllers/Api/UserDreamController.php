@@ -33,7 +33,7 @@ class UserDreamController extends Controller
             'message' => 'Sueño registrado exitosamente',
             'data'    => [],
         ], 200);*/
-
+        set_time_limit(0);
         $data = new UserDream;
         $data->user_id = auth()->user()->id;
 
