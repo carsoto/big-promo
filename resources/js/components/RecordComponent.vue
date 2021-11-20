@@ -185,17 +185,17 @@ export default {
             this.isStartRecording = true;
             this.player.record().getDevice();
         },
+
         submitVideo() {
             this.isSaveDisabled = true;
             this.isRetakeDisabled = true;
             var data = this.player.recordedData;
             var formData = new FormData();
-            formData.append("file", data, data.name);
+            formData.append("video", data, data.name);
             this.submitText = "Uploading " + data.name;
             console.log("uploading recording:", data.name);
-            this.player.record().stopDevice();
             $("#modal-loading").modal("show");
-
+            this.player.record().stopDevice();
             fetch(this.uploadurl, {
                 method: "POST",
                 body: formData,
@@ -206,16 +206,18 @@ export default {
                 },
             })
                 .then((success) => {
+                    $("#modal-loading").modal("hide");
                     console.log("recording upload complete.");
                     this.submitText = "Upload Complete";
-                    this.redirectTo("videos-gallery");
                     this.notification.type = "success";
                     this.notification.title = "¡TU SUEÑO HA SIDO ENVIADO!";
                     this.notification.subtitle =
                         "Sigue acumulando PUNTOS para que puedas grabar otro SUEÑO.";
                     $("#modal-message").modal("show");
+                    this.redirectTo("videos-gallery");
                 })
                 .catch((error) => {
+                    $("#modal-loading").modal("hide");
                     console.error("an upload error occurred!");
                     this.submitText = "Upload Failed";
                     this.notification.type = "error";
@@ -223,15 +225,13 @@ export default {
                     this.notification.message =
                         "Ocurrió un error subiendo tu sueño.";
                     $("#modal-message").modal("show");
-                })
-                .finally(() => {
-                    $("#modal-loading").modal("hide");
                 });
         },
+
         retakeVideo() {
-            this.isSaveDisabled = true;
-            this.isRetakeDisabled = true;
-            this.retake += 1;
+            //this.isSaveDisabled = true;
+            //this.isRetakeDisabled = true;
+            //this.retake += 1;
             this.player.record().start();
         },
         redirectTo(url) {
