@@ -16,7 +16,7 @@ class UserDreamController extends Controller
     public function store(Request $request)
     {
         set_time_limit(0);
-        $data = new UserDream;
+        /*$data = new UserDream;
         $data->user_id = auth()->user()->id;
 
         if ($request->hasFile('video'))
@@ -33,9 +33,9 @@ class UserDreamController extends Controller
             'success' => true,
             'message' => 'Sueño registrado exitosamente',
             'data'    => [],
-        ], 200);
+        ], 200);*/
         
-        /*$data = new UserDream;
+        $data = new UserDream;
         $data->user_id = auth()->user()->id;
 
         $file = tap($request->file('video'))->store('videos', ['disk' => 'videos']);
@@ -44,7 +44,9 @@ class UserDreamController extends Controller
 
         //FFMpeg::fromFilesystem(Storage::disk('videos'))->open('videos/'.$file->hashName())->export()->toDisk('videos')->inFormat(new \FFMpeg\Format\Video\X264('libmp3lame', 'libx264'))->save('converted/'.$filename.'.mp4');
         //$data->dream = '/converted/'.$filename.'.mp4';
-        $data->dream = '/videos/'.$filename;
+        
+        FFMpeg::fromFilesystem(Storage::disk('videos'))->open('videos/'.$file->hashName())->export()->toDisk('videos')->save('converted/'.$file->hashName());
+        $data->dream = '/converted/'.$file->hashName();
 
         $data->save();
 
@@ -52,7 +54,7 @@ class UserDreamController extends Controller
             'success' => true,
             'message' => 'Sueño registrado exitosamente',
             'data'    => [],
-        ], 200);*/
+        ], 200);
     }
 
     /**
