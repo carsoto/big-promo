@@ -15,14 +15,15 @@ class UserDreamController extends Controller
 {
     public function store(Request $request)
     {
-        /*$data = new UserDream;
+        set_time_limit(0);
+        $data = new UserDream;
         $data->user_id = auth()->user()->id;
 
-        if ($request->hasFile('file'))
+        if ($request->hasFile('video'))
         {
             $file = $request->file->store('public');
 
-            $dream = $request->file('file')->store('videos', ['disk' => 'videos']);
+            $dream = $request->file('video')->store('videos', ['disk' => 'videos']);
             $data->dream = "/".$dream;
         }
 
@@ -32,9 +33,9 @@ class UserDreamController extends Controller
             'success' => true,
             'message' => 'Sueño registrado exitosamente',
             'data'    => [],
-        ], 200);*/
-        set_time_limit(0);
-        $data = new UserDream;
+        ], 200);
+        
+        /*$data = new UserDream;
         $data->user_id = auth()->user()->id;
 
         $file = tap($request->file('video'))->store('videos', ['disk' => 'videos']);
@@ -51,7 +52,7 @@ class UserDreamController extends Controller
             'success' => true,
             'message' => 'Sueño registrado exitosamente',
             'data'    => [],
-        ], 200);
+        ], 200);*/
     }
 
     /**
