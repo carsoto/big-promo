@@ -157,9 +157,14 @@ html, body {
       }
 
     .dialog-exchange{
+        width: 620px;
+        @media screen and (max-width: 420px) {
+            margin-top: 20px;
+            width: 280px;
+        }
         h5 {
             @media screen and (max-width: 420px) {
-                font-size: 1.1rem;
+                font-size: 0.9rem;
             }
         }
         img{

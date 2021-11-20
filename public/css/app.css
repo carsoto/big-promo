@@ -11139,9 +11139,20 @@ body {
   border-color: #FEDD31;
 }
 
+#app .dialog-exchange {
+  width: 620px;
+}
+
+@media screen and (max-width: 420px) {
+  #app .dialog-exchange {
+    margin-top: 20px;
+    width: 280px;
+  }
+}
+
 @media screen and (max-width: 420px) {
   #app .dialog-exchange h5 {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
   }
 }
 
