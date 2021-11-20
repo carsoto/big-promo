@@ -42,11 +42,8 @@ class UserDreamController extends Controller
         $filename = pathinfo($file->hashName(), PATHINFO_FILENAME);
         
 
-        //FFMpeg::fromFilesystem(Storage::disk('videos'))->open('videos/'.$file->hashName())->export()->toDisk('videos')->inFormat(new \FFMpeg\Format\Video\X264('libmp3lame', 'libx264'))->save('converted/'.$filename.'.mp4');
-        //$data->dream = '/converted/'.$filename.'.mp4';
-        
-        FFMpeg::fromFilesystem(Storage::disk('videos'))->open('videos/'.$file->hashName())->export()->toDisk('videos')->save('converted/'.$file->hashName());
-        $data->dream = '/converted/'.$file->hashName();
+        FFMpeg::fromFilesystem(Storage::disk('videos'))->open('videos/'.$file->hashName())->export()->toDisk('videos')->inFormat(new \FFMpeg\Format\Video\X264('libmp3lame', 'libx264'))->save('converted/'.$filename.'.mp4');
+        $data->dream = '/converted/'.$filename.'.mp4';
 
         $data->save();
 
