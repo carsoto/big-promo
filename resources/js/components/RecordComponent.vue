@@ -204,6 +204,9 @@ export default {
                         "content"
                     ),
                 },
+                contentType: "multipart/form-data", // changed this
+                dataType: "json",
+                crossDomain: true, // for CORS policy error
             })
                 .then((success) => {
                     $("#modal-loading").modal("hide");
