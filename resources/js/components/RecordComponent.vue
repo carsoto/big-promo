@@ -187,6 +187,7 @@ export default {
         },
 
         submitVideo() {
+            $("#modal-loading").modal("show");
             this.isSaveDisabled = true;
             this.isRetakeDisabled = true;
             var data = this.player.recordedData;
@@ -194,7 +195,6 @@ export default {
             formData.append("video", data, data.name);
             this.submitText = "Uploading " + data.name;
             console.log("uploading recording:", data.name);
-            $("#modal-loading").modal("show");
             this.player.record().stopDevice();
             fetch(this.uploadurl, {
                 method: "POST",
@@ -209,12 +209,12 @@ export default {
                     $("#modal-loading").modal("hide");
                     console.log("recording upload complete.");
                     this.submitText = "Upload Complete";
+
                     this.notification.type = "success";
                     this.notification.title = "¡TU SUEÑO HA SIDO ENVIADO!";
                     this.notification.subtitle =
                         "Sigue acumulando PUNTOS para que puedas grabar otro SUEÑO.";
                     $("#modal-message").modal("show");
-                    this.redirectTo("videos-gallery");
                 })
                 .catch((error) => {
                     $("#modal-loading").modal("hide");
