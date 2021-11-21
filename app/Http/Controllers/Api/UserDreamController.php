@@ -54,7 +54,7 @@ class UserDreamController extends Controller
     }
 
     public function saveVideo(Request $request) {
-        $validator = Validator::make($request->all(), ['file' => 'max:2048']);  
+        $validator = Validator::make($request->all(), ['file' => 'max:10240']);  
         
         if ($validator->fails()) {
             return response()->json([
