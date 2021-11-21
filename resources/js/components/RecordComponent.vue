@@ -1,6 +1,9 @@
 <template>
     <div class="container d-flex flex-column align-items-center">
-        <div class="rounded text-white bg-black dialog-exchange">
+        <div
+            class="rounded text-white bg-black dialog-exchange"
+            style="margin-bottom: 15px"
+        >
             <h5 class="p-3 m-0 text-center">
                 GRABA TU SUEÑO EN 20 SEGUNDOS INDICANDO...
                 <br />

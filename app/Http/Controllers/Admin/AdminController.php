@@ -94,7 +94,7 @@ class AdminController extends Controller
 
     public function dreamsDetails($date)
     {
-        $dreams = UserDream::where('created_at', '>=', $date.' 00:00:00')->get();
+        $dreams = UserDream::where(DB::raw('DATE(created_at)'), $date)->get();
         $data['date'] = $date;
         $data['dreams'] = $dreams;
         return view('admin.dreams.details', ['data' => $data]);
