@@ -8,8 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use FFMpeg;
 use FFMpeg\Filters\Video\VideoFilters;
-
-
+use Illuminate\Support\Facades\Validator;
 
 class UserDreamController extends Controller
 {
@@ -55,6 +54,16 @@ class UserDreamController extends Controller
     }
 
     public function saveVideo(Request $request) {
+        $validator = Validator::make($request->all(), ['file' => 'max:2048']);  
+        
+        if ($validator->fails()) {
+            return response()->json([
+                'success' => false,
+                'message' => 'El video supera el tamaño máximo permitido.',
+                'data'    => []
+            ], 200);
+        }
+
         $filename = time().'.'.$request->file->getClientOriginalExtension();
         $request->file->move(public_path('videos'), $filename);
         
@@ -66,7 +75,7 @@ class UserDreamController extends Controller
         return response()->json([
             'success' => true,
             'message' => 'Sueño registrado exitosamente',
-            'data'    => $request->all(),
+            'data'    => [],
         ], 200);
     }
     /**

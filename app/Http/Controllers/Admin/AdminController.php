@@ -88,14 +88,14 @@ class AdminController extends Controller
 
     public function dreamsIndex()
     {
-        $count_dreams = UserDream::select(DB::raw('DATE(created_at) as fecha'),  DB::raw('count(*) as total'))->groupBy('created_at')->pluck('total','fecha')->toArray();
+        $count_dreams = UserDream::select(DB::raw('DATE(created_at) as fecha'),  DB::raw('count(*) as total'))->groupBy(DB::raw('DATE(created_at)'))->pluck('total','fecha')->toArray();
         return view('admin.dreams.index', ['count_dreams' => $count_dreams]);
     }
 
     public function dreamsDetails($date)
     {
+        $dreams = UserDream::where('created_at', '>=', $date.' 00:00:00')->get();
         $data['date'] = $date;
-        $dreams = UserDream::where('created_at', $date)->get();
         $data['dreams'] = $dreams;
         return view('admin.dreams.details', ['data' => $data]);
     }

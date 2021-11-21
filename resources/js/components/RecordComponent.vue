@@ -1,13 +1,5 @@
 <template>
-    <div
-        class="
-            container
-            d-flex
-            flex-column
-            align-items-center
-            justify-content-center
-        "
-    >
+    <div class="container d-flex flex-column align-items-center">
         <div class="rounded text-white bg-black dialog-exchange">
             <h5 class="p-3 m-0 text-center">
                 GRABA TU SUEÑO EN 20 SEGUNDOS INDICANDO...
@@ -59,7 +51,7 @@
                 </form>
             </button>
         </div>
-        <div class="col-10 col-md-7 d-flex flex-column justify-content-center">
+        <div class="col-10 col-md-7 d-flex flex-column">
             <video id="myVideo" playsinline class="video-js vjs-default-skin">
                 <p class="vjs-no-js">
                     To view this video please enable JavaScript, or consider
@@ -73,7 +65,10 @@
                 </p>
             </video>
             <br />
-            <div class="d-flex justify-content-between buttons-section-record">
+            <div
+                class="d-flex justify-content-between buttons-section-record"
+                v-if="!file"
+            >
                 <button
                     type="button"
                     class="btn btn-recorder btn-info"
@@ -127,6 +122,7 @@
             :message="notification.message"
             :type="notification.type"
             :options="notification.options"
+            :url="notification.url"
             @continue="redirectTo"
         ></modal-component>
     </div>
@@ -203,8 +199,8 @@ export default {
                 message: "",
                 type: "",
                 options: {},
+                url: null,
             },
-            name: "",
             file: "",
             success: "",
         };
@@ -279,7 +275,6 @@ export default {
                     $("#modal-loading").modal("hide");
                     console.log("recording upload complete.");
                     this.submitText = "Upload Complete";
-
                     this.notification.type = "success";
                     this.notification.title = "¡TU SUEÑO HA SIDO ENVIADO!";
                     this.notification.subtitle =
@@ -312,13 +307,13 @@ export default {
         },
 
         onFileChange(e) {
-            console.log(e.target.files[0]);
+            //console.log(e.target.files[0]);
             this.file = e.target.files[0];
         },
         submitVideoFile(e) {
             $("#modal-loading").modal("show");
             e.preventDefault();
-            let currentObj = this;
+            //let currentObj = this;
 
             const config = {
                 headers: { "content-type": "multipart/form-data" },
@@ -329,19 +324,31 @@ export default {
 
             axios
                 .post("/api/upload-dream-video", formData, config)
-                .then(function (response) {
+                .then((response) => {
                     $("#modal-loading").modal("hide");
-                    currentObj.success = response.data.success;
-                    if (response.data.success) {
+                    if (response.data.success == true) {
+                        //currentObj.success = response.data.success;
                         this.notification.type = "success";
+                        this.notification.url = "/u/videos-gallery";
                         this.notification.title = "¡TU SUEÑO HA SIDO ENVIADO!";
                         this.notification.subtitle =
                             "Sigue acumulando PUNTOS para que puedas grabar otro SUEÑO.";
                         $("#modal-message").modal("show");
+                        this.file = "";
+                    } else {
+                        //currentObj.success = response.data.success;
+                        this.notification.type = "error";
+                        this.notification.url = "/";
+                        this.notification.title =
+                            "¡TU VIDEO SUPERA EL TAMAÑO PERMITIDO!";
+                        this.notification.subtitle =
+                            "El archivo debe pesar menos de 10 MB";
+                        $("#modal-message").modal("show");
+                        this.file = "";
                     }
                 })
-                .catch(function (error) {
-                    currentObj.output = error;
+                .catch((error) => {
+                    //currentObj.output = error;
                 });
         },
     },

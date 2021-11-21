@@ -11146,7 +11146,6 @@ body {
 
 @media screen and (max-width: 420px) {
   #app .dialog-exchange {
-    margin-top: 85px;
     margin-bottom: 20px;
     width: 280px;
   }
