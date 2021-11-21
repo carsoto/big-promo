@@ -8,7 +8,7 @@
             justify-content-center
         "
     >
-        <div class="rounded m-2 text-white bg-black dialog-exchange">
+        <div class="rounded text-white bg-black dialog-exchange">
             <h5 class="p-3 m-0 text-center">
                 GRABA TU SUEÑO EN 20 SEGUNDOS INDICANDO...
                 <br />
@@ -18,9 +18,14 @@
             </h5>
         </div>
 
-        <div class="justify-content-center m-3">
-            <button type="button" class="btn btn-outline-warning" id="btnStart">
-                <label for="my-file-dream">
+        <div class="flex-column align-items-center justify-content-center">
+            <button
+                type="button"
+                class="btn btn-outline-warning"
+                id="btnUploadFile"
+                style="margin-bottom: 15px"
+            >
+                <label class="m-1" for="my-file-dream">
                     <img
                         src="/img/btn-upload-1.svg"
                         alt=""
@@ -38,8 +43,10 @@
                         v-on:change="onFileChange"
                     />
                     <div v-if="file">
-                        <br /><label class="text-white">{{ file.name }}</label>
-                        <button class="btn btn-sm btn-recorder btn-success">
+                        <label class="text-white">{{ file.name }}</label>
+                        <br /><button
+                            class="btn btn-sm btn-recorder btn-success"
+                        >
                             Enviar
                             <img
                                 src="/img/btn-send.svg"
@@ -353,5 +360,16 @@ export default {
     padding: 15px 25px;
     font-weight: bold;
     color: black;
+    cursor: pointer;
+}
+.btn-outline-warning {
+    padding: 12px 8px !important;
+    font-weight: bold;
+    cursor: pointer;
+}
+.btn-outline-warning:hover {
+    background-color: transparent !important;
+    color: white;
+    cursor: pointer;
 }
 </style>

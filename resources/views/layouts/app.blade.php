@@ -4,6 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <meta property="og:title" content="BIG Cola" />
+    <meta property="og:type" content="Sorteo" />
+    <meta property="og:url" content="https://www.bigpromo.ec/" />
+    <meta property="og:image" content="{{ asset('img/big-social.png') }}" />
+    <meta property="og:description" content="Destapa tu sueño" />
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -18,6 +24,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    
 </head>
 <body>
     <div id="app">

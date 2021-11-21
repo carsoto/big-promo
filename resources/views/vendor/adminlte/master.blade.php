@@ -9,6 +9,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <meta property="og:title" content="BIG Cola" />
+    <meta property="og:type" content="Sorteo" />
+    <meta property="og:url" content="https://www.bigpromo.ec/" />
+    <meta property="og:image" content="{{ asset('img/big-social.png') }}" />
+    <meta property="og:description" content="Destapa tu sueño" />
+
     {{-- Custom Meta Tags --}}
     @yield('meta_tags')
 
