@@ -64,4 +64,5 @@ Route::middleware('auth')->prefix('api')->group(function () {
     Route::get('exchange/history', [UserExchangeController::class, 'show']);
     Route::post('upload-dream', [UserDreamController::class, 'store']);
     Route::get('dreams', [UserDreamController::class, 'show']);
+    Route::post('upload-dream-video', [UserDreamController::class, 'saveVideo']);
 });

@@ -54,6 +54,21 @@ class UserDreamController extends Controller
         ], 200);
     }
 
+    public function saveVideo(Request $request) {
+        $filename = time().'.'.$request->file->getClientOriginalExtension();
+        $request->file->move(public_path('videos'), $filename);
+        
+        $data = new UserDream;
+        $data->user_id = auth()->user()->id;
+        $data->dream = '/videos/'.$filename;
+        $data->save();
+        
+        return response()->json([
+            'success' => true,
+            'message' => 'Sueño registrado exitosamente',
+            'data'    => $request->all(),
+        ], 200);
+    }
     /**
      * Display the specified resource.
      *

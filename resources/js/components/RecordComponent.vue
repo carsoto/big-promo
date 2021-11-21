@@ -17,6 +17,41 @@
                 >
             </h5>
         </div>
+
+        <div class="justify-content-center m-3">
+            <button type="button" class="btn btn-outline-warning" id="btnStart">
+                <label for="my-file-dream">
+                    <img
+                        src="/img/btn-upload-1.svg"
+                        alt=""
+                        width="22px"
+                        class="mr-3"
+                    />
+                    CARGAR DESDE TU DISPOSITIVO
+                </label>
+                <form @submit="submitVideoFile" enctype="multipart/form-data">
+                    <input
+                        type="file"
+                        class="form-control"
+                        id="my-file-dream"
+                        style="display: none"
+                        v-on:change="onFileChange"
+                    />
+                    <div v-if="file">
+                        <br /><label class="text-white">{{ file.name }}</label>
+                        <button class="btn btn-sm btn-recorder btn-success">
+                            Enviar
+                            <img
+                                src="/img/btn-send.svg"
+                                alt=""
+                                width="15px"
+                                class="ml-1"
+                            />
+                        </button>
+                    </div>
+                </form>
+            </button>
+        </div>
         <div class="col-10 col-md-7 d-flex flex-column justify-content-center">
             <video id="myVideo" playsinline class="video-js vjs-default-skin">
                 <p class="vjs-no-js">
@@ -34,7 +69,7 @@
             <div class="d-flex justify-content-between buttons-section-record">
                 <button
                     type="button"
-                    class="btn btn-info"
+                    class="btn btn-recorder btn-info"
                     @click.prevent="startRecording()"
                     v-bind:disabled="isStartRecording"
                     id="btnStart"
@@ -49,7 +84,7 @@
                 </button>
                 <button
                     type="button"
-                    class="btn btn-success"
+                    class="btn btn-recorder btn-success"
                     @click.prevent="submitVideo()"
                     v-bind:disabled="isSaveDisabled"
                     id="btnSave"
@@ -64,7 +99,7 @@
                 </button>
                 <button
                     type="button"
-                    class="btn btn-primary"
+                    class="btn btn-recorder btn-primary"
                     @click.prevent="retakeVideo()"
                     v-bind:disabled="isRetakeDisabled"
                     id="btnRetake"
@@ -125,11 +160,33 @@ export default {
                 fluid: true,
                 plugins: {
                     record: {
-                        pip: false,
+                        /*pip: false,
                         audio: true,
                         video: true,
-                        maxLength: 10,
+                        maxLength: 20,
+                        debug: true,*/
+
+                        audio: true,
+                        video: true,
+                        maxLength: 20,
                         debug: true,
+                        displayMilliseconds: false,
+                        videoMimeType: "video/webm;codecs=H264",
+                        videoRecorderType: "auto",
+                        videoFrameRate: 25,
+                        videoEngine: "recordrtc",
+                        convertEngine: "ffmpeg.js",
+                        convertOptions: [
+                            "-f",
+                            "mp4",
+                            "-codec:a",
+                            "aac",
+                            "-codec:v",
+                            "libx264",
+                        ],
+                        pluginLibraryOptions: {
+                            outputType: "video/mp4",
+                        },
                     },
                 },
             },
@@ -140,6 +197,9 @@ export default {
                 type: "",
                 options: {},
             },
+            name: "",
+            file: "",
+            success: "",
         };
     },
     mounted() {
@@ -237,10 +297,45 @@ export default {
             //this.retake += 1;
             this.player.record().start();
         },
+
         redirectTo(url) {
             if (url) {
                 window.location.href = url;
             }
+        },
+
+        onFileChange(e) {
+            console.log(e.target.files[0]);
+            this.file = e.target.files[0];
+        },
+        submitVideoFile(e) {
+            $("#modal-loading").modal("show");
+            e.preventDefault();
+            let currentObj = this;
+
+            const config = {
+                headers: { "content-type": "multipart/form-data" },
+            };
+
+            let formData = new FormData();
+            formData.append("file", this.file);
+
+            axios
+                .post("/api/upload-dream-video", formData, config)
+                .then(function (response) {
+                    $("#modal-loading").modal("hide");
+                    currentObj.success = response.data.success;
+                    if (response.data.success) {
+                        this.notification.type = "success";
+                        this.notification.title = "¡TU SUEÑO HA SIDO ENVIADO!";
+                        this.notification.subtitle =
+                            "Sigue acumulando PUNTOS para que puedas grabar otro SUEÑO.";
+                        $("#modal-message").modal("show");
+                    }
+                })
+                .catch(function (error) {
+                    currentObj.output = error;
+                });
         },
     },
     beforeDestroy() {
@@ -252,7 +347,7 @@ export default {
 </script>
 
 <style scoped>
-.btn {
+.btn-recorder {
     background-color: yellow;
     border: none;
     padding: 15px 25px;
