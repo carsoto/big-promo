@@ -60,6 +60,9 @@
                                     <i class="fas fa-check" style="color: green;"></i>
                                 @else
                                     <i class="fas fa-times" style="color: red;"></i>
+                                    <a href="#" onclick="confirm_user()" title="Confirmar email">
+                                        Confirmar
+                                    </a>  
                                 @endif
                             </td>
                             <td>
@@ -121,6 +124,26 @@
                     }
                 ]
             });
+
+            
+
         });
+        function confirm_user(){
+            Swal.fire({
+                title: '¿Está seguro de confirmar esta cuenta?',
+                showCancelButton: true,
+                showCancelButton: true,
+                confirmButtonText: 'Si',
+                cancelButtonText: `Cancelar`,
+                confirmButtonClass: "btn-danger",
+                type: 'question'
+            }).then((result) => {
+            if (result.value == true) {
+                //Swal.fire('Saved!', '', 'success')
+            } else if(result.dismiss == 'cancel') {
+                //Swal.fire('Changes are not saved', '', 'info')
+            }
+            })
+        }
     </script>
 @stop
