@@ -60,9 +60,9 @@
                                     <i class="fas fa-check" style="color: green;"></i>
                                 @else
                                     <i class="fas fa-times" style="color: red;"></i>
-                                    <a href="#" onclick="confirm_user()" title="Confirmar email">
+                                    <!--<a href="#" onclick="confirm_user()" title="Confirmar email">
                                         Confirmar
-                                    </a>  
+                                    </a> --> 
                                 @endif
                             </td>
                             <td>

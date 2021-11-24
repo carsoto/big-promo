@@ -13,12 +13,13 @@
     </div>
     <div class="card-body row">
         @foreach($data['dreams'] AS $key => $value)
-        <div class="col-md-3 d-flex flex-column justify-content-center align-items-center mb-5">
+        <div class="col-md-4 d-flex flex-column justify-content-center align-items-center mb-5">
             <video width="100%" height="240" controls>
                 <source src="{{ $value->dream }}" type="video/mp4">
             </video>
             <h5 class="p-1"><b>Participante:</b> {{ $value->user->fullName() }}</h5>
             <h5 class="p-1"><b>Ciudad:</b> {{ $value->user->city->name }}</h5>
+            <p><a href="/api/download-dream-video/{{ $value->id }}"><i class="fas fa-download"></i> Descargar</a></p>
         </div>
         @endforeach
     </div>

@@ -10,6 +10,7 @@ use App\Http\Controllers\UserController as UserFront;
 use App\Http\Controllers\Api\UserController as UserApi;
 use App\Http\Controllers\Api\UserExchangeController;
 use App\Http\Controllers\Api\UserDreamController;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,4 +66,5 @@ Route::middleware('auth')->prefix('api')->group(function () {
     Route::post('upload-dream', [UserDreamController::class, 'store']);
     Route::get('dreams', [UserDreamController::class, 'show']);
     Route::post('upload-dream-video', [UserDreamController::class, 'saveVideo']);
+    Route::get('download-dream-video/{id}', [UserDreamController::class, 'downloadVideo']);
 });

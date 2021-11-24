@@ -93,4 +93,12 @@ class UserDreamController extends Controller
             'data'    => $data,
         ], 200);
     }
+
+    public function downloadVideo($id) {
+        $user_dream = UserDream::find($id);
+        $filePath = public_path($user_dream->dream);
+    	$headers = ['Content-Type: application/video'];
+        $fileName = time().'.mp4';
+    	return response()->download($filePath, $fileName, $headers);
+    }
 }
