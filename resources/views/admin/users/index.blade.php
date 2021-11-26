@@ -114,7 +114,7 @@
                     "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
                 },
                 dom: 'Bfrtip',
-                
+                "pageLength": 50,
                 buttons: [
                     {
                         text: "Exportar a Excel",
