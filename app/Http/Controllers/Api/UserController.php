@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -66,5 +67,37 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         //
+    }
+
+    public function confirmUser(Request $request) {
+        $data = $request->all();
+        $user = User::find($data['user_id']);
+        $user->confirmed = true;
+        if($user->save()) {
+            Mail::send('emails.users.email_confirmed', $data, function($message) use ($data, $user) {
+                $message->to($user->email, $user->fullName())->subject('Tu usario fue confirmado');
+            });
+        }
+        return response()->json([
+            'success' => true,
+            'data' => $data
+        ], 200);
+    }
+
+    public function confirmAll() {
+        $users = User::where('confirmed', false)->get();
+        
+        foreach($users AS $key => $user) {
+            $user->confirmed = true;
+            if($user->save()) {
+                Mail::send('emails.users.email_confirmed', $data, function($message) use ($data, $user) {
+                    $message->to($user->email, $user->fullName())->subject('Tu usario fue confirmado');
+                });
+            }    
+        }
+        return response()->json([
+            'success' => true,
+            'data' => []
+        ], 200);
     }
 }

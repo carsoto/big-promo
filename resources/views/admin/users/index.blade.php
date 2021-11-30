@@ -59,10 +59,10 @@
                                 @if($user->confirmed)         
                                     <i class="fas fa-check" style="color: green;"></i>
                                 @else
-                                    <i class="fas fa-times" style="color: red;"></i>
-                                    <!--<a href="#" onclick="confirm_user()" title="Confirmar email">
+                                    <!-- <i class="fas fa-times" style="color: red;"></i> -->
+                                    <a href="#" onclick="confirm_user({{ $user->id }})" title="Confirmar email">
                                         Confirmar
-                                    </a> --> 
+                                    </a>
                                 @endif
                             </td>
                             <td>
@@ -128,7 +128,8 @@
             
 
         });
-        function confirm_user(){
+        function confirm_user(user_id){
+            console.log(user_id);
             Swal.fire({
                 title: '¿Está seguro de confirmar esta cuenta?',
                 showCancelButton: true,
@@ -139,9 +140,32 @@
                 type: 'question'
             }).then((result) => {
             if (result.value == true) {
-                //Swal.fire('Saved!', '', 'success')
+                $.ajax({
+                    url : '/api/users/confirm',
+                    data : { user_id : user_id },
+                    type : 'POST',
+                    dataType : 'json',
+                    headers: {
+                        "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
+                            "content"
+                        ),
+                    },
+                    success : function(response) {
+                        if(response.sucess) {
+                            Swal.fire('Usuario confirmado exitosamente!', '', 'success');    
+                        }else {
+                            Swal.fire('Ocurrió un error', '', 'error') 
+                        }
+                    },
+                    error : function(json , xhr, status) {
+                        console.log('error');
+                    },
+                    complete : function(json , xhr, status) {
+
+                    }
+                });
             } else if(result.dismiss == 'cancel') {
-                //Swal.fire('Changes are not saved', '', 'info')
+                //Swal.fire('Not confirmed', '', 'info')
             }
             })
         }

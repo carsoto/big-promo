@@ -67,4 +67,12 @@ Route::middleware('auth')->prefix('api')->group(function () {
     Route::get('dreams', [UserDreamController::class, 'show']);
     Route::post('upload-dream-video', [UserDreamController::class, 'saveVideo']);
     Route::get('download-dream-video/{id}', [UserDreamController::class, 'downloadVideo']);
+    Route::post('users/confirm', [UserApi::class, 'confirmUser']);
+});
+
+Route::get('/mail', function(){
+    $name = 'Carmen';
+    $lastname = 'Soto';
+    $message = [];
+    return View::make('emails.users.email_confirmed', ['name' => $name, 'lastname' => $lastname, 'message' => $message]);
 });

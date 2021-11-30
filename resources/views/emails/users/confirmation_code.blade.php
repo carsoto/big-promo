@@ -34,21 +34,7 @@
                 
                 <div style="">
                     <a class="btn btn-lg btn-primary-big p-3" href="{{ url('/register/verify/' . $confirmation_code) }}"
-                    style="color: #000 !important;
-                    font-weight: bold;
-                    background-color: #FEDD31 !important;
-                    border-color: #FEDD31 !important;
-                    transition: 0.5s;
-                    padding: 1rem;
-                    text-decoration: none;
-                    font-size: 1.125rem;
-                    line-height: 1.5;
-                    border-radius: 0.3rem;
-                    margin: auto;
-                    width: fit-content;
-                    display: block;
-                    text-align:center;
-                    ">
+                    >
                         Click para confirmar tu email
                     </a>
                     <br><br><img class="text-center" style="max-width: 90px;    margin: auto;
