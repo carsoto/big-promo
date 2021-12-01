@@ -8,6 +8,15 @@
 
 @section('content')
 <div class="card">
+    <div id="modal-loading" data-backdrop="static" data-keyboard="false" class="modal modal-loading">
+        <div class="modal-dialog modal-dialog-centered d-flex justify-content-center">
+            <div class="d-flex justify-content-center">
+                <div class="spinner-border text-yellow" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="card-header">
         <h1>Listado de participantes</h1>
     </div>
@@ -95,7 +104,6 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
     <style scoped>
         .page-item.active .page-link {
             z-index: 3;
@@ -103,7 +111,22 @@
             background-color: #dc3545 !important;
             border-color: #dc3545 !important;
         }
+        .modal-loading {
+            background-color: #ee000cb6!important;
+        }
+        .spinner-border{
+            width: 5rem;
+            height: 5rem;
+            border-width: 6px;
+        }
+        .modal-content {
+            background: none;
+            border: none;
+            justify-content: center;
+            align-items: center;
+        }
     </style>
+    
 @stop
 
 @section('js')
@@ -140,6 +163,7 @@
                 type: 'question'
             }).then((result) => {
             if (result.value == true) {
+                $("#modal-loading").modal("show");
                 $.ajax({
                     url : '/api/users/confirm',
                     data : { user_id : user_id },
@@ -157,6 +181,7 @@
                         }else {
                             Swal.fire('Ocurrió un error', '', 'error') 
                         }
+                        $("#modal-loading").modal("hide");
                     },
                     error : function(json , xhr, status) {
                         console.log('error');
