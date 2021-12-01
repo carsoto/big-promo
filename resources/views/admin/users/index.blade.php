@@ -60,9 +60,9 @@
                                     <i class="fas fa-check" style="color: green;"></i>
                                 @else
                                     <!-- <i class="fas fa-times" style="color: red;"></i> -->
-                                    <a href="#" onclick="confirm_user({{ $user->id }})" title="Confirmar email">
+                                    <span id="confirmed_label_{{ $user->id }}"><a href="#" onclick="confirm_user({{ $user->id }})" title="Confirmar email">
                                         Confirmar
-                                    </a>
+                                    </a></span>
                                 @endif
                             </td>
                             <td>
@@ -151,8 +151,9 @@
                         ),
                     },
                     success : function(response) {
-                        if(response.sucess) {
-                            Swal.fire('Usuario confirmado exitosamente!', '', 'success');    
+                        if(response.success) {
+                            Swal.fire('Usuario confirmado exitosamente!', '', 'success');  
+                            $("#confirmed_label_"+user_id).html('<i class="fas fa-check" style="color: green;"></i>');
                         }else {
                             Swal.fire('Ocurrió un error', '', 'error') 
                         }

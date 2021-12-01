@@ -71,33 +71,26 @@ class UserController extends Controller
 
     public function confirmUser(Request $request) {
         $data = $request->all();
-        $user = User::find($data['user_id']);
+        $user = User::where('id', $data['user_id'])->where('confirmed', false)->first();
         $user->confirmed = true;
+        $data['name'] = $user->name;
+        $data['lastname'] = $user->lastname;
+        
         if($user->save()) {
             Mail::send('emails.users.email_confirmed', $data, function($message) use ($data, $user) {
-                $message->to($user->email, $user->fullName())->subject('Tu usario fue confirmado');
+                $message->to($user->email, $user->fullName())->subject('Tu usuario BIG fue confirmado');
             });
-        }
-        return response()->json([
-            'success' => true,
-            'data' => $data
-        ], 200);
-    }
 
-    public function confirmAll() {
-        $users = User::where('confirmed', false)->get();
-        
-        foreach($users AS $key => $user) {
-            $user->confirmed = true;
-            if($user->save()) {
-                Mail::send('emails.users.email_confirmed', $data, function($message) use ($data, $user) {
-                    $message->to($user->email, $user->fullName())->subject('Tu usario fue confirmado');
-                });
-            }    
+            return response()->json([
+                'success' => true,
+                'data' => $data
+            ], 200);
         }
+
         return response()->json([
-            'success' => true,
+            'success' => false,
             'data' => []
         ], 200);
+        
     }
 }
