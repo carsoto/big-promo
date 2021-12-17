@@ -93,6 +93,12 @@
                                 <a href="user/details/{{ $user->id }}" title="Detalles">
                                     <i class="far fa-eye"></i>
                                 </a>
+                                @if($user->user_dreams->count() > 0)
+                                | 
+                                <a href="user/dreams/{{ $user->id }}" title="Sueños">
+                                    <i class="fas fa-video"></i>
+                                </a>
+                                @endif
                             </td>
                         </tr>
                     @endforeach

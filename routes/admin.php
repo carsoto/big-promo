@@ -22,5 +22,6 @@ Route::get('/', [LoginController::class, 'showLoginForm'])->name('admin.login');
 Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard')->middleware('is_admin');
 Route::get('/users', [AdminController::class, 'usersIndex'])->middleware('is_admin');
 Route::get('/user/details/{id}', [AdminController::class, 'userDetails'])->middleware('is_admin');
+Route::get('/user/dreams/{id}', [AdminController::class, 'userDreams'])->middleware('is_admin');
 Route::get('/dreams', [AdminController::class, 'dreamsIndex'])->middleware('is_admin');
 Route::get('/dreams/details/{date}', [AdminController::class, 'dreamsDetails'])->middleware('is_admin');

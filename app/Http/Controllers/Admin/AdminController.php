@@ -99,4 +99,12 @@ class AdminController extends Controller
         $data['dreams'] = $dreams;
         return view('admin.dreams.details', ['data' => $data]);
     }
+
+    public function userDreams($id){
+        $dreams = UserDream::where('user_id', $id)->get();
+        $user = User::find($id);
+        $data['dreams'] = $dreams;
+        $data['user'] = $user;
+        return view('admin.users.dreams', ['data' => $data]);
+    }
 }
