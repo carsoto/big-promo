@@ -18,6 +18,7 @@
                 <source src="{{ $value->dream }}" type="video/mp4">
             </video>
             <br>
+            <p><strong>Subido el: {{ Carbon\Carbon::parse($value->created_at)->format('d-m-Y') }}</strong></p>
             <p><a href="/api/download-dream-video/{{ $value->id }}"><i class="fas fa-download"></i> Descargar</a></p>
         </div>
         @endforeach
