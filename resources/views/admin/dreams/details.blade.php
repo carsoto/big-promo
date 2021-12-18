@@ -119,50 +119,5 @@
             $("#modal-body-video").html('<video width="100%" height="450" controls><source src="'+ video_url +'" type="video/mp4"></video>');
             $("#modal-video").modal('show');
         }
-
-        function confirm_user(user_id){
-            console.log(user_id);
-            Swal.fire({
-                title: '¿Está seguro de confirmar esta cuenta?',
-                showCancelButton: true,
-                showCancelButton: true,
-                confirmButtonText: 'Si',
-                cancelButtonText: `Cancelar`,
-                confirmButtonClass: "btn-danger",
-                type: 'question'
-            }).then((result) => {
-            if (result.value == true) {
-                $("#modal-loading").modal("show");
-                $.ajax({
-                    url : '/api/users/confirm',
-                    data : { user_id : user_id },
-                    type : 'POST',
-                    dataType : 'json',
-                    headers: {
-                        "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
-                            "content"
-                        ),
-                    },
-                    success : function(response) {
-                        if(response.success) {
-                            Swal.fire('Usuario confirmado exitosamente!', '', 'success');  
-                            $("#confirmed_label_"+user_id).html('<i class="fas fa-check" style="color: green;"></i>');
-                        }else {
-                            Swal.fire('Ocurrió un error', '', 'error') 
-                        }
-                        $("#modal-loading").modal("hide");
-                    },
-                    error : function(json , xhr, status) {
-                        console.log('error');
-                    },
-                    complete : function(json , xhr, status) {
-
-                    }
-                });
-            } else if(result.dismiss == 'cancel') {
-                //Swal.fire('Not confirmed', '', 'info')
-            }
-            })
-        }
     </script>
 @stop
