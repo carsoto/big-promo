@@ -69,6 +69,7 @@ class AdminController extends Controller
         $data['participating_cities'] = $participating_cities;
         $data['bot_presentation'] = ['1' => 300, '2' => 911, '3' => 1800, '4' => 2250, '5' => 3050];
         $data['dreams'] = $dreams;
+        $data['count_exchanges_per_day'] = json_encode($this->count_exchanges_per_day());
 
         return view('admin.dashboard.index', ['data' => $data]);
     }
@@ -106,5 +107,23 @@ class AdminController extends Controller
         $data['dreams'] = $dreams;
         $data['user'] = $user;
         return view('admin.users.dreams', ['data' => $data]);
+    }
+
+    public function count_exchanges_per_day(){
+        $data = [];
+        $chartData = UserExchange::select([
+            DB::raw('DATE(created_at) AS date'),
+            DB::raw('COUNT(id) AS count'),
+        ])
+        ->whereBetween('created_at', ['2021-12-01','2021-12-30'])
+        ->groupBy('date')
+        ->orderBy('date', 'ASC')
+        ->pluck('count', 'date');
+
+        foreach($chartData as $key => $value) {
+            $data['label'][] = $key;
+            $data['data'][] = (int) $value;
+          }
+        return $data;
     }
 }

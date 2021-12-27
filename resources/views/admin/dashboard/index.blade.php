@@ -48,6 +48,15 @@
     </div>
 
     <div class="row">
+        <div class="col-md-12">
+        <div class="chart-container">
+    <div class="exchange-chart-container">
+      <canvas id="exchange-chart"></canvas>
+    </div>
+  </div>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-md-12 d-flex flex-column align-items-center justify-content-center">
             <h3>Formatos canjeados</h3>
             <div class="offset-md-3 col-md-6 col-sm-12 m-2 pt-1 d-flex flex-row align-items-end justify-content-between">
@@ -186,6 +195,66 @@
                     }
                 ]
             });*/
+
+            var cData = JSON.parse(`<?php echo $data['count_exchanges_per_day']; ?>`);
+      var ctx = $("#exchange-chart");
+
+      //pie chart data
+      var data = {
+        labels: cData.label,
+        datasets: [
+          {
+            label: "Canjes",
+            data: cData.data,
+            backgroundColor: [
+              "#DEB887",
+              "#A9A9A9",
+              "#DC143C",
+              "#F4A460",
+              "#2E8B57",
+              "#1D7A46",
+              "#CDA776",
+            ],
+            /*borderColor: [
+              "#CDA776",
+              "#989898",
+              "#CB252B",
+              "#E39371",
+              "#1D7A46",
+              "#F4A460",
+              "#CDA776",
+            ],*/
+            borderWidth: 1
+          }
+        ]
+      };
+
+      //options
+      var options = {
+        responsive: true,
+        title: {
+          display: true,
+          position: "top",
+          text: "Last Week Registered Users -  Day Wise Count",
+          fontSize: 18,
+          fontColor: "#111"
+        },
+        legend: {
+          display: true,
+          position: "bottom",
+          /*labels: {
+            fontColor: "#333",
+            fontSize: 16
+          }*/
+        }
+      };
+
+      //create Pie Chart class object
+      var chart1 = new Chart(ctx, {
+        type: "bar",
+        data: data,
+        options: options
+      });
         });
     </script>
 @stop
