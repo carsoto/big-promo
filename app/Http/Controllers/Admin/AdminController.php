@@ -71,6 +71,8 @@ class AdminController extends Controller
         $data['bot_presentation'] = ['1' => 300, '2' => 911, '3' => 1800, '4' => 2250, '5' => 3050];
         $data['dreams'] = $dreams;
         $data['count_exchanges_per_day'] = $this->count_exchanges_per_day(Carbon::now()->startOfMonth(), Carbon::now());
+        $data['date_range']['from'] = Carbon::now()->startOfMonth()->format('dd/mm/YYYY');
+        $data['date_range']['to'] = Carbon::now()->format('dd/mm/YYYY');
 
         return view('admin.dashboard.index', ['data' => $data]);
     }

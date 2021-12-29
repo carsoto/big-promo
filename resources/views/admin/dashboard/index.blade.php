@@ -46,13 +46,14 @@
             </div>
         </div>
     </div>
+    
 
     <div class="row">
         <div class="col-md-12 text-center">
             <h3>Cantidad de canjes por día</h3>
             <div class="chart-container">
                 <div class="float-right pr-3 d-flex">
-                    <input class="form-control input-sm" type="text" name="daterange" />
+                    <input class="form-control input-sm" type="text" name="daterange" value="{{ $data['date_range']['from'] }} - {{ $data['date_range']['to'] }}" />
                 </div>
                 <div class="exchange-chart-container pr-3">
                     <canvas id="exchange-chart"></canvas>
@@ -61,7 +62,7 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row mt-3">
         <div class="col-md-12 d-flex flex-column align-items-center justify-content-center">
             <h3>Formatos canjeados</h3>
             <div class="offset-md-3 col-md-6 col-sm-12 m-2 pt-1 d-flex flex-row align-items-end justify-content-between">
@@ -257,67 +258,64 @@
                     format: 'DD/MM/YYYY',
                     separator: " - "
                 }
-            }, function(start, end, label, cData) {
+            }, function(start, end, label) {
                 let from = start.format('YYYY-MM-DD');
                 let to = end.format('YYYY-MM-DD');
 
                 $.get("/admin/dashboard/exchange/per-day/"+from+"/"+to, function( data ) {
-                    cData = data;
+                    var cData = JSON.parse(data);
+                    console.log(cData);
+                    console.log($("#exchange-chart"));
+                    $('#exchange-chart').replaceWith('<canvas id="exchange-chart"></canvas>');
                     var ctx = $("#exchange-chart");
 
-//bar chart data
-var data = {
-    labels: cData.label,
-    datasets: [
-        {
-            label: 'Canjes',
-            data: cData.data,
-            backgroundColor: [
-                '#36c', '#dc3912', '#f90', '#109618', '#909', '#0099c6', '#d47', '#fea588', '#00688B', '#008B8B', '#00C78C', '#3D9140', '#808000', '#FFA500', '#8B7E66', '#CDC0B0', '#8B4500', '#EE7942', '#EE6363', '#8B1A1A', '#7171C6', '#8E388E', '#8A8A8A', '#FF34B3', '#0000FF', '#4876FF', '#104E8B', '#00868B', '#00C957', '#FF5733', '#8E44AD'
-            ],
-            borderColor: [
-                '#36c', '#dc3912', '#f90', '#109618', '#909', '#0099c6', '#d47', '#fea588', '#00688B', '#008B8B', '#00C78C', '#3D9140', '#808000', '#FFA500', '#8B7E66', '#CDC0B0', '#8B4500', '#EE7942', '#EE6363', '#8B1A1A', '#7171C6', '#8E388E', '#8A8A8A', '#FF34B3', '#0000FF', '#4876FF', '#104E8B', '#00868B', '#00C957', '#FF5733', '#8E44AD'
-            ],
-            borderWidth: 1
-        }
-    ]
-};
+                    //bar chart data
+                    var data = {
+                        labels: cData.label,
+                        datasets: [
+                            {
+                                label: 'Canjes',
+                                data: cData.data,
+                                backgroundColor: [
+                                    '#36c', '#dc3912', '#f90', '#109618', '#909', '#0099c6', '#d47', '#fea588', '#00688B', '#008B8B', '#00C78C', '#3D9140', '#808000', '#FFA500', '#8B7E66', '#CDC0B0', '#8B4500', '#EE7942', '#EE6363', '#8B1A1A', '#7171C6', '#8E388E', '#8A8A8A', '#FF34B3', '#0000FF', '#4876FF', '#104E8B', '#00868B', '#00C957', '#FF5733', '#8E44AD'
+                                ],
+                                borderColor: [
+                                    '#36c', '#dc3912', '#f90', '#109618', '#909', '#0099c6', '#d47', '#fea588', '#00688B', '#008B8B', '#00C78C', '#3D9140', '#808000', '#FFA500', '#8B7E66', '#CDC0B0', '#8B4500', '#EE7942', '#EE6363', '#8B1A1A', '#7171C6', '#8E388E', '#8A8A8A', '#FF34B3', '#0000FF', '#4876FF', '#104E8B', '#00868B', '#00C957', '#FF5733', '#8E44AD'
+                                ],
+                                borderWidth: 1
+                            }
+                        ]
+                    };
 
-//options
-var options = {
-    responsive: true,
-    title: {
-        display: false,
-        position: "top",
-        text: "Cantidad de canjes por día",
-        fontSize: 24,
-        fontColor: "#111"
-    },
-    legend: {
-        display: false,
-        position: "bottom",
-        /*labels: {
-            fontColor: "#333",
-            fontSize: 16
-        }*/
-    }
-};
+                    //options
+                    var options = {
+                        responsive: true,
+                        title: {
+                            display: false,
+                            position: "top",
+                            text: "Cantidad de canjes por día",
+                            fontSize: 24,
+                            fontColor: "#111"
+                        },
+                        legend: {
+                            display: false,
+                            position: "bottom",
+                            /*labels: {
+                                fontColor: "#333",
+                                fontSize: 16
+                            }*/
+                        }
+                    };
 
-//create Pie Chart class object
-var chart1 = new Chart(ctx, {
-    type: "bar",
-    data: data,
-    options: options
-});
-chart1.update();
+                    //create Pie Chart class object
+                    var chart1 = new Chart(ctx, {
+                        type: "bar",
+                        data: data,
+                        options: options
+                    });
                 });
                 
-            }); /**/
-
-            /*$('input[name="daterange"]').on('apply.daterangepicker', function(ev, picker) {
-                console.log(picker.startDate.format('YYYY-MM-DD'));
-                console.log(picker.endDate.format('YYYY-MM-DD'));
-            });*/
+            });
         });
     </script>
 @stop
