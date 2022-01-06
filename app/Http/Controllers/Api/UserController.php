@@ -71,7 +71,7 @@ class UserController extends Controller
 
     public function confirmUser(Request $request) {
         $data = $request->all();
-        $user = User::where('id', $data['user_id'])->where('confirmed', false)->first();
+        $user = User::find($data['user_id']);
         $user->confirmed = true;
         $data['name'] = $user->name;
         $data['lastname'] = $user->lastname;
