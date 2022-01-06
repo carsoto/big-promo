@@ -9,6 +9,7 @@ use App\Models\UserExchange;
 use App\Models\UserDream;
 use App\Models\Canton;
 use DB;
+use Carbon\Carbon;
 
 class AdminController extends Controller
 {
@@ -69,6 +70,9 @@ class AdminController extends Controller
         $data['participating_cities'] = $participating_cities;
         $data['bot_presentation'] = ['1' => 300, '2' => 911, '3' => 1800, '4' => 2250, '5' => 3050];
         $data['dreams'] = $dreams;
+        $data['count_exchanges_per_day'] = $this->count_exchanges_per_day(Carbon::now()->startOfMonth(), Carbon::now());
+        $data['date_range']['from'] = Carbon::now()->startOfMonth()->format('dd/mm/YYYY');
+        $data['date_range']['to'] = Carbon::now()->format('dd/mm/YYYY');
 
         return view('admin.dashboard.index', ['data' => $data]);
     }
@@ -106,5 +110,23 @@ class AdminController extends Controller
         $data['dreams'] = $dreams;
         $data['user'] = $user;
         return view('admin.users.dreams', ['data' => $data]);
+    }
+
+    public function count_exchanges_per_day($from, $to){
+        $data = [];
+        $chartData = UserExchange::select([
+            DB::raw('DATE(created_at) AS date'),
+            DB::raw('COUNT(id) AS count'),
+        ])
+        ->whereBetween('created_at', [$from, $to])
+        ->groupBy('date')
+        ->orderBy('date', 'ASC')
+        ->pluck('count', 'date');
+
+        foreach($chartData as $key => $value) {
+            $data['label'][] = $key;
+            $data['data'][] = (int) $value;
+        }
+        return json_encode($data);
     }
 }
