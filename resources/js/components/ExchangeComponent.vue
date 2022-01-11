@@ -7,6 +7,23 @@
                 flex-column
                 align-items-center
                 justify-content-center
+                text-white
+                m-5
+            "
+        >
+        <span style="text-align: center;">
+            <h1>¡PROMOCIÓN VÁLIDA HASTA EL 8 DE ENERO DE 2022!</h1>
+        </span>
+        <br>
+        <h2>GRACIAS POR PARTICIPAR!</h2>
+        </div>
+        <!--<div
+            class="
+                content-exchange
+                d-flex
+                flex-column
+                align-items-center
+                justify-content-center
             "
             v-if="!exchange_info.recorder"
         >
@@ -211,7 +228,7 @@
                 <div class="m-5 p-1 btn-record-page text-center">
                     <a href="/u/recorder"><strong>¡Graba tu Sueño!</strong></a>
                 </div>
-                <!--<div
+                <!<div
                     class="
                         d-none
                         rounded
@@ -223,9 +240,9 @@
                     "
                 >
                     Total de puntos: {{ exchange_info.accumulated }}
-                </div>-->
+                </div>--
             </div>
-        </div>
+        </div>-->
     </div>
 </template>
 
