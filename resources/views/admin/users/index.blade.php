@@ -143,7 +143,7 @@
                     "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
                 },
                 dom: 'Bfrtip',
-                "pageLength": 50,
+                "pageLength": 10,
                 buttons: [
                     {
                         text: "Exportar a Excel",
@@ -153,10 +153,8 @@
                     }
                 ]
             });
-
-            
-
         });
+
         function confirm_user(user_id){
             console.log(user_id);
             Swal.fire({
